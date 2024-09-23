@@ -1,0 +1,112 @@
+# Copyright (C) 2024 bPlugins
+# This file is distributed under the same license as the Super Video Player plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Super Video Player 1.7.4\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/super-video-player\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-09-19T12:45:01+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: svp\n"
+
+#. Plugin Name of the plugin
+#: inc/PostType/SVPPlayer.php:94
+msgid "Super Video Player"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://bplugins.com/super-video-player"
+msgstr ""
+
+#. Description of the plugin
+msgid "A fully customizable video player for wordpress."
+msgstr ""
+
+#. Author of the plugin
+msgid "bPlugins"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://bplugins.com"
+msgstr ""
+
+#: admin/inc/help-usages.php:29
+msgid "Help & Supports"
+msgstr ""
+
+#: admin/inc/help-usages.php:41
+msgid "Need any Assistance?"
+msgstr ""
+
+#: admin/inc/help-usages.php:42
+msgid "Our Expert Support Team is always ready to help you out promptly."
+msgstr ""
+
+#: admin/inc/help-usages.php:44
+msgid "Contact Support"
+msgstr ""
+
+#: admin/inc/help-usages.php:50
+msgid "Looking for Documentation?"
+msgstr ""
+
+#: admin/inc/help-usages.php:51
+msgid "We have detailed documentation on every aspects of HTML5 Video Player."
+msgstr ""
+
+#: admin/inc/help-usages.php:52
+msgid "Documentation"
+msgstr ""
+
+#: admin/inc/help-usages.php:58
+msgid "Like This Plugin?"
+msgstr ""
+
+#: admin/inc/help-usages.php:59
+msgid "If you like Super Video Player, please leave us a 5 &#11088; rating."
+msgstr ""
+
+#: admin/inc/help-usages.php:61
+msgid "Rate the Plugin"
+msgstr ""
+
+#: admin/inc/help-usages.php:72
+msgid "Looking For Demo?"
+msgstr ""
+
+#: admin/inc/help-usages.php:72
+msgid "Click Here"
+msgstr ""
+
+#: admin/inc/help-usages.php:83
+msgid "Video Tutorials"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:95
+msgid "Supports"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:98
+msgid "Shortcode"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:99
+msgid "Copy and paste this shortcode into your posts, pages and widget:"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:103
+msgid "Template Include"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:104
+msgid "Copy and paste the PHP code into your template file:"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:141
+msgid "Please show some love"
+msgstr ""
