@@ -1,7 +1,7 @@
 === Super Video Player- Best WordPress Video Display Plugin for mp4/OGG ===
 Contributors: bplugins, freemius, shehabulislam
 Tags: Video Player, mp4 Player, video gallery, Media Player, Plyr
-Requires at least: 5.0
+Requires at least: 5.1
 Tested up to: 6.6.2
 Stable tag: 1.7.4
 Requires PHP: 7.1
