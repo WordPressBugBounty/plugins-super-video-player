@@ -1,9 +1,9 @@
 === Super Video Player- Best WordPress Video Display Plugin for mp4/OGG ===
 Contributors: bplugins, freemius, shehabulislam
 Tags: Video Player, mp4 Player, video gallery, Media Player, Plyr
-Requires at least: 5.1
-Tested up to: 6.6.2
-Stable tag: 1.7.4
+Requires at least: 5.2
+Tested up to: 6.7.1
+Stable tag: 1.7.5
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -16,13 +16,13 @@ Improve WordPress user experience with Super Video Player plugin. Self-hosted, s
 
 Super Video Player is a lightweight, fully customizable self-hosted video player plugin that supports mp4 /OGG as well as multiple caption tracks or subtitle files.
 
-This plugin simplifies the integration of videos into your website with customizable options to enhance user experience. Easily add captions or subtitles to your videos for improved accessibility and engagement. 
+This plugin simplifies the integration of videos into your website with customizable options to enhance user experience. Easily add captions or subtitles to your videos for improved accessibility and engagement.
 
 Control video playback behavior by specifying whether the video should repeat automatically after completion and whether the audio output should be muted.
 
 It makes sure to comply with browser autoplay policies with the autoplay feature and sets the width of the video player to suit your layout requirements.
 
-The pro version has additional functionalities such as creating playlists to play multiple videos sequentially and setting different video qualities for optimal viewing. 
+The pro version has additional functionalities such as creating playlists to play multiple videos sequentially and setting different video qualities for optimal viewing.
 
 Customize the video player further by toggling the visibility of individual controls, setting the initial volume level, and specifying the seek time in seconds.
 
@@ -130,8 +130,9 @@ You can publish unlimited video with unlimited player.
 
 == Changelog ==
 
-= 1.7.4 - 19 Sep, 2024 =
+= 1.7.5 - 19 Sep, 2024 =
 * Update: Codestar Framework
+* Update: Freemius WordPress SDK
 
 = 1.7.3 - 7 Aug, 2024 =
 * Fixed: Removed unexpected exe file
