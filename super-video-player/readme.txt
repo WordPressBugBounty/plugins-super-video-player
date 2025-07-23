@@ -2,7 +2,7 @@
 Contributors: bplugins, freemius, shehabulislam
 Tags: Video Player, mp4 Player, video gallery, Media Player, Plyr
 Requires at least: 5.2
-Tested up to: 6.7.1
+Tested up to: 6.7.2
 Stable tag: 1.7.5
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
