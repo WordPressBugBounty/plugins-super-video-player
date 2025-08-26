@@ -50,6 +50,22 @@ array(
 ),
 
 array(
+  'id' => '_svp_video_title',
+  'type' => 'text',
+  'title' => __('Video Title', 'bPlugins'),
+  'desc' => esc_html__('Enter the title for the video. ', 'bPlugins'),
+  'class' => 'svp-readonly'
+),
+
+array(
+  'id' => '_svp_video_description',
+  'type' => 'text',
+  'title' => __('Video Description', 'bPlugins'),
+  'desc' => esc_html__('Enter the description for the video. ', 'bPlugins'),
+  'class' => 'svp-readonly'
+),
+
+array(
   'id'     => 'video_caption',
   'type'   => 'repeater',
   'title'  => 'Caption / Subtitle',
@@ -160,6 +176,21 @@ array(
   'fields' => array(
 
     array(
+      'id'    => 'playlist_item_title',
+      'type'  => 'text',
+      'title' => 'Label',
+      'default' => 'Playlist Item',
+      'desc' => esc_html__( 'Enter the title for the video. ', 'bPlugins' ), 
+    ), 
+    array(
+      'id'    => 'playlist_item_description',
+      'type'  => 'text',
+      'title' => 'Video Description',
+      'default' => 'Playlist Item',
+      'desc' => esc_html__('Enter the description for the video. ', 'bPlugins'),
+    ),
+
+    array(
       'id'    => 'playlist_item',
       'type'  => 'upload',
       'title' => 'Select Video',
@@ -170,18 +201,147 @@ array(
       'type'  => 'upload',
       'title' => 'Select poster image',
       'library'    => 'image'  	  
-    ),	
-     array(
-      'id'    => 'playlist_item_title',
-      'type'  => 'text',
-      'title' => 'Label',
-      'default' => 'Playlist Item',
-      'desc' => esc_html__( 'Enter the title for the video. ', 'bPlugins' ), 
-    ), 
+    )
   ),
 ),
 
+array(
+  'id'      => 'player_theme',
+  'type'    => 'select',
+  'title'   => 'Playlist Layout',
+  'desc'    => esc_html__('Choose the layout or theme for the video player.', 'bPlugins'),
+  'class' => 'svp-readonly',
+  'options' => array(
+    'default'        => 'Default',
+    'horizontal'        => 'Horizontal Layout',
+    'vertical'         => 'Vertical Layout',
+    'grid'           => 'Grid Layout',
+  ),
+  'default' => 'default',
+),
 
+array(
+  'id'     => 'border',
+  'type'   => 'fieldset',
+  'title'  => __('Border', 'svp'),
+  'class' => 'svp-readonly',
+  'fields' => array(
+
+      array(
+          'id'      => 'width',
+          'type'    => 'text',
+          'title'   => __('Border Width', 'svp'),
+          'default' => '0px',
+      ),
+
+      array(
+          'id'      => 'style',
+          'type'    => 'select',
+          'title'   => __('Border Style', 'svp'),
+          'options' => array(
+              'none'   => __('None', 'svp'),
+              'solid'  => __('Solid', 'svp'),
+              'dashed' => __('Dashed', 'svp'),
+              'dotted' => __('Dotted', 'svp'),
+          ),
+          'default' => 'solid',
+      ),
+
+      array(
+          'id'      => 'color',
+          'type'    => 'color',
+          'title'   => __('Border Color', 'svp'),
+          'default' => '#000000',
+      ),
+
+      array(
+          'id'      => 'radius',
+          'type'    => 'text',
+          'title'   => __('Border Radius', 'svp'),
+          'default' => '0px',
+      ),
+  ),
+),
+
+array(
+  'id'     => 'tabStyles',
+  'type'   => 'fieldset',
+  'title'  => 'Tab Styles',
+  'class' => 'svp-readonly',
+  'fields' => array(
+    array(
+      'id'      => 'activeBg',
+      'type'    => 'color',
+      'title'   => 'Active Background',
+      'default' => '#334155'
+    ),
+    array(
+      'id'      => 'activeTitleColor',
+      'type'    => 'color',
+      'title'   => 'Active Title Color',
+      'default' => '#fff'
+    ),
+    array(
+      'id'      => 'activeDesColor',
+      'type'    => 'color',
+      'title'   => 'Active Description Color',
+      'default' => '#fff'
+    ),
+    array(
+      'id'      => 'inactiveBg',
+      'type'    => 'color',
+      'title'   => 'Inactive Background',
+      'default' => '#F0F5FA'
+    ),
+    array(
+      'id'      => 'inactiveTitleColor',
+      'type'    => 'color',
+      'title'   => 'Inactive Title Color',
+      'default' => '#3D8D7A'
+    ),
+    array(
+      'id'      => 'inactiveDesColor',
+      'type'    => 'color',
+      'title'   => 'Inactive Description Color',
+      'default' => '#585a5c'
+    ),
+    array(
+      'id'      => 'durationTimeColor',
+      'type'    => 'color',
+      'title'   => 'Duration Time Color',
+      'default' => '#fff'
+    ),
+    array(
+      'id'      => 'durationBg',
+      'type'    => 'color',
+      'title'   => 'Duration Background',
+      'default' => '#000'
+    ),
+  )
+),
+
+array(
+  'id'     => 'video_caption',
+  'type'   => 'group',
+  'title'  => 'Playlist Caption / Subtitle',
+  'desc'      => esc_html__('Click On + To add Subtitle File. You can add different subtitle file for different languages.', 'bPlugins'),
+  'class' => 'svp-readonly',
+
+  'fields' => array(
+
+    array(
+      'id'    => 'label',
+      'type'  => 'text',
+      'title' => 'Label',
+      'desc' => esc_html__('Enter label for the subtitle. eg: English/en', 'bPlugins'),
+    ),
+    array(
+      'id'    => 'vtt',
+      'type'  => 'upload',
+      'title' => 'Caption File (.vtt file only )'
+    ),
+  ),
+),
 
 array(
   'id'     => 'video_quality',
@@ -206,8 +366,6 @@ array(
   ),
 ),
 
-
-	  
     )
   ) );
 

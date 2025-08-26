@@ -1,0 +1,273 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "svp/video-player",
+  "version": "1.0.0",
+  "title": "Super Video Player",
+  "category": "widgets",
+  "description": "Super Video Player – A powerful WordPress video player.",
+  "keywords": [
+    "super video player",
+    "video player",
+    "video block",
+    "video player block",
+    "gutenberg video player"
+  ],
+  "textdomain": "svp",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "options": {
+      "type": "object",
+      "default": {
+        "controls": {
+          "play-large": true,
+          "restart": true,
+          "rewind": true,
+          "play": true,
+          "fast-forward": true,
+          "progress": true,
+          "current-time": true,
+          "duration": true,
+          "mute": true,
+          "volume": true,
+          "captions": true,
+          "settings": true,
+          "pip": true,
+          "airplay": true,
+          "download": true,
+          "fullscreen": true
+        },
+        "autoPlay": false,
+        "clickToPlay": true,
+        "muted": false,
+        "volume": 0.5,
+        "seekTime": 10,
+        "repeat": false,
+        "toolTip": true,
+        "isControl": true,
+        "shadowControl": true
+      }
+    },
+    "videos": {
+      "type": "array",
+      "default": [
+        {
+          "src": "",
+          "title": "",
+          "poster": "https://camendesign.com/code/video_for_everybody/poster.jpg",
+          "description": "Don’t forget to like, comment, and subscribe for more fun episodes!",
+          "customDownloadButton": false,
+          "isCustomTitle": false,
+          "customDownloadUrl": "",
+          "qualities": [],
+          "captions": [
+            {
+              "source": "",
+              "label": "",
+              "srclang": "",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    "videoSize": {
+      "type": "object",
+      "default": {
+        "width": {
+          "desktop": "100%",
+          "tablet": "",
+          "mobile": ""
+        },
+        "height": {
+          "desktop": "",
+          "tablet": "",
+          "mobile": ""
+        }
+      }
+    },
+    "thumbnailSize": {
+      "type": "object",
+      "default": {
+        "width": {
+          "desktop": "100%",
+          "tablet": "",
+          "mobile": ""
+        },
+        "height": {
+          "desktop": "82px",
+          "tablet": "",
+          "mobile": ""
+        }
+      }
+    },
+    "playlist": {
+      "type": "boolean",
+      "default": false
+    },
+    "themes": {
+      "type": "object",
+      "default": {
+        "theme": "default"
+      }
+    },
+    "tabStyles": {
+      "type": "object",
+      "default": {
+        "activeBg": "#1AAEFE",
+        "activeTitleColor": "#fff",
+        "activeDesColor": "#fff",
+        "inactiveBg": "#000",
+        "inactiveTitleColor": "#fff",
+        "inactiveDesColor": "#fff",
+        "durationTimeColor": "#fff",
+        "durationBg": "#000"
+      }
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": {
+          "desktop": 15,
+          "tablet": 13,
+          "mobile": 12
+        }
+      }
+    },
+    "descriptionTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": {
+          "desktop": 14,
+          "tablet": 12,
+          "mobile": 12
+        }
+      }
+    },
+    "viewersTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": {
+          "desktop": 14,
+          "tablet": 12,
+          "mobile": 10
+        }
+      }
+    },
+    "layout": {
+      "type": "string",
+      "default": "vertical"
+    },
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "background": {
+      "type": "object",
+      "default": {
+        "color": "#0000"
+      }
+    },
+    "scrollBg": {
+      "type": "string",
+      "default": "#3D8D7A"
+    },
+    "content": {
+      "type": "string",
+      "default": "Content of the block",
+      "selector": ".prefixBlockName .content"
+    },
+    "typography": {
+      "type": "object",
+      "default": {
+        "fontSize": 15
+      }
+    },
+    "color": {
+      "type": "string",
+      "default": "#333"
+    },
+    "colors": {
+      "type": "object",
+      "default": {
+        "color": "#333",
+        "bg": "#fff"
+      }
+    },
+    "img": {
+      "type": "object",
+      "default": {
+        "id": null,
+        "url": "",
+        "alt": "",
+        "title": ""
+      }
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "15px",
+        "right": "30px",
+        "bottom": "15px",
+        "left": "30px"
+      }
+    },
+    "margin": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "right": "0px",
+        "bottom": "15px",
+        "left": "0px"
+      }
+    },
+    "border": {
+      "type": "object",
+      "default": {
+        "radius": "0px",
+        "width": "0px",
+        "style": "solid",
+        "color": "#000000"
+      }
+    },
+    "shadow": {
+      "type": "array",
+      "default": {}
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "example": {
+    "attributes": {}
+  },
+  "editorScript": [
+    "file:./index.js",
+    "plyrIoJS",
+    "hls",
+    "dash"
+  ],
+  "editorStyle": "file:./index.css",
+  "style": [
+    "file:./view.css",
+    "plyrIoCSS"
+  ],
+  "render": "file:./render.php",
+  "viewScript": [
+    "file:./view.js",
+    "plyrIoJS",
+    "react",
+    "react-dom"
+  ]
+}

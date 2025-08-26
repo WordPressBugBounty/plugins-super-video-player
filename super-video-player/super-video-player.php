@@ -1,10 +1,10 @@
 <?php
 
 /*
- * Plugin Name: Super Video Player
+ * Plugin Name: Super Video Player 
  * Plugin URI:  https://bplugins.com/super-video-player
  * Description: A fully customizable video player for wordpress.
- * Version: 1.7.5
+ * Version: 1.8.0
  * Author: bPlugins
  * Author URI: http://bplugins.com
  * Text Domain:  svp
@@ -42,7 +42,7 @@ if ( function_exists( 'svp_fs' ) ) {
                     ),
                     'menu'           => array(
                         'slug'       => 'edit.php?post_type=svplayer',
-                        'first-path' => 'edit.php?post_type=svplayer',
+                        'first-path' => 'admin.php?page=svplayer#/video',
                         'network'    => true,
                     ),
                     'is_live'        => true,
@@ -57,6 +57,8 @@ if ( function_exists( 'svp_fs' ) ) {
         do_action( 'svp_fs_loaded' );
     }
     require_once __DIR__ . '/upgrade.php';
+    require_once __DIR__ . '/inc/functions.php';
+    require_once plugin_dir_path( __FILE__ ) . '/video-player-block.php';
     // Load Textdomain
     function svp_load_textdomain() {
         load_plugin_textdomain( 'svp', false, dirname( __FILE__ ) . "/languages" );
@@ -65,12 +67,15 @@ if ( function_exists( 'svp_fs' ) ) {
     add_action( "plugins_loaded", 'svp_load_textdomain' );
     /*Some Set-up*/
     define( 'SVP_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
-    define( 'SVP_VERSION', '1.7.5' );
+    define( 'SVP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+    define( 'SVP_VERSION', '1.8.0' );
     /* JS*/
     // Inc  common
     include_once 'admin/blocks/init.php';
     require_once 'admin/codestar-framework/codestar-framework.php';
-    require_once 'admin/inc/help-usages.php';
+    require_once "inc/Dashboard.php";
+    // require_once 'admin/inc/help-usages.php';
+    // Block file require
     if ( svp_fs()->is_free_plan() ) {
         // if(true){
         // Free version code

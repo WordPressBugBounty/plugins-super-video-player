@@ -1,0 +1,21 @@
+import { externalIcon } from '../../utils/icons';
+
+const ExternalButtons = ({ content, activeDemo, style = '' }) => {
+    const { openDemoLabel, allDemosLabel, upgradeLink } = content || {};
+
+    const adminBase = `${window.location.origin}/wp-admin/`;
+
+    const buyNowUrl = `${adminBase}${upgradeLink}`;
+    console.log("I am from external buttons:", buyNowUrl);
+
+    return <div className='wp-block-buttons is-layout-flex'>
+        <div className={`wp-block-button one ${style}`}>
+            <a className='wp-block-button__link wp-element-button' href={activeDemo.url} target='_blank' rel='noreferrer'>{externalIcon} {openDemoLabel}</a>
+        </div>
+
+        {buyNowUrl && <div className={`wp-block-button two ${style}`}>
+            <a className='wp-block-button__link wp-element-button' href={buyNowUrl} target='_blank' rel='noreferrer'>{allDemosLabel}</a>
+        </div>}
+    </div>
+}
+export default ExternalButtons;

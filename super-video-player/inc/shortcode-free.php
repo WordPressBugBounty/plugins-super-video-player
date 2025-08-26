@@ -24,44 +24,9 @@ if (!defined('SVP_PRO')) {
 			return false;
 		}
 
-		wp_enqueue_script('bplugins-frontend');
-		wp_enqueue_style('bplugins-frontend');
+		require SVP_PLUGIN_PATH . 'inc/block-video-player.php';
 
-
-		$props = [
-			'data' => [
-				'src' => get_meta($id,'_svp_video_file', ''),
-				'poster' => get_meta($id,'_svp_video_poster', ''),
-				'captions' => get_meta($id,'video_caption', []),
-			],
-			'options' => [
-				'repeat' => get_meta($id,'video_repeat', false) == 'loop' ? true : false,
-				'muted' => get_meta($id,'video_muted', false) == '1' ? true: false,
-				'autoplay' => get_meta($id,'video_autoplay', false) == '1' ? true: false,
-				'playsinline' => true
-			],
-			'styles' => [
-				'width' => get_meta($id,'video_width', false) ? get_meta($id,'video_width') . 'px': '100%'
-			]
-		];
-
-		$ext = pathinfo(get_meta($id,'_svp_video_file', ''), PATHINFO_EXTENSION);
-
-		if($ext=='m3u8'){ 
-			wp_enqueue_script('svp-hls-js');
-		}
-		
-		if($ext=='mpd'){ 
-			wp_enqueue_script('svp-dash-js');
-		}
-
-
-	ob_start();?>
-	<div class="svpPlayer" data-props='<?php echo esc_attr(wp_json_encode($props)) ?>'></div>
-	
-	<?php $output = ob_get_clean();return $output;//print $output; // debug ?>
-
-	<?php
+		return render_block($block);
 	}
 	add_shortcode('vplayer','svp_shortcode_func_free');	
 }

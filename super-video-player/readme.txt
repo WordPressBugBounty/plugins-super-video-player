@@ -1,9 +1,9 @@
 === Super Video Player- Best WordPress Video Display Plugin for mp4/OGG ===
-Contributors: bplugins, freemius, shehabulislam
+Contributors: bplugins, freemius, shehabulislam, noornabi2
 Tags: Video Player, mp4 Player, video gallery, Media Player, Plyr
 Requires at least: 5.2
-Tested up to: 6.7.2
-Stable tag: 1.7.5
+Tested up to: 6.7.1
+Stable tag: 1.8.0
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -20,7 +20,7 @@ This plugin simplifies the integration of videos into your website with customiz
 
 Control video playback behavior by specifying whether the video should repeat automatically after completion and whether the audio output should be muted.
 
-It makes sure to comply with browser autoplay policies with the autoplay feature and sets the width of the video player to suit your layout requirements.
+It makes sure to comply with browser autoPlay policies with the autoPlay feature and sets the width of the video player to suit your layout requirements.
 
 The pro version has additional functionalities such as creating playlists to play multiple videos sequentially and setting different video qualities for optimal viewing.
 
@@ -50,7 +50,7 @@ https://www.youtube.com/watch?v=LJym2Pe1h2k
 - The player can be used to embed video files on your WordPress posts or pages
 - If you are selling video files from your site then you can use this plugin to offer a preview
 - Add the video player to any post/page using shortcode
-- Use autoplay option to play a video file as soon as the page loads
+- Use autoPlay option to play a video file as soon as the page loads
 - You can play unlimited video
 - Support picture-in-picture mode
 - Powered by html5
@@ -63,6 +63,11 @@ https://www.youtube.com/watch?v=LJym2Pe1h2k
 - Set seek time in seconds
 - Click to play: Click or tap on the video container will toggle the play/pause.
 - Enable/Disable tooltips for the controls
+- Multiple Layout: Offers of variety of themes or layouts to customize the video player's appearance.
+- Video Title & Description: Display the video's title and description below or above the player.
+- Variety Styles: Customize the font, size, color and alignment of the video title and description.
+- All features available on the gutenberg block.
+
 
 ### User Feedback
 
@@ -76,7 +81,7 @@ https://www.youtube.com/watch?v=LJym2Pe1h2k
 ##### - Did you like this plugin? Dislike it? Have a feature request? [Please share your feedback with us](mailto:support@bplugins.com 'Send feedback')
 
 ### How to use Super Video Player
-- After install you can see a sidebar menu in the dashboare called "Super Video Player"
+- After install you can see a sidebar menu in the dashboard called "Super Video Player"
 - Add one or more Videos from Here.
 - You will get Shortcode for every Video In The Editor Screen And Video Lists.
 - Copy Shortcode 
@@ -124,11 +129,25 @@ You can publish unlimited video with unlimited player.
 == Screenshots ==
 
 1. The player in frontend
-2. Sidebar Menu
-3. UI
-4. Shortcode
+2. Single player with all controls
+3. Default layout on playlist
+4. Horizontal layout on playlist
+5. Vertical layout on playlist
+6. Grid layout on playlist
+7. Block setting controls
+8. Block setting controls 
+9. Block setting controls
+10. SideBar Menu
+11. UI
+12. Shortcode
 
 == Changelog ==
+
+= 1.8.0 - 26 Aug, 2025 =
+* Added new version
+
+= 1.7.6 - 04 Aug, 2025 =
+* Just Testing
 
 = 1.7.5 - 19 Sep, 2024 =
 * Update: Codestar Framework

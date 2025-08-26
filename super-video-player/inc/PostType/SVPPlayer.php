@@ -7,6 +7,9 @@ class SVPPlayer{
     public function __construct(){
         add_action('init', [$this, 'init']);
         if(is_admin()){
+
+            add_action('admin_menu', [$this, 'svp_dashboard_page'], 20);
+
             add_filter( 'post_row_actions',[$this, 'svp_remove_row_actions'], 10, 2 );
             add_filter( 'gettext', [$this, 'svp_change_publish_button'], 10, 2 );
 
@@ -60,9 +63,45 @@ class SVPPlayer{
             'hierarchical'        => false,
             'capability_type'     => 'page',
             'rewrite'             => array( 'slug' => 'svplayer'),
-            'supports'            => array( 'title', 'thumbonail' ),
+            'supports'            => array( 'title', 'thumbnail' ),
         ) );
+
     }
+
+    public function svp_dashboard_page(){
+        add_submenu_page(
+            'edit.php?post_type=svplayer',
+            __('Help & Support', 'svplayer'),
+            __('Help & Support', 'svplayer'),
+            'manage_options',
+            'svplayer',
+            [$this, 'dashboardPage']
+        );
+    
+        // এখন অর্ডার পরিবর্তন
+        global $submenu;
+        if (isset($submenu['edit.php?post_type=svplayer'])) {
+            $menu = $submenu['edit.php?post_type=svplayer'];
+            foreach ($menu as $index => $item) {
+                if ($item[2] === 'svplayer') {
+                    $dashboard = $item;
+                    unset($menu[$index]);
+                    array_splice($menu, 2, 0, [$dashboard]); // তৃতীয় পজিশনে বসানো
+                    break;
+                }
+            }
+            $submenu['edit.php?post_type=svplayer'] = $menu;
+        }
+    }
+
+    public function dashboardPage() { ?>
+        <div id='svpPlayerDashboard' data-info=<?php echo esc_attr( wp_json_encode([
+            'version' => SVP_VERSION,
+        ]) ); ?>></div>
+    <?php }
+	
+    
+
 
     function svp_remove_row_actions( $idtions ) {
         global $post;

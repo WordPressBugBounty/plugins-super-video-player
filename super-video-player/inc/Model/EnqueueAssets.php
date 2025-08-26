@@ -32,8 +32,8 @@ class EnqueueAssets{
     public function publicAssets($hook){
         wp_enqueue_script('bplugins-plyrio', SVP_PLUGIN_DIR . 'public/js/super-video.js',array(), SVP_VERSION,false );
 
-        wp_register_script('bplugins-frontend', SVP_PLUGIN_DIR . 'dist/frontend.js',array('react', 'react-dom'), SVP_VERSION,false );
-        wp_register_style('bplugins-frontend', SVP_PLUGIN_DIR . 'dist/frontend.css',array(), SVP_VERSION, 'all' );
+        wp_register_script('bplugins-frontend', SVP_PLUGIN_DIR . 'build/frontend.js',array('react', 'react-dom'), SVP_VERSION,false );
+        wp_register_style('bplugins-frontend', SVP_PLUGIN_DIR . 'build/frontend.css',array(), SVP_VERSION, 'all' );
 
         wp_enqueue_style( 'bplugins-plyrio', SVP_PLUGIN_DIR . 'public/css/player-style.css', array(), SVP_VERSION,  'all' );
 

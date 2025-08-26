@@ -20,12 +20,6 @@ if( class_exists( 'CSF' ) ) {
   CSF::createSection( $prefix, array(
     'title'  => 'Required fields are marked with an * (asterisk)',
     'fields' => array(
-
-
-
-
-
-
 array(
   'id'         => '_svp_video_file',
   'type'       => 'upload',
@@ -102,9 +96,7 @@ array(
     'maxlength' => 5,
   ),
 ),
-
-	  
-    )
+)
   ) );
 
 }

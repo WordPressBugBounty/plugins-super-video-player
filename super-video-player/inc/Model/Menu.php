@@ -5,7 +5,7 @@ class Menu{
     protected static $_instance = null;
 
     public function __construct(){
-       
+
     }
 
     /**
