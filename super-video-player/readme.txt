@@ -3,7 +3,7 @@ Contributors: bplugins, freemius, shehabulislam, noornabi2
 Tags: Video Player, mp4 Player, video gallery, Media Player, Plyr
 Requires at least: 5.2
 Tested up to: 6.7.1
-Stable tag: 1.8.0
+Stable tag: 1.8.1
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -142,6 +142,10 @@ You can publish unlimited video with unlimited player.
 12. Shortcode
 
 == Changelog ==
+
+= 1.8.1 - 03 Sep, 2025 =
+* Fixed the some issue for phlox theme
+* Add default video url
 
 = 1.8.0 - 26 Aug, 2025 =
 * Added new version

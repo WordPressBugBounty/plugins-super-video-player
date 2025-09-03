@@ -55,7 +55,7 @@
       "type": "array",
       "default": [
         {
-          "src": "",
+          "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
           "title": "",
           "poster": "https://camendesign.com/code/video_for_everybody/poster.jpg",
           "description": "Don’t forget to like, comment, and subscribe for more fun episodes!",

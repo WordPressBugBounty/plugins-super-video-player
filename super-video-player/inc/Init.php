@@ -21,9 +21,19 @@ class Init{
 		return self::$instance;
 	}
 
+    // public function i18n() {
+	// 	load_plugin_textdomain('model-viewer',false,dirname( plugin_basename( BP3D__FILE__ ) ) . '/languages/');
+	// }
+
     public function i18n() {
-		load_plugin_textdomain('model-viewer',false,dirname( plugin_basename( BP3D__FILE__ ) ) . '/languages/');
-	}
+        add_action('init', function() {
+            load_plugin_textdomain(
+                'model-viewer',
+                false,
+                dirname(plugin_basename(BP3D__FILE__)) . '/languages/'
+            );
+        });
+    }
    
     public static function get_services(){
         return [
