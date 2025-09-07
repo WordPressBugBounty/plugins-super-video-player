@@ -4,7 +4,7 @@
  * Plugin Name: Super Video Player 
  * Plugin URI:  https://bplugins.com/super-video-player
  * Description: A fully customizable video player for wordpress.
- * Version: 1.8.1
+ * Version: 1.8.2
  * Author: bPlugins
  * Author URI: http://bplugins.com
  * Text Domain:  svp
@@ -59,19 +59,13 @@ if ( function_exists( 'svp_fs' ) ) {
     require_once __DIR__ . '/upgrade.php';
     require_once __DIR__ . '/inc/functions.php';
     require_once plugin_dir_path( __FILE__ ) . '/video-player-block.php';
-    // add_action("plugins_loaded", 'svp_load_textdomain');
-    // // Load Textdomain
-    // function svp_load_textdomain()
-    // {
-    //     load_plugin_textdomain('svp', false, dirname(__FILE__) . "/languages");
-    // }
     add_action( "init", function () {
         load_plugin_textdomain( "svp", false, basename( dirname( __FILE__ ) ) . "/languages" );
     } );
     /*Some Set-up*/
     define( 'SVP_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
     define( 'SVP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-    define( 'SVP_VERSION', '1.8.1' );
+    define( 'SVP_VERSION', '1.8.2' );
     /* JS*/
     // Inc  common
     include_once 'admin/blocks/init.php';

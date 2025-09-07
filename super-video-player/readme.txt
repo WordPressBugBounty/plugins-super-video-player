@@ -1,9 +1,9 @@
-=== Super Video Player- Best WordPress Video Display Plugin for mp4/OGG ===
+=== Super Video player - Fully Customizable Video Player with Playlist ===
 Contributors: bplugins, freemius, shehabulislam, noornabi2
 Tags: Video Player, mp4 Player, video gallery, Media Player, Plyr
 Requires at least: 5.2
 Tested up to: 6.7.1
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -128,20 +128,22 @@ You can publish unlimited video with unlimited player.
 
 == Screenshots ==
 
-1. The player in frontend
-2. Single player with all controls
-3. Default layout on playlist
-4. Horizontal layout on playlist
-5. Vertical layout on playlist
-6. Grid layout on playlist
-7. Block setting controls
-8. Block setting controls 
-9. Block setting controls
-10. SideBar Menu
-11. UI
-12. Shortcode
+1. Admin Dashboard
+2. Add New Item (ShortCode)
+3. Configuration
+4. Single Preview
+5. Preview Playlist - Default
+6. Preview Playlist - Horizontal
+7. Preview Playlist - Vertical
+8. Preview Playlist - Grid 
+9. Gutenberg Block
+10. Gutenberg Block Settings
 
 == Changelog ==
+
+= 1.8.2 - 07 Sep, 2025 =
+* Add demo on dashboard
+* Change the plugin display name
 
 = 1.8.1 - 03 Sep, 2025 =
 * Fixed the some issue for phlox theme
