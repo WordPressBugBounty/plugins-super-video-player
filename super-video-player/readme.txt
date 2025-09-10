@@ -3,7 +3,7 @@ Contributors: bplugins, freemius, shehabulislam, noornabi2
 Tags: Video Player, mp4 Player, video gallery, Media Player, Plyr
 Requires at least: 5.2
 Tested up to: 6.7.1
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -140,6 +140,9 @@ You can publish unlimited video with unlimited player.
 10. Gutenberg Block Settings
 
 == Changelog ==
+
+= 1.8.3 - 10 Sep, 2025 =
+* Fix the text_domain issue in admin
 
 = 1.8.2 - 07 Sep, 2025 =
 * Add demo on dashboard

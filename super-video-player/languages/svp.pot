@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Super Video Player plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Super Video Player 1.8.2\n"
+"Project-Id-Version: Super Video Player 1.8.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/super-video-player-new\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-10T03:39:19+00:00\n"
+"POT-Creation-Date: 2025-09-10T16:46:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: svp\n"
@@ -197,46 +197,4 @@ msgstr ""
 #: bundled/super-video-player/inc/PostType/SVPPlayer.php:180
 #: inc/PostType/SVPPlayer.php:180
 msgid "Please show some love"
-msgstr ""
-
-#: build/blocks/video-player/block.json
-#: bundled/super-video-player/build/blocks/video-player/block.json
-msgctxt "block title"
-msgid "Super Video Player"
-msgstr ""
-
-#: build/blocks/video-player/block.json
-#: bundled/super-video-player/build/blocks/video-player/block.json
-msgctxt "block description"
-msgid "Super Video Player – A powerful WordPress video player."
-msgstr ""
-
-#: build/blocks/video-player/block.json
-#: bundled/super-video-player/build/blocks/video-player/block.json
-msgctxt "block keyword"
-msgid "super video player"
-msgstr ""
-
-#: build/blocks/video-player/block.json
-#: bundled/super-video-player/build/blocks/video-player/block.json
-msgctxt "block keyword"
-msgid "video player"
-msgstr ""
-
-#: build/blocks/video-player/block.json
-#: bundled/super-video-player/build/blocks/video-player/block.json
-msgctxt "block keyword"
-msgid "video block"
-msgstr ""
-
-#: build/blocks/video-player/block.json
-#: bundled/super-video-player/build/blocks/video-player/block.json
-msgctxt "block keyword"
-msgid "video player block"
-msgstr ""
-
-#: build/blocks/video-player/block.json
-#: bundled/super-video-player/build/blocks/video-player/block.json
-msgctxt "block keyword"
-msgid "gutenberg video player"
 msgstr ""

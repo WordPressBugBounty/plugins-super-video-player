@@ -34,7 +34,7 @@ class Init{
             );
         });
     }
-   
+
     public static function get_services(){
         return [
             inc\Dashboard::class,
