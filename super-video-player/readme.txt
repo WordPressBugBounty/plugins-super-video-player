@@ -1,38 +1,28 @@
 === Super Video player - Fully Customizable Video Player with Playlist ===
 Contributors: bplugins, freemius, shehabulislam, noornabi2
-Tags: Video Player, mp4 Player, video gallery, Media Player, Plyr
-Requires at least: 5.2
+Tags: super video player, mp4 player, plyr, video, video player
+Requires at least: 6.2+
 Tested up to: 6.7.1
-Stable tag: 1.8.3
+Stable tag: 1.8.7
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Improve WordPress user experience with Super Video Player plugin. Self-hosted, supports mp4/OGG, captions, and subtitles for engagement.
+Improve WordPress user experience with Super Video Player plugin. Self-hosted, supports mp4/OGG, captions, and subtitle for engagement.
 
 
 == Description ==
 
-Super Video Player is a lightweight, fully customizable self-hosted video player plugin that supports mp4 /OGG as well as multiple caption tracks or subtitle files.
+**The #1 No-Code Video Player Plugin – Trusted by 3000+ Websites Worldwide**
 
-This plugin simplifies the integration of videos into your website with customizable options to enhance user experience. Easily add captions or subtitles to your videos for improved accessibility and engagement.
+[**Super Video Player**](https://bplugins.com/products/super-video-player/) | [**Documentation**](https://bplugins.com/docs/super-video-player/) | [**Pricing**](https://bplugins.com/products/super-video-player/pricing/) | [**Support**](https://bplugins.com/support/) | [**Demo**](https://bplugins.com/products/super-video-player/#demos)
 
-Control video playback behavior by specifying whether the video should repeat automatically after completion and whether the audio output should be muted.
-
-It makes sure to comply with browser autoPlay policies with the autoPlay feature and sets the width of the video player to suit your layout requirements.
-
-The pro version has additional functionalities such as creating playlists to play multiple videos sequentially and setting different video qualities for optimal viewing.
-
-Customize the video player further by toggling the visibility of individual controls, setting the initial volume level, and specifying the seek time in seconds.
-
-Enhance user interaction by enabling click-to-play functionality, where clicking or tapping on the video container toggles play/pause, and customize the user experience with tooltips for the controls. 
-
-With these advanced features, you can create engaging and interactive video experiences for your audience.
+[**Super Video Player**](https://bplugins.com/products/super-video-player/) is a flexible and fully responsive video player plugin for WordPress. It allows you to embed MP4 and other video formats with ease. You can customize the player to match your site design and support playback across all major browsers and devices.
+The plugin supports video embedding using shortcodes or Gutenberg blocks, making it easy to add video players to posts, pages, or widgets without writing any code. With built-in customization options, users can control video behavior such as autoplay, loop, mute, and more.
 
 
-**[See Live Demo](https://bplugins.com/products/super-video-player/#demos "Demo")** 
-**[Buy The Pro](https://bplugins.com/products/super-video-player/#pricing "Buy Pro version")** 
+**[Buy The Pro](https://bplugins.com/products/super-video-player/pricing "Buy Pro version")**
 
 = Video Tutorial =
 
@@ -41,8 +31,9 @@ https://www.youtube.com/watch?v=LJym2Pe1h2k
 ### Super Video Player Features
 - Live Stream – Play .m3u8 and .mpd file
 - Make the player look how you want with the markup you want
-- Full support for VTT captions and screen readers.
-- Support multiple subtitle files for multiple languages.
+- Full support for VTT captions and screen readers
+- Support multiple subtitle files for multiple languages
+- Caption styles customization
 - The video player is compact so it does not take a lot of real estate on your webpage
 - HTML5 compatible so the video files embedded with this plugin will play on iOS devices
 - Works on all major browsers -Edge, IE7, IE8, IE9, Safari, Firefox, Chrome
@@ -67,6 +58,9 @@ https://www.youtube.com/watch?v=LJym2Pe1h2k
 - Video Title & Description: Display the video's title and description below or above the player.
 - Variety Styles: Customize the font, size, color and alignment of the video title and description.
 - All features available on the gutenberg block.
+- You can Easily use to shortcode for your gutenberg
+- Continuous Playback on Playlist
+- Social Share Button on Player
 
 
 ### User Feedback
@@ -124,6 +118,10 @@ You can play mp4, ogg video file.
 
 You can publish unlimited video with unlimited player.
 
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the Super Video Player plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/9e5fb7b7-09cb-4a1a-9cd8-9fcca4d3f148). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 
 
 == Screenshots ==
@@ -140,6 +138,20 @@ You can publish unlimited video with unlimited player.
 10. Gutenberg Block Settings
 
 == Changelog ==
+
+= 1.8.7 - 29 Dec, 2025 =
+* Caption custom styles features added
+
+= 1.8.6 - 17 Nov, 2025 =
+* Share button features added
+
+= 1.8.5 - 3 Nov, 2025 =
+* Customization Horizontal Layout
+* Added new features: Continuous Playback on Playlist option
+
+= 1.8.4 - 03 Oct, 2025 =
+* Added a modern dashboard
+* Fix the mpd, hls file on the video
 
 = 1.8.3 - 10 Sep, 2025 =
 * Fix the text_domain issue in admin

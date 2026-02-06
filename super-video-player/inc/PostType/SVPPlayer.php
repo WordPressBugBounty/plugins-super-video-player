@@ -3,6 +3,7 @@ namespace HTML5Player\PostType;
 class SVPPlayer{
     protected static $_instance = null;
     protected static $post_type = 'svplayer';
+    
 
     public function __construct(){
         add_action('init', [$this, 'init']);
@@ -35,6 +36,7 @@ class SVPPlayer{
         }
         return self::$_instance;
     }
+
 
     /**
      * register post type
@@ -71,14 +73,13 @@ class SVPPlayer{
     public function svp_dashboard_page(){
         add_submenu_page(
             'edit.php?post_type=svplayer',
-            __('Help & Support', 'svplayer'),
-            __('Help & Support', 'svplayer'),
+            __('Demo & Help', 'svplayer'),
+            __('Demo & Help', 'svplayer'),
             'manage_options',
             'svplayer',
             [$this, 'dashboardPage']
         );
     
-        // এখন অর্ডার পরিবর্তন
         global $submenu;
         if (isset($submenu['edit.php?post_type=svplayer'])) {
             $menu = $submenu['edit.php?post_type=svplayer'];
@@ -86,7 +87,7 @@ class SVPPlayer{
                 if ($item[2] === 'svplayer') {
                     $dashboard = $item;
                     unset($menu[$index]);
-                    array_splice($menu, 2, 0, [$dashboard]); // তৃতীয় পজিশনে বসানো
+                    array_splice($menu, 2, 0, [$dashboard]);
                     break;
                 }
             }
@@ -95,8 +96,10 @@ class SVPPlayer{
     }
 
     public function dashboardPage() { ?>
-        <div id='svpPlayerDashboard' data-info=<?php echo esc_attr( wp_json_encode([
+        <div id='svpPlayerDashboard'
+         data-info=<?php echo esc_attr( wp_json_encode([
             'version' => SVP_VERSION,
+            'isPremium' => svp_fs()->can_use_premium_code__premium_only(),
         ]) ); ?>></div>
     <?php }
 	

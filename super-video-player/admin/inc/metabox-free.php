@@ -85,6 +85,57 @@ array(
     ),
   ),
 ),
+
+array(
+      'id'     => 'caption_styles',
+      'type'   => 'fieldset',
+      'title'  => 'Caption Styles',
+
+      'fields' => array(
+        array(
+          'id'      => 'color',
+          'type'    => 'color',
+          'title'   => 'Caption Text Color',
+          'default' => '#ffffff',
+        ),
+
+        array(
+          'id'      => 'bg',
+          'type'    => 'color',
+          'title'   => 'Caption Background Color',
+          'default' => 'rgba(0,0,0,0.7)',
+        ),
+
+        array(
+          'id'    => 'typography',
+          'type'  => 'typography',
+          'title' => 'Caption Typography',
+
+          // 🔥 Control visible fields
+          'font_family'    => true,
+          'font_weight'    => true,
+          'font_style'     => true,
+          'font_size'      => true,
+          'line_height'    => true,
+          'letter_spacing' => false,
+          'text_align'     => false, // ❌ hide
+          'text_transform' => true,
+          'color'          => false, // ❌ hide
+
+          'default' => array(
+            'font-family'    => 'inherit',
+            'font-weight'    => '400',
+            'font-size'      => '18px',
+            'line-height'    => '1.4',
+            'text-transform' => 'none',
+          ),
+
+          'output' => false,
+        ),
+
+      ),
+    ),
+
 array(
   'id'         => 'video_repeat',
   'type'       => 'radio',
@@ -108,6 +159,14 @@ array(
   'type'  => 'switcher',
   'title' => 'Auto Play',
   'desc' => ' * <a target="_blank" href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes">Chrome Autoplay Policy</a> * <a target="_blank" href="https://support.apple.com/guide/safari/stop-autoplay-videos-ibrw29c6ecf8"> Safari Autoplay Policy</a> Read the autoplay policy Carefully to understand how, when the autoplay work and when not.',
+), 
+
+array(
+  'id'    => 'continues_auto_playlist',
+  'type'  => 'switcher',
+  'title' => 'Continuous Playback on Playlist',
+  'desc' => esc_html__('Plays next video automatically. Please enable autoPlay.','bPlugins'),
+  'class' => 'svp-readonly', 
 ), 
 
 array(
@@ -476,6 +535,14 @@ if( class_exists( 'CSF' ) ) {
   'id'    => 'subtitle_button',
   'type'  => 'switcher',
   'title' => 'Subtitle control',
+  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'class' => 'svp-readonly',  
+  'default' => '1',  
+),
+array(
+  'id'    => 'share_button',
+  'type'  => 'switcher',
+  'title' => 'Share button',
   'help' => esc_html__('Turn off to hide.','bPlugins'),
   'class' => 'svp-readonly',  
   'default' => '1',  

@@ -58,6 +58,7 @@ function svp_get_controls($id)
         svp_get_control($id, 'mute_button', 'mute'),
         svp_get_control($id, 'volume', 'volume'),
         svp_get_control($id, 'subtitle_button', 'captions'),
+        svp_get_control($id, 'share_button', 'share'),
         svp_get_control($id, 'settings_button', 'settings'),
         svp_get_control($id, 'pip_btn', 'pip'),
         svp_get_control($id, 'download_button', 'download'),

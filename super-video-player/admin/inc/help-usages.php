@@ -15,7 +15,7 @@ add_action('admin_enqueue_scripts', 'super_enqueue_assets');
 add_action('admin_menu', 'svp_support_page');
 function svp_support_page()
 {
-    add_submenu_page('edit.php?post_type=svplayer', 'Help & Support', 'Help & Support', 'manage_options', 'svp-support', 'svp_support_page_callback');
+    add_submenu_page('edit.php?post_type=svplayer', 'Demo & Help', 'Demo & Help', 'manage_options', 'svp-support', 'svp_support_page_callback');
 }
 
 function svp_support_page_callback()

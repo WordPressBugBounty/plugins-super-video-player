@@ -3,6 +3,19 @@
 $video_playlist = get_meta($id, 'video_playlist', []);
 $video_quality = get_meta($id, 'video_quality', []);
 $video_caption = get_meta($id, 'video_caption', []);
+$caption_styles_meta = get_meta($id, 'caption_styles', []);
+
+$caption_styles = wp_parse_args($caption_styles_meta, [
+    'color' => '#ffffff',
+    'bg'    => 'rgba(0,0,0,0.7)',
+    'typography' => [
+        'font-family'    => 'inherit',
+        'font-size'      => '18px',
+        'font-weight'    => '400',
+        'line-height'    => '1.4',
+        'text-transform' => 'none',
+    ],
+]);
 
 // foreach ($video_quality as $quality) {
 //     $qualities[] = [
@@ -45,7 +58,7 @@ foreach ($video_playlist as $video) {
     $videos[] = [
         'src' => $video['playlist_item'] ?? '',
         'title' => $video['playlist_item_title'] ?? 'type your video title here',
-        'description' => $video['playlist_item_description'] ?? 'Don’t forget to like, comment, and subscribe for more fun episodes!',
+        'description' => $video['playlist_item_description'] ?? 'Please like this video!',
         'poster' => $video['playlist_item_poster'] ?? ''
     ];
 }
@@ -79,8 +92,30 @@ $border = wp_parse_args($border_meta, [
     'radius' => '0px',
 ]);
 
-$get_meta = get__meta($id);
+$caption_block_styles = [
+    'color' => $caption_styles['color'],
+    'bg'    => $caption_styles['bg'],
+];
 
+$font_size_raw = $caption_styles['typography']['font-size'] ?? '18';
+
+if (is_numeric($font_size_raw)) {
+    $font_size_raw .= 'px';
+}
+
+$caption_typo = [
+    'fontSize' => [
+        'desktop' => $font_size_raw,
+        'tablet'  => $font_size_raw,
+        'mobile'  => $font_size_raw,
+    ],
+    'fontFamily'    => $caption_styles['typography']['font-family'] ?? 'inherit',
+    'lineHeight'    => $caption_styles['typography']['line-height'] ?? '1.4',
+    'fontWeight'    => $caption_styles['typography']['font-weight'] ?? '400',
+    'textTransform' => $caption_styles['typography']['text-transform'] ?? 'none',
+];
+
+$get_meta = get__meta($id);
 
 $attributes = [
     'align' => '',
@@ -92,6 +127,7 @@ $attributes = [
         'volume' => intval(get_meta($id, 'initial_vol', 50)) / 100,
         'seekTime' => (int) get_meta($id, 'seek_time', 10),
         'repeat' => $get_meta('video_repeat') == 'loop',
+        'isAutoNextVideo' => get_meta($id, 'continues_auto_playlist') == '1',
         'toolTip' => get_meta($id, 'tooltips', '0') == '1',
         'isControl' => true,
         'shadowControl' => true
@@ -136,9 +172,11 @@ $attributes = [
     'playlist' => is_array($videos) && count($videos) > 0 ? true : false,
     'themes' => [
         'theme' => get_meta($id, 'player_theme', 'default')
-],
-'tabStyles' => $tab_styles,
-'titleTypo' => [
+    ],
+    'tabStyles' => $tab_styles,
+    'captionstyles' => $caption_block_styles,
+    'captionTypo'   => $caption_typo,
+    'titleTypo' => [
         'fontSize' => [
             'desktop' => 15,
             'tablet' => 13,

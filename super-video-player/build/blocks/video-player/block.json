@@ -17,7 +17,7 @@
   "attributes": {
     "align": {
       "type": "string",
-      "default": ""
+      "default": "min"
     },
     "options": {
       "type": "object",
@@ -34,6 +34,7 @@
           "mute": true,
           "volume": true,
           "captions": true,
+          "share": true,
           "settings": true,
           "pip": true,
           "airplay": true,
@@ -46,6 +47,7 @@
         "volume": 0.5,
         "seekTime": 10,
         "repeat": false,
+        "isAutoNextVideo": false,
         "toolTip": true,
         "isControl": true,
         "shadowControl": true
@@ -58,7 +60,7 @@
           "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
           "title": "",
           "poster": "https://camendesign.com/code/video_for_everybody/poster.jpg",
-          "description": "Don’t forget to like, comment, and subscribe for more fun episodes!",
+          "description": "Please like this video!",
           "customDownloadButton": false,
           "isCustomTitle": false,
           "customDownloadUrl": "",
@@ -86,6 +88,23 @@
           "desktop": "",
           "tablet": "",
           "mobile": ""
+        }
+      }
+    },
+    "captionstyles": {
+      "type": "object",
+      "default": {
+        "color": "#fff",
+        "bg": "#000"
+      }
+    },
+    "captionTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": {
+          "desktop": 18,
+          "tablet": 16,
+          "mobile": 14
         }
       }
     },
