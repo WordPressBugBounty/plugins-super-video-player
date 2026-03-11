@@ -1,19 +1,86 @@
 .svp-readonly {
-  opacity: 0.75;
-  filter: blur(1px);
+  position: relative;
+  opacity: 0.6;
 }
 
-.svp-readonly:hover:after {
-    content: "This option is available in the Pro Version only.";
-    position: absolute;
-    top: 0;
-    width: 95%;
-    height: 100%;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: #2196F3;
+/* Disable only actual inputs */
+.svp-readonly input,
+.svp-readonly select,
+.svp-readonly textarea,
+.svp-readonly button {
+  pointer-events: none;
 }
 
+/* Overlay for hover detection */
+.svp-readonly::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+/* Tooltip */
+.svp-readonly:hover::before {
+  content: "This option is available in the Pro Version only.";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  color: #2196F3;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+  white-space: nowrap;
+}
+
+
+.csf-field-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.csf-field-switcher .csf-title {
+  margin-bottom: 0;
+}
+
+.csf-field-switcher .csf-fieldset {
+  margin-left: auto;
+}
+
+/* switcher field inline layout */
+.csf-field-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+
+.csf-field-switcher .csf-title {
+  margin-bottom: 0;
+}
+
+
+.csf-field-switcher .csf-help {
+  position: absolute;
+  left: 132px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.csf-field-switcher .csf--switcher {
+  position: relative;
+  z-index: 2;
+  margin-left: 50px;
+}
+
+
+.csf-field-switcher .csf-fieldset {
+  margin-left: auto;
+}

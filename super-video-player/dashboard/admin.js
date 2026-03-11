@@ -7,4 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const info = JSON.parse(adminEl.dataset.info)
 
   React.createRoot(adminEl).render(<App {...dashboardInfo(info)} />)
+
+  adminEl.removeAttribute('data-info');
 });

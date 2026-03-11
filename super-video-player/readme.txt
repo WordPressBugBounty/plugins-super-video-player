@@ -1,9 +1,9 @@
 === Super Video player - Fully Customizable Video Player with Playlist ===
 Contributors: bplugins, freemius, shehabulislam, noornabi2
 Tags: super video player, mp4 player, plyr, video, video player
-Requires at least: 6.2+
+Requires at least: 5.2
 Tested up to: 6.7.1
-Stable tag: 1.8.7
+Stable tag: 1.8.8
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -31,9 +31,9 @@ https://www.youtube.com/watch?v=LJym2Pe1h2k
 ### Super Video Player Features
 - Live Stream – Play .m3u8 and .mpd file
 - Make the player look how you want with the markup you want
-- Full support for VTT captions and screen readers
-- Support multiple subtitle files for multiple languages
-- Caption styles customization
+- Full support for VTT captions and screen readers.
+- Support multiple subtitle files for multiple languages.
+- Caption styles customization.
 - The video player is compact so it does not take a lot of real estate on your webpage
 - HTML5 compatible so the video files embedded with this plugin will play on iOS devices
 - Works on all major browsers -Edge, IE7, IE8, IE9, Safari, Firefox, Chrome
@@ -138,6 +138,12 @@ Please report security bugs found in the source code of the Super Video Player p
 10. Gutenberg Block Settings
 
 == Changelog ==
+
+= 1.8.8 - 9 March, 2026 =
+- **Update**: Latest Modern Dashboard, Pro Alert modal Added.
+- **Update**: CodeStar create new structure of General, Controls, Settings.
+- **Update**: Some pro features convert to unlock for the free version.
+- **Fixed**: Playlist add video URL, submit issue fixed on the block editor.
 
 = 1.8.7 - 29 Dec, 2025 =
 * Caption custom styles features added

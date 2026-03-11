@@ -19,10 +19,12 @@ class SVPPlayer{
             add_filter( 'admin_footer_text', [$this, 'svp_admin_footer']);	 
             add_filter('manage_svplayer_posts_columns', [$this, 'ST4_columns_head_only_svplayer'], 10);
             add_action('manage_svplayer_posts_custom_column', [$this, 'ST4_columns_content_only_svplayer'], 10, 2);
-            add_action( 'add_meta_boxes', [$this, 'svp_myplugin_add_meta_box'] );
+            // add_action( 'add_meta_boxes', [$this, 'svp_myplugin_add_meta_box'] );
             
             add_action('admin_head-post.php', [$this, 'svp_hide_publishing_actions']);
             add_action('admin_head-post-new.php', [$this, 'svp_hide_publishing_actions']);
+
+            add_action('admin_enqueue_scripts', [$this, 'svp_admin_assets']);
 
         }
     }
@@ -73,8 +75,8 @@ class SVPPlayer{
     public function svp_dashboard_page(){
         add_submenu_page(
             'edit.php?post_type=svplayer',
-            __('Demo & Help', 'svplayer'),
-            __('Demo & Help', 'svplayer'),
+            __('Help & Demos', 'svplayer'),
+            __('Help & Demos', 'svplayer'),
             'manage_options',
             'svplayer',
             [$this, 'dashboardPage']
@@ -97,13 +99,71 @@ class SVPPlayer{
 
     public function dashboardPage() { ?>
         <div id='svpPlayerDashboard'
-         data-info=<?php echo esc_attr( wp_json_encode([
+         data-info="<?php echo esc_attr( wp_json_encode([
             'version' => SVP_VERSION,
             'isPremium' => svp_fs()->can_use_premium_code__premium_only(),
-        ]) ); ?>></div>
+            'hasPro'               => svp_fs()->is_premium(),
+            'licenseActiveNonce'   => wp_create_nonce('bPlLicenseActivation'),
+        ]) ); ?>"></div>
     <?php }
-	
-    
+
+
+   public function svp_admin_assets($hook){
+
+    global $post;
+
+    if( isset($post->post_type) && $post->post_type === self::$post_type ){
+
+        wp_enqueue_style(
+            'svp-admin-style',
+            plugins_url('shortCodeAdmin.css', __FILE__),
+            [],
+            SVP_VERSION
+        );
+
+        wp_enqueue_script(
+            'svp-admin-script',
+            plugins_url('shortCodeAdmin.js', __FILE__),
+            ['jquery'],
+            SVP_VERSION,
+            true
+        );
+    }
+}
+
+    function svp_shortcode_area(){
+    global $post;
+
+    if($post->post_type == self::$post_type){ 
+
+        $shortcode = "[vplayer id='{$post->ID}']";
+        ?>
+        
+        <div class="svp-shortcode-wrapper">
+            <span class="svp-shortcode-text">
+                <?php _e("Copy and paste this shortcode into your posts, pages and widget", "svp"); ?>
+            </span>
+
+            <div class="svp-shortcode-box">
+                <code id="svp-copy-shortcode"><?php echo esc_html($shortcode); ?></code>
+
+                <!-- <button type="button" class="svp-copy-btn" data-copy="<?php echo esc_attr($shortcode); ?>">
+                    <span class="dashicons dashicons-clipboard"></span>
+                </button> -->
+
+                <button type="button" class="svp-copy-btn" data-copy="<?php echo esc_attr($shortcode); ?>">
+                <span class="svp-copy-icon">
+                    <svg class="bp3d_shortcode_copy_icon" data-clipboard-text="[3d_viewer id=&quot;6&quot;]" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8 4V16C8 17.1046 8.89543 18 10 18L18 18C19.1046 18 20 17.1046 20 16V7.24162C20 6.7034 19.7831 6.18789 19.3982 5.81161L16.0829 2.56999C15.7092 2.2046 15.2074 2 14.6847 2H10C8.89543 2 8 2.89543 8 4Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M16 18V20C16 21.1046 15.1046 22 14 22H6C4.89543 22 4 21.1046 4 20V9C4 7.89543 4.89543 7 6 7H8" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </svg>
+                </span>
+            </button>
+
+            </div>
+            
+        </div>
+
+        <?php
+    }
+}
 
 
     function svp_remove_row_actions( $idtions ) {
@@ -128,29 +188,6 @@ class SVPPlayer{
         return $translation;
     }
 
-    function svp_shortcode_area(){
-        global $post;
-        if($post->post_type== self::$post_type){ ?>
-        <div class="svp_playlist_shortcode">
-            <div class="shortcode-heading">
-                <div class="icon"><span class="dashicons dashicons-video-alt3"></span> <?php _e("Super Video Player", "svp"); ?></div>
-                <div class="text"> <a href="https://bplugins.com/support/" target="_blank"><?php _e("Supports", "svp"); ?></a></div>
-            </div>
-            <div class="shortcode-left">
-                <h3><?php _e("Shortcode", "svp") ?></h3>
-                <p><?php _e("Copy and paste this shortcode into your posts, pages and widget:", "svp") ?></p>
-                <div class="shortcode" selectable>[vplayer id='<?php echo esc_attr($post->ID); ?>']</div>
-            </div>
-            <div class="shortcode-right">
-                <h3><?php _e("Template Include", "svp") ?></h3>
-                <p><?php _e("Copy and paste the PHP code into your template file:", "svp"); ?></p>
-                <div class="shortcode">&lt;?php echo do_shortcode('[vplayer id="<?php echo esc_attr($post->ID); ?>"]');
-                ?&gt;</div>
-            </div>
-        </div>
-        <?php   
-        }
-    }
 
     function svp_admin_footer( $text ) {
         if ( self::$post_type == get_post_type() ) {
@@ -177,28 +214,28 @@ class SVPPlayer{
     }
 
     
-    function svp_myplugin_add_meta_box() {
-        add_meta_box(
-            'myplugin_sectionid',
-            __( 'Please show some love', 'svp' ),
-            [$this, 'svp_review_callback'],
-            'svplayer',
-            'side'
-        );	
-    }
+    // function svp_myplugin_add_meta_box() {
+    //     add_meta_box(
+    //         'myplugin_sectionid',
+    //         __( 'Please show some love', 'svp' ),
+    //         [$this, 'svp_review_callback'],
+    //         'svplayer',
+    //         'side'
+    //     );	
+    // }
 
-    function svp_review_callback(){
-        echo  '<p>If you like <strong>Super Video Player</strong> Plugin, please leave us a <a href="https://wordpress.org/support/plugin/super-video-player/reviews/?filter=5#new-post" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733; rating</a> . Your Review is very important to us as it helps us to grow more.</p>
+    // function svp_review_callback(){
+    //     echo  '<p>If you like <strong>Super Video Player</strong> Plugin, please leave us a <a href="https://wordpress.org/support/plugin/super-video-player/reviews/?filter=5#new-post" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733; rating</a> . Your Review is very important to us as it helps us to grow more.</p>
 
-        <p>Not happy, Sorry for that. You can request for improvement. </p>
+    //     <p>Not happy, Sorry for that. You can request for improvement. </p>
 
-        <table>
-            <tr>
-                <td><a class="button button-primary button-large" href="https://wordpress.org/support/plugin/super-video-player/reviews/?filter=5#new-post" target="_blank">Write Review</a></td>
-                <td><a class="button button-primary button-large" href="mailto:abuhayat.du@gmail.com" target="_blank">Request Improvement</a></td>
-            </tr>
-        </table>';
-    }
+    //     <table>
+    //         <tr>
+    //             <td><a class="button button-primary button-large" href="https://wordpress.org/support/plugin/super-video-player/reviews/?filter=5#new-post" target="_blank">Write Review</a></td>
+    //             <td><a class="button button-primary button-large" href="mailto:abuhayat.du@gmail.com" target="_blank">Request Improvement</a></td>
+    //         </tr>
+    //     </table>';
+    // }
 
     function svp_hide_publishing_actions(){
         global $post;

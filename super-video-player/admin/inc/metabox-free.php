@@ -12,19 +12,15 @@ if( class_exists( 'CSF' ) ) {
     'title'     => 'Player Configuration',
     'post_type' => 'svplayer',
     'data_type' => 'unserialize',
+    'theme' => 'light',
     'context'   => 'normal', // The context within the screen where the boxes should display. `normal`, `side`, `advanced`
   ) );
-
   //
-  // Create a section
-  CSF::createSection( $prefix, array(
-    'title'  => 'Required fields are marked with an * (asterisk)',
+  // General section
+CSF::createSection( $prefix, 
+array(
+    'title'  => 'General',
     'fields' => array(
-
-
-
-
-
 
 array(
   'id'         => '_svp_video_file',
@@ -54,7 +50,7 @@ array(
   'type' => 'text',
   'title' => __('Video Title', 'bPlugins'),
   'desc' => esc_html__('Enter the title for the video. ', 'bPlugins'),
-  'class' => 'svp-readonly'
+  // 'class' => 'svp-readonly'
 ),
 
 array(
@@ -62,8 +58,23 @@ array(
   'type' => 'text',
   'title' => __('Video Description', 'bPlugins'),
   'desc' => esc_html__('Enter the description for the video. ', 'bPlugins'),
-  'class' => 'svp-readonly'
+  // 'class' => 'svp-readonly'
 ),
+
+ array(
+        'id' => '_svp_custom_download_url_enabled',
+        'type' => 'switcher',
+        'title' => __('Enable Custom Video Download URL', 'bPlugins'),
+        'default' => 0,
+        'class' => 'svp-readonly'
+      ),
+
+      array(
+        'id' => '_svp_custom_download_url',
+        'type' => 'text',
+        'title' => __("Custom Download URL", "bPlugins"),
+        'dependency' => array('_svp_custom_download_url_enabled', '==', '1')
+      ),
 
 array(
   'id'     => 'video_caption',
@@ -87,6 +98,217 @@ array(
 ),
 
 array(
+  'id'         => 'video_width',
+  'type'       => 'text',
+  'title'      => 'Video Width (Px)',
+  'desc'      => esc_html__( 'Enter 0 for 100% Width. Enter any number such as 500 for a video player with 500px. ', 'bPlugins' ),
+  'default'=>'0',
+  'inline'    => true,
+   'attributes'  => array(
+    'type'      => 'number',
+    'maxlength' => 5,
+  ),
+),
+  
+array(
+  'id'    => 'initial_vol',
+  'type'  => 'slider',
+  'title' => 'Initial volume',
+  // 'class' => 'svp-readonly',  
+  'min'     => 0,
+  'max'     => 100,
+  'step'    => 10, 
+  'default'    => 50, 
+  'unit'    => '%', 
+),  
+
+
+array(
+  'id'         => 'seek_time',
+  'type'       => 'text',
+  'title'      => 'Seek time (Second)',
+  'desc'      => esc_html__( 'Enter 0 for 100% Width. Enter any number such as 500 for a video player with 500px. ', 'bPlugins' ),
+  // 'class' => 'svp-readonly',  
+  'default'=>'10',
+  'inline'    => true,
+   'attributes'  => array(
+    'type'      => 'number',
+    'maxlength' => 5,
+  ),
+),
+
+
+array(
+  'id'     => 'video_playlist',
+  'type'   => 'repeater',
+  'title'  => 'Playlist',
+  'desc'      => esc_html__( 'Click On + To add playlist items. You can add multiple video file in the playlist.', 'bPlugins' ),  
+  // 'class' => 'svp-readonly',  
+  'fields' => array(
+
+    array(
+      'id'    => 'playlist_item_title',
+      'type'  => 'text',
+      'title' => 'Label',
+      'default' => 'Playlist Item',
+      'desc' => esc_html__( 'Enter the title for the video. ', 'bPlugins' ), 
+    ), 
+    array(
+      'id'    => 'playlist_item_description',
+      'type'  => 'text',
+      'title' => 'Video Description',
+      'default' => 'Playlist Item',
+      'desc' => esc_html__('Enter the description for the video. ', 'bPlugins'),
+    ),
+
+    array(
+      'id'    => 'playlist_item',
+      'type'  => 'upload',
+      'title' => 'Select Video',
+      'library'    => 'video'  	  
+    ),
+    array(
+      'id'    => 'playlist_item_poster',
+      'type'  => 'upload',
+      'title' => 'Select poster image',
+      'library'    => 'image'  	  
+    )
+  ),
+),
+
+ array(
+      'id'      => 'player_theme',
+      'type'    => 'select',
+      'title'   => 'Playlist Layout',
+      'options' => array(
+        'default'     => 'Default',
+        'horizontal'  => 'Horizontal Layout',
+        'vertical'    => '🔒 Vertical Layout (Pro)',
+        'grid'        => '🔒 Grid Layout (Pro)',
+      ),
+      'default' => 'default',
+    ),
+
+
+array(
+  'id'     => 'video_caption',
+  'type'   => 'group',
+  'title'  => 'Playlist Caption / Subtitle',
+  'desc'      => esc_html__('Click On + To add Subtitle File. You can add different subtitle file for different languages.', 'bPlugins'),
+  // 'class' => 'svp-readonly',
+
+  'fields' => array(
+
+    array(
+      'id'    => 'label',
+      'type'  => 'text',
+      'title' => 'Label',
+      'desc' => esc_html__('Enter label for the subtitle. eg: English/en', 'bPlugins'),
+    ),
+    array(
+      'id'    => 'vtt',
+      'type'  => 'upload',
+      'title' => 'Caption File (.vtt file only )'
+    ),
+  ),
+),
+
+array(
+  'id'     => 'video_quality',
+  'type'   => 'repeater',
+  'title'  => 'Video Quality',
+  'desc'      => esc_html__( 'Click On + to add new qualities.  You can set multiple video quality for the same video', 'bPlugins' ),  
+  // 'class' => 'svp-readonly',  
+  'fields' => array(
+
+    array(
+      'id'    => 'vid_src',
+      'type'  => 'upload',
+      'title' => 'Source',
+      'desc' => esc_html__( 'Either select a video file form your media library or paste a video file url', 'bPlugins' ), 
+    ),
+    array(
+      'id'    => 'vid_size',
+      'type'  => 'text',
+      'title' => 'Resolution',
+      'desc' => esc_html__( 'eg: 4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360 or 240. Entre 720 if the video quality is 720P', 'bPlugins' ), 
+    ),
+  ),
+),
+)
+));
+
+// Settings Section
+CSF::createSection($prefix, array(
+  'title' => 'Settings',
+  'fields' => array(
+    // video repeat
+  array(
+  'id'         => 'video_repeat',
+  'type'       => 'radio',
+  'title'      => 'Repeat',
+  'desc'      => esc_html__('Specify how the video will start over again, every time it is finished','bPlugins'),
+  'options'    => array(
+    'once' => 'Repeat Once ',
+    'loop' => 'Loop',
+  ),
+  'default'    => 'once'
+  ),
+
+  // video muted
+  array(
+  'id'    => 'video_muted',
+  'type'  => 'switcher',
+  'title' => 'Muted',
+  'desc' => esc_html__('Turn On if you want the audio output of the video should be muted.','bPlugins'),
+), 
+
+// video autoPlay
+array(
+  'id'    => 'video_autoplay',
+  'type'  => 'switcher',
+  'title' => 'Auto Play',
+  'desc' => ' * <a target="_blank" href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes">Chrome Autoplay Policy</a> * <a target="_blank" href="https://support.apple.com/guide/safari/stop-autoplay-videos-ibrw29c6ecf8"> Safari Autoplay Policy</a> Read the autoplay policy Carefully to understand how, when the autoplay work and when not.',
+), 
+
+// continously auto play
+array(
+  'id'    => 'continues_auto_playlist',
+  'type'  => 'switcher',
+  'title' => 'Continuous Playback on Playlist',
+  'desc' => esc_html__('Plays next video automatically. Please enable autoPlay.','bPlugins'),
+  'class' => 'svp-readonly', 
+),
+
+// click to play
+
+array(
+  'id'    => 'click_to_play',
+  'type'  => 'switcher',
+  'title' => 'Click to play',
+  'desc' => esc_html__('Click (or tap) of the video container will toggle play/pause.','bPlugins'),
+  // 'class' => 'svp-readonly',  
+  'default' => '1',  
+),
+
+// tooltip control
+ array(
+  'id'    => 'tooltips',
+  'type'  => 'switcher',
+  'title' => 'Tooltips',
+  'desc' => esc_html__('Display control labels as tooltips on :hover & :focus','bPlugins'),
+  // 'class' => 'svp-readonly',  
+  'default' => '1',  
+),
+
+)));
+
+// Style Section
+CSF::createSection($prefix, array(
+  'title' => 'Style',
+  'fields' => array(
+    // caption styles
+  array(
       'id'     => 'caption_styles',
       'type'   => 'fieldset',
       'title'  => 'Caption Styles',
@@ -134,156 +356,14 @@ array(
         ),
 
       ),
-    ),
-
-array(
-  'id'         => 'video_repeat',
-  'type'       => 'radio',
-  'title'      => 'Repeat',
-  'desc'      => esc_html__('Specify how the video will start over again, every time it is finished','bPlugins'),
-  'options'    => array(
-    'once' => 'Repeat Once ',
-    'loop' => 'Loop',
-  ),
-  'default'    => 'once'
-  ),
-  
- array(
-  'id'    => 'video_muted',
-  'type'  => 'switcher',
-  'title' => 'Muted',
-  'desc' => esc_html__('Turn On if you want the audio output of the video should be muted.','bPlugins'),
-), 
- array(
-  'id'    => 'video_autoplay',
-  'type'  => 'switcher',
-  'title' => 'Auto Play',
-  'desc' => ' * <a target="_blank" href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes">Chrome Autoplay Policy</a> * <a target="_blank" href="https://support.apple.com/guide/safari/stop-autoplay-videos-ibrw29c6ecf8"> Safari Autoplay Policy</a> Read the autoplay policy Carefully to understand how, when the autoplay work and when not.',
-), 
-
-array(
-  'id'    => 'continues_auto_playlist',
-  'type'  => 'switcher',
-  'title' => 'Continuous Playback on Playlist',
-  'desc' => esc_html__('Plays next video automatically. Please enable autoPlay.','bPlugins'),
-  'class' => 'svp-readonly', 
-), 
-
-array(
-  'id'         => 'video_width',
-  'type'       => 'text',
-  'title'      => 'Video Width (Px)',
-  'desc'      => esc_html__( 'Enter 0 for 100% Width. Enter any number such as 500 for a video player with 500px. ', 'bPlugins' ),
-  'default'=>'0',
-  'inline'    => true,
-   'attributes'  => array(
-    'type'      => 'number',
-    'maxlength' => 5,
-  ),
-),
-  
-array(
-  'id'    => 'initial_vol',
-  'type'  => 'slider',
-  'title' => 'Initial volume',
-  'class' => 'svp-readonly',  
-  'min'     => 0,
-  'max'     => 100,
-  'step'    => 10, 
-  'default'    => 50, 
-  'unit'    => '%', 
-  
-),  
-
-
-array(
-  'id'         => 'seek_time',
-  'type'       => 'text',
-  'title'      => 'Seek time (Second)',
-  'desc'      => esc_html__( 'Enter 0 for 100% Width. Enter any number such as 500 for a video player with 500px. ', 'bPlugins' ),
-  'class' => 'svp-readonly',  
-  'default'=>'10',
-  'inline'    => true,
-   'attributes'  => array(
-    'type'      => 'number',
-    'maxlength' => 5,
-  ),
 ),
 
- array(
-  'id'    => 'click_to_play',
-  'type'  => 'switcher',
-  'title' => 'Click to play',
-  'desc' => esc_html__('Click (or tap) of the video container will toggle play/pause.','bPlugins'),
-  'class' => 'svp-readonly',  
-  'default' => '1',  
-),
- array(
-  'id'    => 'tooltips',
-  'type'  => 'switcher',
-  'title' => 'Tooltips',
-  'desc' => esc_html__('Display control labels as tooltips on :hover & :focus','bPlugins'),
-  'class' => 'svp-readonly',  
-  'default' => '1',  
-),
-array(
-  'id'     => 'video_playlist',
-  'type'   => 'repeater',
-  'title'  => 'Playlist',
-  'desc'      => esc_html__( 'Click On + To add playlist items. You can add multiple video file in the playlist.', 'bPlugins' ),  
-  'class' => 'svp-readonly',  
-  'fields' => array(
-
-    array(
-      'id'    => 'playlist_item_title',
-      'type'  => 'text',
-      'title' => 'Label',
-      'default' => 'Playlist Item',
-      'desc' => esc_html__( 'Enter the title for the video. ', 'bPlugins' ), 
-    ), 
-    array(
-      'id'    => 'playlist_item_description',
-      'type'  => 'text',
-      'title' => 'Video Description',
-      'default' => 'Playlist Item',
-      'desc' => esc_html__('Enter the description for the video. ', 'bPlugins'),
-    ),
-
-    array(
-      'id'    => 'playlist_item',
-      'type'  => 'upload',
-      'title' => 'Select Video',
-      'library'    => 'video'  	  
-    ),
-    array(
-      'id'    => 'playlist_item_poster',
-      'type'  => 'upload',
-      'title' => 'Select poster image',
-      'library'    => 'image'  	  
-    )
-  ),
-),
-
-array(
-  'id'      => 'player_theme',
-  'type'    => 'select',
-  'title'   => 'Playlist Layout',
-  'desc'    => esc_html__('Choose the layout or theme for the video player.', 'bPlugins'),
-  'class' => 'svp-readonly',
-  'options' => array(
-    'default'        => 'Default',
-    'horizontal'        => 'Horizontal Layout',
-    'vertical'         => 'Vertical Layout',
-    'grid'           => 'Grid Layout',
-  ),
-  'default' => 'default',
-),
-
+// border styles
 array(
   'id'     => 'border',
   'type'   => 'fieldset',
   'title'  => __('Border', 'svp'),
-  'class' => 'svp-readonly',
+  // 'class' => 'svp-readonly',
   'fields' => array(
 
       array(
@@ -322,11 +402,12 @@ array(
   ),
 ),
 
+// tab styles
 array(
   'id'     => 'tabStyles',
   'type'   => 'fieldset',
   'title'  => 'Tab Styles',
-  'class' => 'svp-readonly',
+  // 'class' => 'svp-readonly',
   'fields' => array(
     array(
       'id'      => 'activeBg',
@@ -379,54 +460,7 @@ array(
   )
 ),
 
-array(
-  'id'     => 'video_caption',
-  'type'   => 'group',
-  'title'  => 'Playlist Caption / Subtitle',
-  'desc'      => esc_html__('Click On + To add Subtitle File. You can add different subtitle file for different languages.', 'bPlugins'),
-  'class' => 'svp-readonly',
-
-  'fields' => array(
-
-    array(
-      'id'    => 'label',
-      'type'  => 'text',
-      'title' => 'Label',
-      'desc' => esc_html__('Enter label for the subtitle. eg: English/en', 'bPlugins'),
-    ),
-    array(
-      'id'    => 'vtt',
-      'type'  => 'upload',
-      'title' => 'Caption File (.vtt file only )'
-    ),
-  ),
-),
-
-array(
-  'id'     => 'video_quality',
-  'type'   => 'repeater',
-  'title'  => 'Video Quality',
-  'desc'      => esc_html__( 'Click On + to add new qualities.  You can set multiple video quality for the same video', 'bPlugins' ),  
-  'class' => 'svp-readonly',  
-  'fields' => array(
-
-    array(
-      'id'    => 'vid_src',
-      'type'  => 'upload',
-      'title' => 'Source',
-      'desc' => esc_html__( 'Either select a video file form your media library or paste a video file url', 'bPlugins' ), 
-    ),
-    array(
-      'id'    => 'vid_size',
-      'type'  => 'text',
-      'title' => 'Resolution',
-      'desc' => esc_html__( 'eg: 4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360 or 240. Entre 720 if the video quality is 720P', 'bPlugins' ), 
-    ),
-  ),
-),
-
-    )
-  ) );
+)));
 
 }
 
@@ -450,28 +484,20 @@ if( class_exists( 'CSF' ) ) {
   CSF::createSection( $prefix, array(
     'fields' => array(
 
-
-
-
-
-
-
  array(
   'id'    => 'large_play',
   'type'  => 'switcher',
   'title' => 'Large Play Button',
   'default' => '1',
-  'class' => 'svp-readonly',  
+  // 'class' => 'svp-readonly',  
   'help' => esc_html__('Turn off to hide.','bPlugins'), 
-  
 ),
 
  array(
   'id'    => 'restart_btn',
   'type'  => 'switcher',
   'title' => 'Restart button',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
-  'class' => 'svp-readonly',  
+  'help' => esc_html__('Turn off to hide.','bPlugins'), 
   'default' => '1',  
 ), 
  array(
@@ -479,7 +505,7 @@ if( class_exists( 'CSF' ) ) {
   'type'  => 'switcher',
   'title' => 'Play button',
   'help' => esc_html__('Turn off to hide.','bPlugins'),
-  'class' => 'svp-readonly',  
+  // 'class' => 'svp-readonly',  
   'default' => '1',  
 ), 
  array(
@@ -487,7 +513,7 @@ if( class_exists( 'CSF' ) ) {
   'type'  => 'switcher',
   'title' => 'Rewind button',
   'help' => esc_html__('Turn off to hide.','bPlugins'),
-  'class' => 'svp-readonly',  
+  // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),
  array(
@@ -495,7 +521,7 @@ if( class_exists( 'CSF' ) ) {
   'type'  => 'switcher',
   'title' => 'Fast forward button',
   'help' => esc_html__('Turn off to hide.','bPlugins'),
-  'class' => 'svp-readonly',  
+  // 'class' => 'svp-readonly',  
   'default' => '1',  
   
 ), 
@@ -504,7 +530,7 @@ if( class_exists( 'CSF' ) ) {
   'type'  => 'switcher',
   'title' => 'Progress bar',
   'help' => esc_html__('Turn off to hide.','bPlugins'),
-  'class' => 'svp-readonly',  
+  // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),     
  array(
@@ -512,7 +538,7 @@ if( class_exists( 'CSF' ) ) {
   'type'  => 'switcher',
   'title' => 'Current time',
   'help' => esc_html__('Turn off to hide.','bPlugins'),
-  'class' => 'svp-readonly',  
+  // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),  
  array(
@@ -520,7 +546,7 @@ if( class_exists( 'CSF' ) ) {
   'type'  => 'switcher',
   'title' => 'Mute button',
   'help' => esc_html__('Turn off to hide.','bPlugins'),
-  'class' => 'svp-readonly',  
+  // 'class' => 'svp-readonly',  
   'default' => '1',  
 ), 
  array(
@@ -528,7 +554,7 @@ if( class_exists( 'CSF' ) ) {
   'type'  => 'switcher',
   'title' => 'Volume control',
   'help' => esc_html__('Turn off to hide.','bPlugins'),
-  'class' => 'svp-readonly',  
+  // 'class' => 'svp-readonly',  
   'default' => '1',  
 ), 
   array(
@@ -552,7 +578,7 @@ array(
   'type'  => 'switcher',
   'title' => 'Setting button',
   'help' => esc_html__('Turn off to hide.','bPlugins'),
-  'class' => 'svp-readonly',  
+  // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),
   array(
@@ -568,7 +594,7 @@ array(
   'type'  => 'switcher',
   'title' => 'FullScreen button',
   'help' => esc_html__('Turn off to hide.','bPlugins'),
-  'class' => 'svp-readonly',  
+  // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),
   array(
@@ -582,7 +608,7 @@ array(
  array(
   'id'    => 'auto_hide',
   'type'  => 'switcher',
-  'class' => 'svp-readonly',  
+  // 'class' => 'svp-readonly',  
   'title' => 'Auto hide control',
   'help' => esc_html__('Hide video controls automatically after 2s of no mouse or focus. Turn off to keep controls visible always','bPlugins'),
   'default' => '1',  
@@ -595,11 +621,7 @@ array(
   'title' => 'Control shadow',
   'help' => esc_html__('Turn off to hide the shadow in the controls area.','bPlugins'),
   'default' => '1',  
-),
-
-
-	  
-    )
+),)
   ) );
 
 }

@@ -1,311 +1,149 @@
-import { settingImage, themeImage } from "./icons";
-
 const slug = "super-video-player";
-export const dashboardInfo = (info) => {
-  const { version, isPremium, hasPro } = info;
 
-  const proSuffix = isPremium ? " Pro" : "";
+export const dashboardInfo = (info) => {
+  const { version, isPremium, hasPro, licenseActiveNonce } = info;
+
+  const proSuffix = isPremium ? ' Pro' : '';
 
   return {
-    name: `Super Video Player${proSuffix}`,
-    displayName: `Super Video Player${proSuffix} - Fully Customizable Video Player with Playlist`,
+    name: `Super Video player${proSuffix}`,
+    displayName: `Super Video player${proSuffix} - Fully Customizable Video Player with Playlist`,
     description:
-      "Check out our simple video tutorial that guides you through using this plugin step-by-step!",
+      "Super Video Player is a flexible and fully responsive video player plugin for WordPress. It allows you to embed MP4 and other video formats with ease. You can customize the player to match your site design and support playback across all major browsers and devices. The plugin supports video embedding using shortcodes or Gutenberg blocks, making it easy to add video players to posts, pages, or widgets without writing any code. With built-in customization options, users can control video behavior such as autoplay, loop, mute, and more.",
     slug,
-    logo: `https://ps.w.org/${slug}/assets/icon-128x128.png`,
-    banner: `https://ps.w.org/${slug}/assets/banner-772x250.png`,
-    video: 'https://www.youtube.com/watch?v=LJym2Pe1h2k',
-    isYoutube: true,
     version,
     isPremium,
     hasPro,
+    displayOurPlugins: true,
+    media: {
+      logo: `https://ps.w.org/${slug}/assets/icon-128x128.png`,
+      banner: `https://ps.w.org/${slug}/assets/banner-772x250.png`,
+      thumbnail: `https://bplugins.com/wp-content/themes/b-technologies/assets/images/products/${slug}.png`,
+      // proThumbnail: `https://bplugins.com/wp-content/themes/b-technologies/assets/images/products/${slug}-pro.png`,
+      video: 'https://www.youtube.com/watch?v=LJym2Pe1h2k',
+      isYoutube: true
+    },
     pages: {
       org: `https://wordpress.org/plugins/${slug}/`,
       landing: `https://bplugins.com/products/${slug}/`,
       docs: `https://bplugins.com/docs/${slug}/`,
-      pricing: `https://bplugins.com/products/${slug}/#pricing`,
+      pricing: `https://bplugins.com/products/${slug}/pricing`,
     },
     freemius: {
       product_id: 6749,
       plan_id: 10994,
-      public_key: "pk_ebfc28616ca46b064866ea36660e0",
+      public_key: 'pk_ebfc28616ca46b064866ea36660e0'
     },
-    options: { title: "Super Video Player" }
-  };
-};
+
+    licenseActiveNonce,
+
+    changelogs: [
+      {
+        version: '1.8.8 – 3 March 26',
+        type: 'Update',
+        list: [
+          'Latest dashboard has been added.',
+          'Dashboard menu item rename',
+          'Latest pro alert modal has been added on the block',
+          'Quick theme added option on the block'
+        ]
+      },
+      {
+        version: '1.8.7 – 29 Dec, 2025',
+        type: 'Update',
+        list: [
+          'Caption custom styles features added.'
+        ]
+      },
+      {
+        version: '1.8.6 – 17 Nov, 2025',
+        type: 'New',
+        list: [
+          'Share button features added',
+        ]
+      },
+      {
+        version: '1.8.5 – 3 Nov, 2025',
+        type: 'Fixed',
+        list: [
+          'Customization Horizontal Layout',
+          'Added new features: Continuous Playback on Playlist option'
+        ]
+      }
+    ],
+
+    proFeatures: [
+      'Add multiple videos in a playlist and enable automatic continuous playback.',
+      'Choose from various modern layouts and fully customize the player’s appearance.',
+      'Show the video title and description above or below the player with full positioning control.',
+      'Customize font, size, color, and alignment of video titles and descriptions to match your website design.',
+      'Allow users to switch between different video quality options.',
+      'Show or hide individual player controls and set initial volume & seek time.',
+      'Enable built-in social sharing directly from the video player.'
+    ],
+
+    startButton: {
+      label: 'Start Now',
+      url: 'wp-admin/post-new.php?post_type=svplayer'
+    }
+  }
+}
 
 export const demoInfo = {
-  title: "Live Overview",
-  description: "Click on any section to view it live",
-  layout: "list",
-  allInOneLabel: "See All Demos",
-  allInOneLink: "https://wpvideoplayer.com/all-demos-in-one-place/",
+  allInOneLabel: 'See All Demos',
+  allInOneLink: 'https://wpvideoplayer.com/all-demos-in-one-place/',
   demos: [
     {
-      icon: settingImage,
-      title: "Admin Dashboard Preview",
-      description: "Displays of the video player within the admin dashboard.",
-      category: "",
-      type: "image",
-      url: "https://i.ibb.co.com/tTgC0BhY/screenshot-1.png",
+      "title": "Single Player - Default",
+      "description": "Clean player with basic controls.",
+      "url": "https://bblockswp.com/demo/super-video-player-single/",
+      "icon": (<svg stroke='#000' fill='#000' strokeWidth='0' viewBox='0 0 24 24' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'><path d='M5 9V7H7V9H5Z' fill='currentColor'></path><path d='M9 9H19V7H9V9Z' fill='currentColor'></path><path d='M5 15V17H7V15H5Z' fill='currentColor'></path><path d='M19 17H9V15H19V17Z' fill='currentColor'></path><path fillRule='evenodd' clipRule='evenodd' d='M1 6C1 4.34315 2.34315 3 4 3H20C21.6569 3 23 4.34315 23 6V18C23 19.6569 21.6569 21 20 21H4C2.34315 21 1 19.6569 1 18V6ZM4 5H20C20.5523 5 21 5.44772 21 6V11H3V6C3 5.44772 3.44772 5 4 5ZM3 13V18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18V13H3Z' fill='currentColor'></path></svg>),
+      "type": 'iframe'
     },
     {
-      icon: settingImage,
-      title: "Add New Video (ShortCode)",
-      description: "Creates video a shortcode for easy embedding.",
-      category: "",
-      type: "image",
-      url: "https://i.ibb.co.com/GvkmX86S/screenshot-2.png",
+      "title": "Playlist - Default",
+      "description": "Starts muted and plays automatically.",
+      "url": "https://bblockswp.com/demo/super-video-player-default-playlist/",
+      "icon": (<svg stroke='#000' fill='#000' strokeWidth='0' viewBox='0 0 24 24' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'><path d='M5 9V7H7V9H5Z' fill='currentColor'></path><path d='M9 9H19V7H9V9Z' fill='currentColor'></path><path d='M5 15V17H7V15H5Z' fill='currentColor'></path><path d='M19 17H9V15H19V17Z' fill='currentColor'></path><path fillRule='evenodd' clipRule='evenodd' d='M1 6C1 4.34315 2.34315 3 4 3H20C21.6569 3 23 4.34315 23 6V18C23 19.6569 21.6569 21 20 21H4C2.34315 21 1 19.6569 1 18V6ZM4 5H20C20.5523 5 21 5.44772 21 6V11H3V6C3 5.44772 3.44772 5 4 5ZM3 13V18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18V13H3Z' fill='currentColor'></path></svg>),
+      "type": 'iframe'
     },
     {
-      icon: settingImage,
-      title: "Configuration",
-      description: "Settings panel to manage and customize video player options.",
-      category: "",
-      type: "image",
-      url: "https://i.ibb.co.com/xtNT45ht/screenshot-3.png",
+      "title": "Playlist - Horizontal",
+      "description": "Resize player to fit your layout.",
+      "url": "https://bblockswp.com/demo/super-video-player-horizontal-playlist/",
+      "icon": (<svg stroke='#000' fill='#000' strokeWidth='0' viewBox='0 0 24 24' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'><path d='M5 9V7H7V9H5Z' fill='currentColor'></path><path d='M9 9H19V7H9V9Z' fill='currentColor'></path><path d='M5 15V17H7V15H5Z' fill='currentColor'></path><path d='M19 17H9V15H19V17Z' fill='currentColor'></path><path fillRule='evenodd' clipRule='evenodd' d='M1 6C1 4.34315 2.34315 3 4 3H20C21.6569 3 23 4.34315 23 6V18C23 19.6569 21.6569 21 20 21H4C2.34315 21 1 19.6569 1 18V6ZM4 5H20C20.5523 5 21 5.44772 21 6V11H3V6C3 5.44772 3.44772 5 4 5ZM3 13V18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18V13H3Z' fill='currentColor'></path></svg>),
+      "type": 'iframe'
     },
     {
-      icon: themeImage,
-      title: "Single Player Preview",
-      description: "Shows a preview of a single video item.",
-      category: "",
-      type: "image",
-      url: "https://i.ibb.co.com/RT7v4DvT/screenshot-4.png",
+      "title": "Playlist - Vertical",
+      "description": "Shows every available control option.",
+      "url": "https://bblockswp.com/demo/super-video-player-playlist-vertical/",
+      "icon": (<svg stroke='#000' fill='#000' strokeWidth='0' viewBox='0 0 24 24' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'><path d='M5 9V7H7V9H5Z' fill='currentColor'></path><path d='M9 9H19V7H9V9Z' fill='currentColor'></path><path d='M5 15V17H7V15H5Z' fill='currentColor'></path><path d='M19 17H9V15H19V17Z' fill='currentColor'></path><path fillRule='evenodd' clipRule='evenodd' d='M1 6C1 4.34315 2.34315 3 4 3H20C21.6569 3 23 4.34315 23 6V18C23 19.6569 21.6569 21 20 21H4C2.34315 21 1 19.6569 1 18V6ZM4 5H20C20.5523 5 21 5.44772 21 6V11H3V6C3 5.44772 3.44772 5 4 5ZM3 13V18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18V13H3Z' fill='currentColor'></path></svg>),
+      "type": 'iframe'
     },
     {
-      icon: themeImage,
-      title: "Preview Playlist - Default",
-      description: "Shows a default preview of the video playlist layout.",
-      category: "",
-      type: "image",
-      url: "https://i.ibb.co.com/x8hGbk2X/screenshot-5.png",
-    },
-    {
-      icon: themeImage,
-      title: "Preview Playlist - Horizontal",
-      description: "Shows a Horizontal preview of the video playlist layout.",
-      category: "",
-      type: "image",
-      url: "https://i.ibb.co.com/0jP1rh4t/screenshot-6.png",
-    },
-    {
-      icon: themeImage,
-      title: "Preview Playlist - Vertical",
-      description: "Shows a Vertical preview of the video playlist layout.",
-      category: "",
-      type: "image",
-      url: "https://i.ibb.co.com/4wGLpx7c/screenshot-7.png",
-    },
-    {
-      icon: themeImage,
-      title: "Preview Playlist - Grid",
-      description: "Shows a Grid preview of the video playlist layout.",
-      category: "",
-      type: "image",
-      url: "https://i.ibb.co.com/FbJtxy86/screenshot-8.png",
-    },
-    {
-      icon: settingImage,
-      title: "Gutenberg Block",
-      description: "Adds a Gutenberg editor posts and pages.",
-      category: "",
-      type: "image",
-      url: "https://i.ibb.co.com/twZ0yTSh/screenshot-9.png",
-    },
-    {
-      icon: settingImage,
-      title: "Gutenberg Block Settings",
-      description: "Provides customization in the Gutenberg editor.",
-      category: "",
-      type: "image",
-      url: "https://i.ibb.co.com/spf91KM7/screenshot-10.png",
-    },
-  ],
-};
-
+      "title": "Playlist - Grid",
+      "description": "Skip 2s and set preload behavior.",
+      "url": "https://bblockswp.com/demo/super-video-player-grid-playlist/",
+      "icon": (<svg stroke='#000' fill='#000' strokeWidth='0' viewBox='0 0 24 24' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'><path d='M5 9V7H7V9H5Z' fill='currentColor'></path><path d='M9 9H19V7H9V9Z' fill='currentColor'></path><path d='M5 15V17H7V15H5Z' fill='currentColor'></path><path d='M19 17H9V15H19V17Z' fill='currentColor'></path><path fillRule='evenodd' clipRule='evenodd' d='M1 6C1 4.34315 2.34315 3 4 3H20C21.6569 3 23 4.34315 23 6V18C23 19.6569 21.6569 21 20 21H4C2.34315 21 1 19.6569 1 18V6ZM4 5H20C20.5523 5 21 5.44772 21 6V11H3V6C3 5.44772 3.44772 5 4 5ZM3 13V18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18V13H3Z' fill='currentColor'></path></svg>),
+      "type": 'iframe'
+    }
+  ]
+}
 
 export const pricingInfo = {
-  cycles: [
-    {
-      cycle: "lifetime",
-      label: "Lifetime",
-      isDefault: true,
-    },
-  ],
-  plans: [
-    {
-      name: "Single Site",
-      quantity: 1,
-      prices: {
-        lifetime: "99",
-      },
-      pricePrefix: "",
-      priceSuffix: "",
-      isFeatured: false,
-      note: "",
-    },
-    {
-      name: "3 Sites",
-      quantity: 3,
-      prices: {
-        lifetime: "259.99",
-      },
-      pricePrefix: "",
-      priceSuffix: "",
-      isFeatured: true,
-      note: "",
-    },
-    {
-      name: "Unlimited Sites",
-      quantity: "null",
-      prices: {
-        lifetime: "989.99",
-      },
-      pricePrefix: "",
-      priceSuffix: "",
-      isFeatured: false,
-      note: "",
-    },
-  ],
-  features: [
-    "Multiple Layout Offers to customization",
-    "Add multiple videos to play a list of the videos",
-    "Video Quality Set for the video",
-    "Show/Hide every control of the video player",
-    "Set the Initial volume for the video",
-    "Set seek time in seconds",
-    "Variety Styles to Customization",
-    "Enable/Disable tooltips for the controls",
-    "All features available on the gutenberg block.",
-    "Click or tap on the video container will toggle the play/pause",
-    "Display the video’s title and description below or above the player.",
+  logo: `https://ps.w.org/${slug}/assets/icon-128x128.png`, // Optional
+  pluginId: 6749,
+  planId: 10994,
+  licenses: [
+    1,
+    3,
+    null
   ],
   button: {
-    label: "Buy Now ➜",
+    label: 'Buy Now ➜'
   },
   featured: {
-    text: "Best Value",
-  },
-};
-
-export const featureCompareInfo = {
-  title: "Features",
-  plans: [
-    {
-      id: "zxcvbnm", //important
-      name: "Free Plan",
-      color: "#485781",
-    },
-    {
-      id: "lhmjqhk", //important
-      name: `<span style='color: #485781;'>Pro Start from </span><span style='font-size: 1.3em;'>&dollar; 29/lifetime</span>`,
-      color: "#146EF5",
-    },
-  ],
-  features: [
-    {
-      label: "Live Stream – Play .m3u8 and .mpd file",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "Make the player look how you want with the markup you want",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "Full support for VTT captions and screen readers",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "Support multiple subtitle files for multiple languages",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "The video player is compact so it does not take a lot of real estate on your webpage",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "HTML5 compatible so the video files embedded with this plugin will play on iOS devices",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "Works on all major browsers -Edge, IE7, IE8, IE9, Safari, Firefox, Chrome",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "The video player is responsive. That means it works with any screen size",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "The player can be used to embed video files on your WordPress posts or pages",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "If you are selling video files from your site then you can use this plugin to offer a preview",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "Add the video player to any post/page using shortcode",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "Use autoPlay option to play a video file as soon as the page loads",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "You can play unlimited video",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "Support picture-in-picture mode",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "Powered by html5",
-      plans: ["zxcvbnm", "lhmjqhk"],
-    },
-    {
-      label: "Playlist: Add multiple videos to play a list of the videos",
-      plans: ["lhmjqhk"],
-    },
-    {
-      label: "Video Quality: Set different qualities for the video.",
-      plans: ["lhmjqhk"],
-    },
-    {
-      label: "Show/Hide every control of the video player",
-      plans: ["lhmjqhk"],
-    },
-    {
-      label: "Set the Initial volume for the video",
-    },
-    {
-      label: "Set seek time in seconds",
-      plans: ["lhmjqhk"],
-    },
-    {
-      label: "Click to play: Click or tap on the video container will toggle the play/pause",
-      plans: ["lhmjqhk"],
-    },
-    {
-      label: "Enable/Disable tooltips for the controls",
-      plans: ["lhmjqhk"],
-    },
-    {
-      label: "Multiple Layout Offers of variety of themes to the video player’s appearance.",
-      plans: ["lhmjqhk"],
-    },
-    {
-      label: "Video Title & Description: Display the video’s title and description below or above the player",
-      plans: ["lhmjqhk"],
-    },
-    {
-      label: "Variety Styles: Customize the font, size, color and alignment of the video title and description",
-      plans: ["lhmjqhk"],
-    },
-    {
-      label: "All features available on the gutenberg block",
-      plans: ["lhmjqhk"],
-    }
-  ],
-};
+    selected: 3, // choose from licenses item
+  }
+}

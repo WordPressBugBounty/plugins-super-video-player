@@ -1,23 +1,21 @@
-# Copyright (C) 2025 bPlugins
+# Copyright (C) 2026 bPlugins
 # This file is distributed under the same license as the Super Video Player plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Super Video Player 1.8.6\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/super-video-player-new\n"
+"Project-Id-Version: Super Video Player 1.8.8\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/super-video-player-premium\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-11-20T03:55:51+00:00\n"
+"POT-Creation-Date: 2026-03-11T04:17:06+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: svp\n"
 
 #. Plugin Name of the plugin
 #: super-video-player.php
-#: bundled/super-video-player/inc/PostType/SVPPlayer.php:136
-#: inc/PostType/SVPPlayer.php:136
 msgid "Super Video Player"
 msgstr ""
 
@@ -106,95 +104,70 @@ msgstr ""
 msgid "Video Tutorials"
 msgstr ""
 
-#: admin/inc/metabox-free.php:234
-#: bundled/super-video-player/admin/inc/metabox-free.php:234
-#: bundled/super-video-player/premium-files/metabox-pro.php:213
-#: premium-files/metabox-pro.php:213
+#: admin/inc/metabox-free.php:365
+#: bundled/super-video-player/admin/inc/metabox-free.php:365
+#: bundled/super-video-player/premium-files/metabox-pro.php:292
+#: premium-files/metabox-pro.php:292
 msgid "Border"
 msgstr ""
 
-#: admin/inc/metabox-free.php:241
-#: bundled/super-video-player/admin/inc/metabox-free.php:241
-#: bundled/super-video-player/premium-files/metabox-pro.php:219
-#: premium-files/metabox-pro.php:219
+#: admin/inc/metabox-free.php:372
+#: bundled/super-video-player/admin/inc/metabox-free.php:372
+#: bundled/super-video-player/premium-files/metabox-pro.php:298
+#: premium-files/metabox-pro.php:298
 msgid "Border Width"
 msgstr ""
 
-#: admin/inc/metabox-free.php:248
-#: bundled/super-video-player/admin/inc/metabox-free.php:248
-#: bundled/super-video-player/premium-files/metabox-pro.php:226
-#: premium-files/metabox-pro.php:226
+#: admin/inc/metabox-free.php:379
+#: bundled/super-video-player/admin/inc/metabox-free.php:379
+#: bundled/super-video-player/premium-files/metabox-pro.php:305
+#: premium-files/metabox-pro.php:305
 msgid "Border Style"
 msgstr ""
 
-#: admin/inc/metabox-free.php:250
-#: bundled/super-video-player/admin/inc/metabox-free.php:250
-#: bundled/super-video-player/premium-files/metabox-pro.php:228
-#: premium-files/metabox-pro.php:228
+#: admin/inc/metabox-free.php:381
+#: bundled/super-video-player/admin/inc/metabox-free.php:381
+#: bundled/super-video-player/premium-files/metabox-pro.php:307
+#: premium-files/metabox-pro.php:307
 msgid "None"
 msgstr ""
 
-#: admin/inc/metabox-free.php:251
-#: bundled/super-video-player/admin/inc/metabox-free.php:251
-#: bundled/super-video-player/premium-files/metabox-pro.php:229
-#: premium-files/metabox-pro.php:229
+#: admin/inc/metabox-free.php:382
+#: bundled/super-video-player/admin/inc/metabox-free.php:382
+#: bundled/super-video-player/premium-files/metabox-pro.php:308
+#: premium-files/metabox-pro.php:308
 msgid "Solid"
 msgstr ""
 
-#: admin/inc/metabox-free.php:252
-#: bundled/super-video-player/admin/inc/metabox-free.php:252
-#: bundled/super-video-player/premium-files/metabox-pro.php:230
-#: premium-files/metabox-pro.php:230
+#: admin/inc/metabox-free.php:383
+#: bundled/super-video-player/admin/inc/metabox-free.php:383
+#: bundled/super-video-player/premium-files/metabox-pro.php:309
+#: premium-files/metabox-pro.php:309
 msgid "Dashed"
 msgstr ""
 
-#: admin/inc/metabox-free.php:253
-#: bundled/super-video-player/admin/inc/metabox-free.php:253
-#: bundled/super-video-player/premium-files/metabox-pro.php:231
-#: premium-files/metabox-pro.php:231
+#: admin/inc/metabox-free.php:384
+#: bundled/super-video-player/admin/inc/metabox-free.php:384
+#: bundled/super-video-player/premium-files/metabox-pro.php:310
+#: premium-files/metabox-pro.php:310
 msgid "Dotted"
 msgstr ""
 
-#: admin/inc/metabox-free.php:261
-#: bundled/super-video-player/admin/inc/metabox-free.php:261
-#: bundled/super-video-player/premium-files/metabox-pro.php:239
-#: premium-files/metabox-pro.php:239
+#: admin/inc/metabox-free.php:392
+#: bundled/super-video-player/admin/inc/metabox-free.php:392
+#: bundled/super-video-player/premium-files/metabox-pro.php:318
+#: premium-files/metabox-pro.php:318
 msgid "Border Color"
 msgstr ""
 
-#: admin/inc/metabox-free.php:268
-#: bundled/super-video-player/admin/inc/metabox-free.php:268
-#: bundled/super-video-player/premium-files/metabox-pro.php:246
-#: premium-files/metabox-pro.php:246
+#: admin/inc/metabox-free.php:399
+#: bundled/super-video-player/admin/inc/metabox-free.php:399
+#: bundled/super-video-player/premium-files/metabox-pro.php:325
+#: premium-files/metabox-pro.php:325
 msgid "Border Radius"
 msgstr ""
 
-#: bundled/super-video-player/inc/PostType/SVPPlayer.php:137
-#: inc/PostType/SVPPlayer.php:137
-msgid "Supports"
-msgstr ""
-
-#: bundled/super-video-player/inc/PostType/SVPPlayer.php:140
-#: inc/PostType/SVPPlayer.php:140
-msgid "Shortcode"
-msgstr ""
-
-#: bundled/super-video-player/inc/PostType/SVPPlayer.php:141
-#: inc/PostType/SVPPlayer.php:141
-msgid "Copy and paste this shortcode into your posts, pages and widget:"
-msgstr ""
-
-#: bundled/super-video-player/inc/PostType/SVPPlayer.php:145
-#: inc/PostType/SVPPlayer.php:145
-msgid "Template Include"
-msgstr ""
-
-#: bundled/super-video-player/inc/PostType/SVPPlayer.php:146
-#: inc/PostType/SVPPlayer.php:146
-msgid "Copy and paste the PHP code into your template file:"
-msgstr ""
-
-#: bundled/super-video-player/inc/PostType/SVPPlayer.php:183
-#: inc/PostType/SVPPlayer.php:183
-msgid "Please show some love"
+#: bundled/super-video-player/inc/PostType/SVPPlayer.php:144
+#: inc/PostType/SVPPlayer.php:144
+msgid "Copy and paste this shortcode into your posts, pages and widget"
 msgstr ""

@@ -4,7 +4,7 @@
  * Plugin Name: Super Video Player 
  * Plugin URI:  https://bplugins.com/super-video-player
  * Description: A fully customizable video player for wordpress.
- * Version: 1.8.7
+ * Version: 1.8.8
  * Author: bPlugins
  * Author URI: http://bplugins.com
  * Text Domain:  svp
@@ -28,24 +28,25 @@ if ( function_exists( 'svp_fs' ) ) {
                 // Include Freemius SDK.
                 require_once dirname( __FILE__ ) . '/freemius/start.php';
                 $svp_fs = fs_dynamic_init( array(
-                    'id'             => '6749',
-                    'slug'           => 'super-video-player',
-                    'type'           => 'plugin',
-                    'public_key'     => 'pk_ebfc28616ca46b064866ea36660e0',
-                    'is_premium'     => false,
-                    'premium_suffix' => 'Pro',
-                    'has_addons'     => false,
-                    'has_paid_plans' => true,
-                    'trial'          => array(
+                    'id'               => '6749',
+                    'slug'             => 'super-video-player',
+                    'type'             => 'plugin',
+                    'public_key'       => 'pk_ebfc28616ca46b064866ea36660e0',
+                    'is_premium'       => false,
+                    'premium_suffix'   => 'Pro',
+                    'has_addons'       => false,
+                    'has_paid_plans'   => true,
+                    'trial'            => array(
                         'days'               => 7,
                         'is_require_payment' => false,
                     ),
-                    'menu'           => array(
+                    'menu'             => array(
                         'slug'       => 'edit.php?post_type=svplayer',
                         'first-path' => 'edit.php?post_type=svplayer&page=svplayer',
                         'network'    => true,
                     ),
-                    'is_live'        => true,
+                    'is_live'          => true,
+                    'is_org_compliant' => true,
                 ) );
             }
             return $svp_fs;
@@ -71,10 +72,13 @@ if ( function_exists( 'svp_fs' ) ) {
     /*Some Set-up*/
     define( 'SVP_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
     define( 'SVP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-    define( 'SVP_VERSION', '1.8.7' );
+    define( 'SVP_VERSION', '1.8.8' );
     /* JS*/
     // Inc  common
     include_once 'admin/blocks/init.php';
     require_once 'admin/codestar-framework/codestar-framework.php';
     require_once "inc/Dashboard.php";
+    if ( 'super-video-player-premium/super-video-player.php' === plugin_basename( __FILE__ ) ) {
+        require_once 'premium-files/LicenseActivation.php';
+    }
 }
