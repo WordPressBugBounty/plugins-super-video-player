@@ -1,8 +1,8 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "svp/video-player",
-  "version": "1.0.0",
+  "version": "1.8.9",
   "title": "Super Video Player",
   "category": "widgets",
   "description": "Super Video Player – A powerful WordPress video player.",
@@ -277,7 +277,10 @@
     "hls",
     "dash"
   ],
-  "editorStyle": "file:./index.css",
+  "editorStyle": [
+    "file:./index.css",
+    "plyrIoCSS"
+  ],
   "style": [
     "file:./view.css",
     "plyrIoCSS"

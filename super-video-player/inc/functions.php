@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 if (!function_exists('get_meta')) {
     function get_meta($id, $key, $default = null)
@@ -18,21 +21,6 @@ if (!function_exists('get__meta')) {
         return function ($key) use ($id) {
             return get_post_meta($id, $key, true);
         };
-    }
-}
-if (!function_exists('process_controls')) {
-    function process_controls($pid, $metaid, $optionkey)
-    {
-        $stat = get_post_meta($pid, $metaid, true);
-        if (empty($stat)) {
-            if ($stat == '1') {
-                return $optionkey;
-            }
-            if ($stat == '0') {
-                return null;
-            }
-        }
-        return $optionkey;
     }
 }
 

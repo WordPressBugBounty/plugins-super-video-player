@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 /*-------------------------------------------------------------------------------*/
 /* Lets register our shortcode
 /*-------------------------------------------------------------------------------*/
@@ -15,9 +18,10 @@ if(!function_exists('get_meta')){
 }
 if (!defined('SVP_PRO')) {
 	function svp_shortcode_func_free($attrs){
-		extract( shortcode_atts( array(
+		$atts = shortcode_atts( array(
 			'id' => null,
-		), $attrs ) ); 
+		), $attrs ); 
+		$id = $atts['id'];
 
 		$post_type = get_post_type($id);
 		if($post_type != 'svplayer'){

@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Super Video Player plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Super Video Player 1.8.8\n"
+"Project-Id-Version: Super Video Player 1.8.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/super-video-player-premium\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-11T04:17:06+00:00\n"
+"POT-Creation-Date: 2026-07-23T05:43:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: svp\n"
@@ -39,135 +39,51 @@ msgstr ""
 msgid "http://bplugins.com"
 msgstr ""
 
-#: admin/inc/help-usages.php:29
-#: bundled/super-video-player/admin/inc/help-usages.php:29
-msgid "Help & Supports"
-msgstr ""
-
-#: admin/inc/help-usages.php:41
-#: bundled/super-video-player/admin/inc/help-usages.php:41
-msgid "Need any Assistance?"
-msgstr ""
-
-#: admin/inc/help-usages.php:42
-#: bundled/super-video-player/admin/inc/help-usages.php:42
-msgid "Our Expert Support Team is always ready to help you out promptly."
-msgstr ""
-
-#: admin/inc/help-usages.php:44
-#: bundled/super-video-player/admin/inc/help-usages.php:44
-msgid "Contact Support"
-msgstr ""
-
-#: admin/inc/help-usages.php:50
-#: bundled/super-video-player/admin/inc/help-usages.php:50
-msgid "Looking for Documentation?"
-msgstr ""
-
-#: admin/inc/help-usages.php:51
-#: bundled/super-video-player/admin/inc/help-usages.php:51
-msgid "We have detailed documentation on every aspects of HTML5 Video Player."
-msgstr ""
-
-#: admin/inc/help-usages.php:52
-#: bundled/super-video-player/admin/inc/help-usages.php:52
-msgid "Documentation"
-msgstr ""
-
-#: admin/inc/help-usages.php:58
-#: bundled/super-video-player/admin/inc/help-usages.php:58
-msgid "Like This Plugin?"
-msgstr ""
-
-#: admin/inc/help-usages.php:59
-#: bundled/super-video-player/admin/inc/help-usages.php:59
-msgid "If you like Super Video Player, please leave us a 5 &#11088; rating."
-msgstr ""
-
-#: admin/inc/help-usages.php:61
-#: bundled/super-video-player/admin/inc/help-usages.php:61
-msgid "Rate the Plugin"
-msgstr ""
-
-#: admin/inc/help-usages.php:72
-#: bundled/super-video-player/admin/inc/help-usages.php:72
-msgid "Looking For Demo?"
-msgstr ""
-
-#: admin/inc/help-usages.php:72
-#: bundled/super-video-player/admin/inc/help-usages.php:72
-msgid "Click Here"
-msgstr ""
-
-#: admin/inc/help-usages.php:83
-#: bundled/super-video-player/admin/inc/help-usages.php:83
-msgid "Video Tutorials"
-msgstr ""
-
-#: admin/inc/metabox-free.php:365
-#: bundled/super-video-player/admin/inc/metabox-free.php:365
-#: bundled/super-video-player/premium-files/metabox-pro.php:292
-#: premium-files/metabox-pro.php:292
+#: inc/metabox-free.php:368
+#: premium-files/metabox-pro.php:283
 msgid "Border"
 msgstr ""
 
-#: admin/inc/metabox-free.php:372
-#: bundled/super-video-player/admin/inc/metabox-free.php:372
-#: bundled/super-video-player/premium-files/metabox-pro.php:298
-#: premium-files/metabox-pro.php:298
+#: inc/metabox-free.php:375
+#: premium-files/metabox-pro.php:289
 msgid "Border Width"
 msgstr ""
 
-#: admin/inc/metabox-free.php:379
-#: bundled/super-video-player/admin/inc/metabox-free.php:379
-#: bundled/super-video-player/premium-files/metabox-pro.php:305
-#: premium-files/metabox-pro.php:305
+#: inc/metabox-free.php:382
+#: premium-files/metabox-pro.php:296
 msgid "Border Style"
 msgstr ""
 
-#: admin/inc/metabox-free.php:381
-#: bundled/super-video-player/admin/inc/metabox-free.php:381
-#: bundled/super-video-player/premium-files/metabox-pro.php:307
-#: premium-files/metabox-pro.php:307
+#: inc/metabox-free.php:384
+#: premium-files/metabox-pro.php:298
 msgid "None"
 msgstr ""
 
-#: admin/inc/metabox-free.php:382
-#: bundled/super-video-player/admin/inc/metabox-free.php:382
-#: bundled/super-video-player/premium-files/metabox-pro.php:308
-#: premium-files/metabox-pro.php:308
+#: inc/metabox-free.php:385
+#: premium-files/metabox-pro.php:299
 msgid "Solid"
 msgstr ""
 
-#: admin/inc/metabox-free.php:383
-#: bundled/super-video-player/admin/inc/metabox-free.php:383
-#: bundled/super-video-player/premium-files/metabox-pro.php:309
-#: premium-files/metabox-pro.php:309
+#: inc/metabox-free.php:386
+#: premium-files/metabox-pro.php:300
 msgid "Dashed"
 msgstr ""
 
-#: admin/inc/metabox-free.php:384
-#: bundled/super-video-player/admin/inc/metabox-free.php:384
-#: bundled/super-video-player/premium-files/metabox-pro.php:310
-#: premium-files/metabox-pro.php:310
+#: inc/metabox-free.php:387
+#: premium-files/metabox-pro.php:301
 msgid "Dotted"
 msgstr ""
 
-#: admin/inc/metabox-free.php:392
-#: bundled/super-video-player/admin/inc/metabox-free.php:392
-#: bundled/super-video-player/premium-files/metabox-pro.php:318
-#: premium-files/metabox-pro.php:318
+#: inc/metabox-free.php:395
+#: premium-files/metabox-pro.php:309
 msgid "Border Color"
 msgstr ""
 
-#: admin/inc/metabox-free.php:399
-#: bundled/super-video-player/admin/inc/metabox-free.php:399
-#: bundled/super-video-player/premium-files/metabox-pro.php:325
-#: premium-files/metabox-pro.php:325
+#: inc/metabox-free.php:402
+#: premium-files/metabox-pro.php:316
 msgid "Border Radius"
 msgstr ""
 
-#: bundled/super-video-player/inc/PostType/SVPPlayer.php:144
-#: inc/PostType/SVPPlayer.php:144
+#: inc/PostType/SVPPlayer.php:150
 msgid "Copy and paste this shortcode into your posts, pages and widget"
 msgstr ""

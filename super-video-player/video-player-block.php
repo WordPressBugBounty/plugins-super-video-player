@@ -1,4 +1,7 @@
 <?php
+if (!defined('ABSPATH')) {
+	exit;
+}
 
 if (!class_exists('SVPPlugin')) {
 	class SVPPlugin
@@ -17,6 +20,15 @@ if (!class_exists('SVPPlugin')) {
 			wp_register_script('hls',SVP_PLUGIN_DIR . 'assets/js/hls.js',array(),SVP_VERSION,false);
 
 			wp_register_script('dash', SVP_PLUGIN_DIR . 'assets/js/dash.all.min.js', array(), SVP_VERSION, false );
+
+			wp_localize_script(
+				'plyrIoJS',
+				'SVP_DATA',
+				array(
+					'isPremium' => function_exists('svp_fs') ? svp_fs()->can_use_premium_code() : false,
+					'iconUrl'   => SVP_PLUGIN_DIR . 'assets/images/plyr.svg',
+				)
+			);
 		}
 
 		function onInit()

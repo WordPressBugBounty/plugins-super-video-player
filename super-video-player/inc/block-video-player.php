@@ -1,4 +1,7 @@
 <?php
+if (!defined('ABSPATH')) {
+	exit;
+}
 
 $video_playlist = get_meta($id, 'video_playlist', []);
 $video_quality = get_meta($id, 'video_quality', []);
@@ -17,13 +20,6 @@ $caption_styles = wp_parse_args($caption_styles_meta, [
     ],
 ]);
 
-// foreach ($video_quality as $quality) {
-//     $qualities[] = [
-//         'source' => $quality['vid_src'] ?? '',
-//         'size' => $quality['vid_size'] ?? '',
-//     ];
-// }
-
 $qualities = [];
 foreach ($video_quality as $quality) {
     $qualities[] = [
@@ -31,17 +27,6 @@ foreach ($video_quality as $quality) {
         'size' => $quality['vid_size'] ?? '',
     ];
 }
-
-// foreach ($video_caption as $caption) {
-
-//     $label = explode('/', $caption['label']);
-
-//     $captions[] = [
-//         'source' => $caption['vtt'],
-//         'label' => isset($label[0]) ? $label[0] : '',
-//         'srclang' => isset($label[1]) ? $label[1] : '',
-//     ];
-// }
 
 $captions = [];
 foreach ($video_caption as $caption) {
@@ -197,13 +182,7 @@ $attributes = [
             'mobile' => 10
         ]
     ],
-'descriptionTypo' => [
-        'fontSize' => [
-            'desktop' => 14,
-            'tablet' => 12,
-            'mobile' => 10
-        ]
-    ],
+
 'viewersTypo' => [
         'fontSize' => [
             'desktop' => 14,

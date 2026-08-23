@@ -4,7 +4,7 @@
  * Plugin Name: Super Video Player 
  * Plugin URI:  https://bplugins.com/super-video-player
  * Description: A fully customizable video player for wordpress.
- * Version: 1.8.8
+ * Version: 1.8.9
  * Author: bPlugins
  * Author URI: http://bplugins.com
  * Text Domain:  svp
@@ -26,7 +26,7 @@ if ( function_exists( 'svp_fs' ) ) {
                     define( 'WP_FS__PRODUCT_6749_MULTISITE', true );
                 }
                 // Include Freemius SDK.
-                require_once dirname( __FILE__ ) . '/freemius/start.php';
+                require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
                 $svp_fs = fs_dynamic_init( array(
                     'id'               => '6749',
                     'slug'             => 'super-video-player',
@@ -41,8 +41,8 @@ if ( function_exists( 'svp_fs' ) ) {
                         'is_require_payment' => false,
                     ),
                     'menu'             => array(
-                        'slug'       => 'edit.php?post_type=svplayer',
-                        'first-path' => 'edit.php?post_type=svplayer&page=svplayer',
+                        'slug'       => 'edit.php?post_type=svplayer&page=svplayer#/welcome',
+                        'first-path' => 'edit.php?post_type=svplayer&page=svplayer#/welcome',
                         'network'    => true,
                     ),
                     'is_live'          => true,
@@ -64,21 +64,60 @@ if ( function_exists( 'svp_fs' ) ) {
     function svp_load_textdomain() {
         load_plugin_textdomain( 'svp', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
         if ( svp_fs()->is_free_plan() ) {
-            require_once 'admin/inc/metabox-free.php';
-            require_once 'inc/shortcode-free.php';
+            require_once __DIR__ . '/inc/metabox-free.php';
+            require_once __DIR__ . '/inc/shortcode-free.php';
+        }
+        if ( svp_fs()->can_use_premium_code() ) {
+            require_once __DIR__ . '/premium-files/metabox-pro.php';
         }
     }
 
     /*Some Set-up*/
     define( 'SVP_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
     define( 'SVP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-    define( 'SVP_VERSION', '1.8.8' );
+    define( 'SVP_VERSION', '1.8.9' );
+    define( 'SVP_HAS_PRO', 'super-video-player-premium/super-video-player.php' === plugin_basename( __FILE__ ) );
     /* JS*/
     // Inc  common
-    include_once 'admin/blocks/init.php';
-    require_once 'admin/codestar-framework/codestar-framework.php';
-    require_once "inc/Dashboard.php";
-    if ( 'super-video-player-premium/super-video-player.php' === plugin_basename( __FILE__ ) ) {
-        require_once 'premium-files/LicenseActivation.php';
+    require_once __DIR__ . '/inc/init.php';
+    require_once __DIR__ . '/vendor/codestar-framework/codestar-framework.php';
+    require_once __DIR__ . '/inc/Dashboard.php';
+    if ( SVP_HAS_PRO ) {
+        require_once __DIR__ . '/premium-files/LicenseActivation.php';
+    }
+    if ( svp_fs()->can_use_premium_code() ) {
+        require_once __DIR__ . '/premium-files/shortcode-pro.php';
+        require_once __DIR__ . '/premium-files/settings-fields.php';
+        require_once __DIR__ . '/premium-files/playlist.php';
+        require_once __DIR__ . '/premium-files/widgets.php';
+        require_once __DIR__ . '/premium-files/blocks/init.php';
+        function svp_block_admin_script() {
+            // Plyr CSS
+            wp_enqueue_style(
+                'plyrIoCSS',
+                SVP_PLUGIN_DIR . 'assets/css/plyr.css',
+                array(),
+                SVP_VERSION
+            );
+            // Plyr JS
+            wp_enqueue_script(
+                'plyrIoJS',
+                SVP_PLUGIN_DIR . 'assets/js/plyr.js',
+                array(),
+                SVP_VERSION,
+                true
+            );
+            $is_premium = svp_fs()->can_use_premium_code();
+            $GLOBALS['svp_is_premium'] = $is_premium;
+            wp_localize_script( 'plyrIoJS', 'SVP_DATA', array(
+                'isPremium' => $is_premium,
+                'iconUrl'   => SVP_PLUGIN_DIR . 'assets/images/plyr.svg',
+            ) );
+        }
+
+        // Frontend
+        add_action( 'wp_enqueue_scripts', 'svp_block_admin_script' );
+        // Backend (Gutenberg Editor)
+        add_action( 'enqueue_block_editor_assets', 'svp_block_admin_script' );
     }
 }

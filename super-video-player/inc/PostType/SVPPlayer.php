@@ -1,5 +1,10 @@
 <?php
 namespace HTML5Player\PostType;
+
+if (!defined('ABSPATH')) {
+	exit;
+}
+
 class SVPPlayer{
     protected static $_instance = null;
     protected static $post_type = 'svplayer';
@@ -62,7 +67,7 @@ class SVPPlayer{
             'exclude_from_search' => true,
             'show_in_rest'        => true,
             'menu_position'       => 14,
-            'menu_icon'           => SVP_PLUGIN_DIR . 'img/icon.png',
+            'menu_icon'           => SVP_PLUGIN_DIR . 'assets/images/icon.png',
             'has_archive'         => false,
             'hierarchical'        => false,
             'capability_type'     => 'page',
@@ -101,9 +106,10 @@ class SVPPlayer{
         <div id='svpPlayerDashboard'
          data-info="<?php echo esc_attr( wp_json_encode([
             'version' => SVP_VERSION,
-            'isPremium' => svp_fs()->can_use_premium_code__premium_only(),
-            'hasPro'               => svp_fs()->is_premium(),
+            'isPremium'  => svp_fs()->can_use_premium_code(),
+            'hasPro'               => SVP_HAS_PRO,
             'licenseActiveNonce'   => wp_create_nonce('bPlLicenseActivation'),
+            'adminUrl' => admin_url(),
         ]) ); ?>"></div>
     <?php }
 
