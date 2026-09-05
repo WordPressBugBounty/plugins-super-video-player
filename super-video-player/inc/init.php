@@ -10,33 +10,45 @@ add_action( 'init', function () {
 } );
 
 function render_svp_block_free_existing( $attributes ) {
-    $align          = isset( $attributes['align'] ) ? $attributes['align'] : 'full';
-    $contentAlign   = isset( $attributes['contentAlign'] ) ? $attributes['contentAlign'] : 'left';
-    $selectedPlayer = isset( $attributes['selectedPlayer'] ) ? $attributes['selectedPlayer'] : '';
+    $align        = isset( $attributes['align'] ) ? $attributes['align'] : 'full';
+    $contentAlign = isset( $attributes['contentAlign'] ) ? $attributes['contentAlign'] : 'left';
 
-    $alignClass = '' == $align ? '' : 'align' . $align;
+    // Player reference is a post ID; absint() means it can never break out of
+    // the shortcode attribute below. 0 stands for "nothing selected".
+    $selected_player = isset( $attributes['selectedPlayer'] ) ? absint( $attributes['selectedPlayer'] ) : 0;
+
+    // Allowlist both presentational values rather than only escaping them:
+    // esc_attr() stops attribute breakout but still permits CSS injection
+    // inside a style="" attribute.
+    $allowed_aligns = array( 'left', 'center', 'right', 'justify' );
+    if ( ! in_array( $contentAlign, $allowed_aligns, true ) ) {
+        $contentAlign = 'left';
+    }
+
+    $allowed_block_aligns = array( 'left', 'center', 'right', 'wide', 'full' );
+    $align_class          = in_array( $align, $allowed_block_aligns, true ) ? 'align' . $align : '';
 
     ob_start();
-    echo '<div class="svp_block_free_existing ' . esc_html( $alignClass) . '" style="text-align:' . esc_html($contentAlign) . ';">';
 
-    if ( 'empty' == $selectedPlayer && current_user_can( 'edit_posts' ) ) {
-        echo 'No Video Player is Selected';
-    } elseif ( !$selectedPlayer && current_user_can( 'edit_posts' ) ) {
-        echo 'No Video Player is Selected';
-    } elseif ( 'empty' == $selectedPlayer || !$selectedPlayer ) {
-        echo '';
-    } else {
-        echo do_shortcode( "[vplayer id=$selectedPlayer]" );
+    printf(
+        '<div class="%1$s" style="text-align:%2$s;">',
+        esc_attr( trim( 'svp_block_free_existing ' . $align_class ) ),
+        esc_attr( $contentAlign )
+    );
+
+    if ( $selected_player ) {
+        echo do_shortcode( sprintf( '[vplayer id="%d"]', $selected_player ) );
+    } elseif ( current_user_can( 'edit_posts' ) ) {
+        echo esc_html__( 'No Video Player is Selected', 'svp' );
     }
-  
+
     echo '</div>';
     return ob_get_clean();
 }
 
-// Call custom script
-function svp_block_free_script() {
-    if ( file_exists( SVP_PLUGIN_PATH . 'assets/js/block-script.js' ) ) {
-        wp_enqueue_script( 'block-script', SVP_PLUGIN_DIR . 'assets/js/block-script.js', array( 'jquery' ), SVP_VERSION, true );
-    }
-}
-add_action( 'wp_enqueue_scripts', 'svp_block_free_script' );
+/*
+ * assets/js/block-script.js used to be enqueued here on every front-end page,
+ * with jQuery as a dependency. It only ever restyled ".wp-block-svp-create",
+ * a class no version of this plugin renders, so it did nothing but pull jQuery
+ * onto pages that had no other need for it. Both are gone.
+ */

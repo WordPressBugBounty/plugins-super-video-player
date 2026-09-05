@@ -147,7 +147,7 @@ class SVPPlayer{
         
         <div class="svp-shortcode-wrapper">
             <span class="svp-shortcode-text">
-                <?php _e("Copy and paste this shortcode into your posts, pages and widget", "svp"); ?>
+                <?php esc_html_e( "Copy and paste this shortcode into your posts, pages and widget", "svp" ); ?>
             </span>
 
             <div class="svp-shortcode-box">

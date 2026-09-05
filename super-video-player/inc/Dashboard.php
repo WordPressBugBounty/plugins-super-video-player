@@ -10,7 +10,9 @@ if( !class_exists('svplayerDashboard') ){
 		}
 
 		function adminEnqueueScripts( $hook ) {
-			if( str_contains( $hook, 'svplayer' ) ){
+			// strpos(), not str_contains(): the plugin supports PHP 7.4 and
+			// str_contains() is PHP 8.0+, so it fataled on every admin page load.
+			if ( is_string( $hook ) && false !== strpos( $hook, 'svplayer' ) ) {
 				$asset_file = file_exists(SVP_PLUGIN_PATH . 'build/dashboard.asset.php') 
 					? include(SVP_PLUGIN_PATH . 'build/dashboard.asset.php') 
 					: ['dependencies' => ['react', 'react-dom', 'wp-components', 'wp-api-fetch', 'wp-data'], 'version' => SVP_VERSION];

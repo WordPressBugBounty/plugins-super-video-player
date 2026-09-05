@@ -10,7 +10,6 @@ class EnqueueAssets{
 
     public function __construct(){
         add_action("admin_enqueue_scripts", [$this, 'adminAssets']);
-        add_action("wp_enqueue_scripts", [$this, 'publicAssets']);
     }
 
     /**
@@ -30,14 +29,19 @@ class EnqueueAssets{
         wp_enqueue_style('svp-admin',  SVP_PLUGIN_DIR . 'assets/admin/css/style.css',array(),SVP_VERSION);
     }
 
-    /**
-     * Enqueue Public Assets
+    /*
+     * There is deliberately no front-end enqueue here.
+     *
+     * This class used to load assets/public/js/super-video.js (a byte-identical
+     * copy of Plyr) and assets/public/css/player-style.css (a byte-identical
+     * copy of plyr.css) on EVERY front-end request, in the header, whether or
+     * not the page contained a player. Both files have been deleted.
+     *
+     * Plyr is now loaded once, only when a player is actually rendered, via
+     * block.json (viewScript -> plyrIoJS, style -> plyrIoCSS). Those handles are
+     * registered in video-player-block.php::enqueueBlockAssets(). The shortcode
+     * and widget paths go through render_block(), so they are covered too.
      */
-    public function publicAssets($hook){
-        wp_enqueue_script('bplugins-plyrio', SVP_PLUGIN_DIR . 'assets/public/js/super-video.js',array(), SVP_VERSION,false );
-
-        wp_enqueue_style( 'bplugins-plyrio', SVP_PLUGIN_DIR . 'assets/public/css/player-style.css', array(), SVP_VERSION,  'all' );
-    }
 }
 
 EnqueueAssets::instance();

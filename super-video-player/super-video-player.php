@@ -4,9 +4,13 @@
  * Plugin Name: Super Video Player 
  * Plugin URI:  https://bplugins.com/super-video-player
  * Description: A fully customizable video player for wordpress.
- * Version: 1.8.9
+ * Version: 1.8.10
+ * Requires at least: 6.5
+ * Requires PHP: 7.4
  * Author: bPlugins
  * Author URI: http://bplugins.com
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:  svp
  * Domain Path:  /languages
  */
@@ -75,7 +79,7 @@ if ( function_exists( 'svp_fs' ) ) {
     /*Some Set-up*/
     define( 'SVP_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
     define( 'SVP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-    define( 'SVP_VERSION', '1.8.9' );
+    define( 'SVP_VERSION', '1.8.10' );
     define( 'SVP_HAS_PRO', 'super-video-player-premium/super-video-player.php' === plugin_basename( __FILE__ ) );
     /* JS*/
     // Inc  common
@@ -88,9 +92,7 @@ if ( function_exists( 'svp_fs' ) ) {
     if ( svp_fs()->can_use_premium_code() ) {
         require_once __DIR__ . '/premium-files/shortcode-pro.php';
         require_once __DIR__ . '/premium-files/settings-fields.php';
-        require_once __DIR__ . '/premium-files/playlist.php';
         require_once __DIR__ . '/premium-files/widgets.php';
-        require_once __DIR__ . '/premium-files/blocks/init.php';
         function svp_block_admin_script() {
             // Plyr CSS
             wp_enqueue_style(
@@ -115,9 +117,16 @@ if ( function_exists( 'svp_fs' ) ) {
             ) );
         }
 
-        // Frontend
-        add_action( 'wp_enqueue_scripts', 'svp_block_admin_script' );
-        // Backend (Gutenberg Editor)
+        /*
+         * Editor only.
+         *
+         * This was also hooked to wp_enqueue_scripts, which loaded Plyr on every
+         * front-end page of a Pro site even when no player was present -- and a
+         * second time, because block.json already lists plyrIoJS in viewScript.
+         * The block registration handles the front end (including the shortcode
+         * and widget paths, which render through render_block()), and localises
+         * SVP_DATA onto the same handle in video-player-block.php.
+         */
         add_action( 'enqueue_block_editor_assets', 'svp_block_admin_script' );
     }
 }

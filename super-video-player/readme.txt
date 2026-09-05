@@ -1,24 +1,24 @@
-=== Super Video player – play your videos with playlists and subtitles ===
-Contributors: bplugins, freemius, shehabulislam, asadsuzan
+=== Super Video player – Fully Customizable Video Player with Playlist ===
+Contributors: bplugins, freemius, asadsuzan
 Tags: video player, html5 video player, mp4 player, responsive video, gutenberg block
-Requires at least: 6.5+
-Tested up to: 7.0
-Stable tag: 1.8.9
+Requires at least: 6.5
+Tested up to: 7.1
+Stable tag: 1.8.10
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Embed self-hosted MP4, OGG, HLS (.m3u8), and DASH videos with a responsive video player featuring playlists, subtitles, and Gutenberg support.
+Embed self-hosted MP4, HLS (.m3u8), and DASH videos with a responsive video player featuring playlists, subtitles, and Gutenberg support.
 
 
 == Description ==
 
-**The #1 No-Code Video Player Plugin – Trusted by 3000+ Websites Worldwide**
+**A No-Code Video Player Plugin – Trusted by 2,000+ Websites Worldwide**
 
 [**Super Video Player**](https://bplugins.com/products/super-video-player/) | [**Documentation**](https://bplugins.com/docs/super-video-player/) | [**Pricing**](https://bplugins.com/products/super-video-player/pricing/) | [**Support**](https://bplugins.com/support/) | [**Demo**](https://bplugins.com/products/super-video-player/#demos) | [Video Tutorial](https://www.youtube.com/watch?v=LJym2Pe1h2k)
 
-[**Super Video Player**](https://bplugins.com/products/super-video-player/)is a modern, lightweight WordPress HTML5 video player plugin that lets you embed self-hosted MP4, OGG, HLS (.m3u8), and MPEG-DASH (.mpd) videos anywhere on your website. Create responsive video players using Gutenberg blocks or shortcodes—no coding required.
+[**Super Video Player**](https://bplugins.com/products/super-video-player/)is a modern, lightweight WordPress HTML5 video player plugin that lets you embed self-hosted MP4, HLS (.m3u8), and MPEG-DASH (.mpd) videos anywhere on your website. Create responsive video players using Gutenberg blocks or shortcodes—no coding required.
 
 Whether you're building an online course, membership site, portfolio, documentation website, product showcase, or business website, Super Video Player delivers fast, responsive, and accessible video playback across desktop, tablet, and mobile devices.
 
@@ -52,7 +52,7 @@ Whether you're building an online course, membership site, portfolio, documentat
 ## Free Features :
 
 - **Modern HTML5 Video Player** – Display self-hosted videos using a clean, responsive, and lightweight HTML5 player compatible with all modern browsers.
-- **MP4, OGG, HLS & DASH Support** – Play self-hosted MP4, OGG, HLS (.m3u8), and MPEG-DASH (.mpd) videos from a single player.
+- **MP4, HLS & DASH Support** – Play self-hosted MP4 (H.264/AAC), HLS (.m3u8), and MPEG-DASH (.mpd) videos from a single player.
 - **Live Streaming Support** – Stream HLS (.m3u8) and MPEG-DASH (.mpd) videos with smooth HTML5 playback.
 - **Gutenberg Block** – Easily insert and configure video players directly from the WordPress Block Editor.
 - **Shortcode Support** – Embed video players anywhere using shortcodes, including posts, pages, widgets, and theme templates.
@@ -63,7 +63,7 @@ Whether you're building an online course, membership site, portfolio, documentat
 - **Accessibility Ready** – Built with accessibility best practices, including screen reader support.
 - **Unlimited Video Players** – Create and display unlimited video players anywhere on your WordPress website.
 - **Cross-Browser Compatibility** – Works smoothly in Chrome, Firefox, Safari, Edge, and other modern browsers.
-- **Lightweight & Fast** – Optimized for performance to deliver a smooth video playback experience.
+- **Lightweight & Fast** – A page with a player loads roughly 170 KB of player assets, and a page without one loads none at all. No jQuery required.
 
 ## Super Video Player Pro Features :
 
@@ -74,7 +74,7 @@ Unlock advanced features to create a professional video experience for online co
 
 - **Multiple Player Layouts** – Choose from professionally designed layouts to match your website's style.
 
-- **Advanced Player Controls** – Show or hide individual controls including Play/Pause, Volume, Progress Bar, Playback Speed, Captions, Fullscreen, Download, and Picture-in-Picture.
+- **Advanced Player Controls** – Show or hide individual controls including Play/Pause, Volume, Progress Bar, Captions, Settings, Fullscreen, Download, and Picture-in-Picture. Playback speed and quality are available to viewers from the Settings menu.
 - **Video Title & Description** – Display customizable titles and descriptions above or below the player.
 - **Initial Volume Control** – Set the default playback volume for every video.
 - **Custom Seek Time** – Define how many seconds users skip when using keyboard shortcuts or player controls.
@@ -135,7 +135,7 @@ You can install as others regular wordpress plugin. No different way. Please see
 
 = What video formats are supported? =
 Super Video Player supports:
-MP4, OGG, HLS (.m3u8), MPEG-DASH (.mpd)
+MP4 (H.264/AAC), HLS (.m3u8), MPEG-DASH (.mpd)
 
 = Can I use self-hosted videos? =
 Yes. The plugin is designed for self-hosted HTML5 videos.
@@ -176,7 +176,17 @@ Please report security bugs found in the source code of the Super Video Player p
 
 == Changelog ==
 
-= 1.8.9 – 23 August, 2026 =
+= 1.8.10 – 5 September, 2026 =
+– **Security**: Fixed a DOM-based XSS in the share modal. A crafted share URL or page title could inject executing markup into any page containing a player.
+– **Fix**:      Restored PHP 7.4 compatibility. A PHP 8-only function call caused a fatal error on every admin page for sites on the declared minimum PHP version.
+– **Fix**:      Playlists no longer leak a player, and its HLS or DASH engine, on every item switch.
+– **Fix**:      Escaped all widget and block output.
+– **Performance**: Plyr is no longer loaded twice on every page, and no longer loads at all on pages without a player.
+– **Performance**: Removed 506 KB of unused Video.js that was loaded in the header of every page.
+– **Performance**: The plugin no longer requires jQuery on the front end.
+– **Update**:   Corrected the supported-format list, the install count, and the player-controls description in the readme.
+
+= 1.8.9 – 22 July, 2026 =
 – **Update**: Added the latest Bplugins admin dashboard with an improved settings experience.
 – **Update**: Improved video playback reliability and media format detection.
 – **Update**: Optimized HLS/DASH asset loading for better performance.

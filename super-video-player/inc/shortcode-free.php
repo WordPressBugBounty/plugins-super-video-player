@@ -16,21 +16,25 @@ if(!function_exists('get_meta')){
 	}
 
 }
-if (!defined('SVP_PRO')) {
-	function svp_shortcode_func_free($attrs){
-		$atts = shortcode_atts( array(
-			'id' => null,
-		), $attrs ); 
-		$id = $atts['id'];
+/*
+ * This file is only loaded on the free plan (see super-video-player.php), so
+ * the guard that used to wrap it -- if ( ! defined( 'SVP_PRO' ) ) -- was doing
+ * nothing: SVP_PRO is never defined anywhere in the plugin, so the condition
+ * was always true. Removing it changes no behaviour.
+ */
+function svp_shortcode_func_free($attrs){
+	$atts = shortcode_atts( array(
+		'id' => null,
+	), $attrs );
+	$id = $atts['id'];
 
-		$post_type = get_post_type($id);
-		if($post_type != 'svplayer'){
-			return false;
-		}
-
-		require SVP_PLUGIN_PATH . 'inc/block-video-player.php';
-
-		return render_block($block);
+	$post_type = get_post_type($id);
+	if($post_type != 'svplayer'){
+		return false;
 	}
-	add_shortcode('vplayer','svp_shortcode_func_free');	
+
+	require SVP_PLUGIN_PATH . 'inc/block-video-player.php';
+
+	return render_block($block);
 }
+add_shortcode('vplayer','svp_shortcode_func_free');

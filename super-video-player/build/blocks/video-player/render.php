@@ -59,7 +59,7 @@ if ( false === $json_attributes ) {
 ?>
 
 <div
-	<?php echo get_block_wrapper_attributes(); ?>
+	<?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Core returns pre-escaped attribute markup. ?>
 	id="<?php echo esc_attr( $id ); ?>"
 	data-attributes="<?php echo esc_attr( $json_attributes ); ?>">
 </div>
