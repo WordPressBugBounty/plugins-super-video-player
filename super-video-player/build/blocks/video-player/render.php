@@ -63,3 +63,7 @@ if ( false === $json_attributes ) {
 	id="<?php echo esc_attr( $id ); ?>"
 	data-attributes="<?php echo esc_attr( $json_attributes ); ?>">
 </div>
+<?php
+if ( function_exists( 'svp_video_schema_script' ) ) {
+	echo svp_video_schema_script( $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON-LD built with wp_json_encode( JSON_HEX_TAG ), so it cannot close the <script> element.
+}

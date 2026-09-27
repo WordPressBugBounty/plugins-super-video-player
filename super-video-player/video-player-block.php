@@ -24,9 +24,17 @@ if (!class_exists('SVPPlugin')) {
 			wp_localize_script(
 				'plyrIoJS',
 				'SVP_DATA',
-				array(
-					'isPremium' => function_exists('svp_premium_code_available') && svp_premium_code_available(),
-					'iconUrl'   => SVP_PLUGIN_DIR . 'assets/images/plyr.svg',
+				/**
+				 * Filters the data handed to the player script as window.SVP_DATA.
+				 *
+				 * @param array $data isPremium, iconUrl; Pro adds i18n.
+				 */
+				apply_filters(
+					'svp_player_data',
+					array(
+						'isPremium' => function_exists('svp_premium_code_available') && svp_premium_code_available(),
+						'iconUrl'   => SVP_PLUGIN_DIR . 'assets/images/plyr.svg',
+					)
 				)
 			);
 		}

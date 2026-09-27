@@ -4,7 +4,7 @@
  * Plugin Name: Super Video Player 
  * Plugin URI:  https://bplugins.com/super-video-player
  * Description: A fully customizable video player for wordpress.
- * Version: 1.8.11
+ * Version: 1.8.12
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Author: bPlugins
@@ -99,7 +99,7 @@ if ( function_exists( 'svp_fs' ) ) {
     /*Some Set-up*/
     define( 'SVP_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
     define( 'SVP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-    define( 'SVP_VERSION', '1.8.11' );
+    define( 'SVP_VERSION', '1.8.12' );
     define( 'SVP_HAS_PRO', 'super-video-player-premium/super-video-player.php' === plugin_basename( __FILE__ ) );
     /* JS*/
     /**
@@ -125,6 +125,7 @@ if ( function_exists( 'svp_fs' ) ) {
     );
     // Inc  common
     require_once __DIR__ . '/inc/init.php';
+    require_once __DIR__ . '/inc/schema.php';
     require_once __DIR__ . '/vendor/codestar-framework/codestar-framework.php';
     require_once __DIR__ . '/inc/Dashboard.php';
     if ( SVP_HAS_PRO && file_exists( __DIR__ . '/premium-files/LicenseActivation.php' ) ) {
@@ -133,6 +134,7 @@ if ( function_exists( 'svp_fs' ) ) {
     if ( svp_premium_code_available() ) {
         require_once __DIR__ . '/premium-files/shortcode-pro.php';
         require_once __DIR__ . '/premium-files/settings-fields.php';
+        require_once __DIR__ . '/premium-files/global-settings.php';
         require_once __DIR__ . '/premium-files/widgets.php';
         function svp_block_admin_script() {
             // Plyr CSS

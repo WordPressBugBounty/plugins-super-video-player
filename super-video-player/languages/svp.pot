@@ -2,20 +2,21 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Super Video Player 1.8.11\n"
+"Project-Id-Version: Super Video Player 1.8.12\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/super-video-player-premium\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-24T12:01:50+00:00\n"
+"POT-Creation-Date: 2026-09-27T08:16:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: svp\n"
 
 #. Plugin Name of the plugin
 #: super-video-player.php
+#: inc/PostType/SVPPlayer.php:54
 #: premium-files/widgets.php:18
 msgid "Super Video Player"
 msgstr ""
@@ -232,6 +233,42 @@ msgstr ""
 msgid "Turn off to hide the shadow in the controls area."
 msgstr ""
 
+#: inc/PostType/SVPPlayer.php:55
+msgid "Player"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:56
+msgid "Add New"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:57
+msgid "Add new Player"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:58
+msgid "All Players"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:59
+msgid "Edit Player"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:60
+msgid "New Player"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:61
+msgid "View Player"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:62
+msgid "Search Players"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:63
+msgid "Sorry, we couldn't find any item you are looking for."
+msgstr ""
+
 #: inc/PostType/SVPPlayer.php:114
 #: inc/PostType/SVPPlayer.php:115
 #: super-video-player.php:136
@@ -240,6 +277,15 @@ msgstr ""
 
 #: inc/PostType/SVPPlayer.php:166
 msgid "Copy and paste this shortcode into your posts, pages and widget"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:201
+msgid "Player updated "
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:217
+#, php-format
+msgid "If you like <strong>Super Video Player</strong> please leave us a <a href=\"%s\" target=\"_blank\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. Your Review is very important to us as it helps us to grow more. "
 msgstr ""
 
 #: premium-files/metabox-pro.php:205

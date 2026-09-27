@@ -3,7 +3,7 @@ Contributors: bplugins, freemius, asadsuzan
 Tags: video player, html5 video player, mp4 player, responsive video, gutenberg block
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.8.11
+Stable tag: 1.8.12
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -14,76 +14,45 @@ Embed self-hosted MP4, HLS (.m3u8), and DASH videos with a responsive video play
 
 == Description ==
 
-**A No-Code Video Player Plugin – Trusted by 2,000+ Websites Worldwide**
+**A no-code video player for self-hosted and streamed video – trusted by 2,000+ websites.**
 
 [**Super Video Player**](https://bplugins.com/products/super-video-player/) | [**Documentation**](https://bplugins.com/docs/super-video-player/) | [**Pricing**](https://bplugins.com/products/super-video-player/pricing/) | [**Support**](https://bplugins.com/support/) | [**Demo**](https://bplugins.com/products/super-video-player/#demos) | [Video Tutorial](https://www.youtube.com/watch?v=LJym2Pe1h2k)
 
-[**Super Video Player**](https://bplugins.com/products/super-video-player/)is a modern, lightweight WordPress HTML5 video player plugin that lets you embed self-hosted MP4, HLS (.m3u8), and MPEG-DASH (.mpd) videos anywhere on your website. Create responsive video players using Gutenberg blocks or shortcodes—no coding required.
+[**Super Video Player**](https://bplugins.com/products/super-video-player/) is a lightweight, accessible HTML5 video player for WordPress. Play self-hosted MP4, HLS (.m3u8) and MPEG-DASH (.mpd) video from a Gutenberg block or a shortcode, with playlists, captions and quality switching included in the free version.
 
-Whether you're building an online course, membership site, portfolio, documentation website, product showcase, or business website, Super Video Player delivers fast, responsive, and accessible video playback across desktop, tablet, and mobile devices.
+It is built for sites that host or stream their own video: courses and tutorials, clubs and organisations, product demos, documentation and business sites.
 
-**[Upgrade to Super Video Player Pro](https://bplugins.com/products/super-video-player/pricing/ )** to unlock powerful features including video playlists, multiple video quality options, advanced player controls, custom layouts, social sharing, video titles & descriptions, and more.
+= What's free =
 
+Everything below is included in the free version, with no limit on the number of players.
 
-## Why Choose Super Video Player? 
+* **MP4, HLS and MPEG-DASH playback** – self-hosted MP4 (H.264/AAC) and adaptive HLS (.m3u8) and DASH (.mpd) streams from one player.
+* **Playlists** – several videos in one player, in the **Default** or **Horizontal** layout, each with its own title, description and poster.
+* **Quality switching** – add the same video at several resolutions and let viewers choose.
+* **Captions and subtitles** – add WebVTT files in as many languages as you need, and style the caption text and background.
+* **Choose your controls** – show or hide the large play button, play, restart, rewind, fast-forward, progress bar, current time, mute, volume, settings (speed and quality) and fullscreen. Controls hide automatically while the video plays.
+* **Playback options** – autoplay (muted autoplay works in every browser), loop, muted start, click-to-play, tooltips, initial volume and seek time.
+* **Playlist titles and descriptions** – each playlist video shows its title and description, with typography and colour settings.
+* **Styling** – player width, border, playlist colours and caption styles.
+* **Search engine friendly** – every player adds VideoObject structured data so your videos can appear in search results.
+* **Accessible** – full keyboard control, including choosing playlist videos, with screen-reader labels.
+* **Gutenberg block and shortcode** – build players in the block editor, or create them once and place them anywhere with `[vplayer id="…"]`, including classic editor content and page builders.
+* **Lightweight** – a page with a player loads about 170 KB of player assets; a page without one loads none. No jQuery.
 
-- No coding required
-- Self-hosted video support
-- Fast and lightweight
-- Responsive on every device
-- Works with Gutenberg and Classic Editor
-- Supports playlists and subtitles
-- Accessibility ready
-- Perfect for courses, memberships, and business websites
+= What Pro adds =
 
-## Perfect for :
+* **Vertical and Grid playlist layouts.**
+* **Continuous playlist playback** – the next video starts automatically.
+* **Extra controls** – captions toggle, share button, picture-in-picture, download button (with an optional custom download URL) and control-bar shadow.
+* **Social sharing** – a share button that links straight to the video on your page.
+* **Global player settings** – set your brand colours, custom CSS and translated player text once for every player on the site.
+* **Video widget** – place a player in any widget area.
 
-- Online Courses & LMS
-- Membership Websites
-- Video Portfolios
-- Product Demonstrations
-- Tutorial Websites
-- Educational Platforms
-- Business Websites
-- Documentation Sites
-- Media Libraries
-- Blogs
+**[See Pro pricing](https://bplugins.com/products/super-video-player/pricing/)** – a 7-day free trial is available.
 
-## Free Features :
+= Updates keep your players working =
 
-- **Modern HTML5 Video Player** – Display self-hosted videos using a clean, responsive, and lightweight HTML5 player compatible with all modern browsers.
-- **MP4, HLS & DASH Support** – Play self-hosted MP4 (H.264/AAC), HLS (.m3u8), and MPEG-DASH (.mpd) videos from a single player.
-- **Live Streaming Support** – Stream HLS (.m3u8) and MPEG-DASH (.mpd) videos with smooth HTML5 playback.
-- **Gutenberg Block** – Easily insert and configure video players directly from the WordPress Block Editor.
-- **Shortcode Support** – Embed video players anywhere using shortcodes, including posts, pages, widgets, and theme templates.
-- **Responsive Design** – Automatically adapts to desktop, tablet, and mobile devices for a seamless viewing experience.
-- **Picture-in-Picture (PiP)** – Allow visitors to continue watching videos while browsing other pages or tabs.
-- **Multiple Subtitle Files** – Add VTT subtitle files in multiple languages for better accessibility and localization.
-- **Custom Caption Styling** – Customize caption appearance to match your website design and improve readability.
-- **Accessibility Ready** – Built with accessibility best practices, including screen reader support.
-- **Unlimited Video Players** – Create and display unlimited video players anywhere on your WordPress website.
-- **Cross-Browser Compatibility** – Works smoothly in Chrome, Firefox, Safari, Edge, and other modern browsers.
-- **Lightweight & Fast** – A page with a player loads roughly 170 KB of player assets, and a page without one loads none at all. No jQuery required.
-
-## Super Video Player Pro Features :
-
-Unlock advanced features to create a professional video experience for online courses, memberships, businesses, portfolios, and media websites.
-
-- **Video Playlists** – Organize multiple videos into beautiful playlists with **Default, Horizontal, Vertical, and Grid** layouts.
-- **Multiple Video Quality Options** – Offer multiple video resolutions so visitors can select the quality that best matches their internet connection.
-
-- **Multiple Player Layouts** – Choose from professionally designed layouts to match your website's style.
-
-- **Advanced Player Controls** – Show or hide individual controls including Play/Pause, Volume, Progress Bar, Captions, Settings, Fullscreen, Download, and Picture-in-Picture. Playback speed and quality are available to viewers from the Settings menu.
-- **Video Title & Description** – Display customizable titles and descriptions above or below the player.
-- **Initial Volume Control** – Set the default playback volume for every video.
-- **Custom Seek Time** – Define how many seconds users skip when using keyboard shortcuts or player controls.
-- **Click to Play** – Allow users to play or pause videos by clicking anywhere on the player.
-- **Continuous Playlist Playback** – Automatically play the next video in the playlist for a seamless viewing experience.
-- **Social Share Button** – Let visitors easily share videos on their favorite social platforms.
-- **Advanced Styling Options** – Customize fonts, colors, alignment, and the overall appearance of video titles, descriptions, and player elements.
-- **Full Gutenberg Integration** – Access and configure every Pro feature directly inside the WordPress Block Editor.
-- **Shortcode Compatibility** – Use all Pro features with both Gutenberg blocks and shortcodes.
+Players created with older versions keep their videos, settings and controls when you update – nothing needs to be re-saved.
 
 #### Loved by WordPress Users
 
@@ -93,90 +62,96 @@ Unlock advanced features to create a professional video experience for online co
 
 ***-[jonthanr](https://wordpress.org/support/users/jonthanr/)***
 
-
-##### – Did you like this plugin? Dislike it? Have a feature request? [Please share your feedback with us](mailto:support@bplugins.com 'Send feedback')
-
-
+##### – Did you like this plugin? Dislike it? Have a feature request? [Please share your feedback with us](https://bplugins.com/support/)
 
 ### Getting Started
 
-1. Install and activate Super Video Player.
-2. Go to **Super Video Player <span aria-hidden="true" class="wp-exclude-emoji">→</span> Add New**.
-3. Upload or select your video.
-4. Configure the player settings.
-5. Copy the generated shortcode or insert the Gutenberg block.
-6. Publish your page and enjoy.
+**With the block editor**
 
-### Gutenberg Block
+1. Open any post or page and click **+**.
+2. Search for **Super Video Player** and add the block.
+3. Choose your video, then adjust controls and styling in the block settings.
+4. Publish.
 
-Super Video Player includes a dedicated Gutenberg block.
+**With a shortcode**
 
-1. Open any post or page.
-2. Click the "+" button.
-3. Search for **"Super Video Player"**.
-4. Select your video.
-5. Publish your page.
-
+1. Go to **Super Video Player → Add new Player**.
+2. Choose your video and configure the player.
+3. Copy the shortcode from the **All Players** list, e.g. `[vplayer id="123"]`.
+4. Paste it into any post, page or widget and publish.
 
 == Installation ==
 
-1. Upload the plugin to the `/wp-content/plugins/` directory, or install it directly from the WordPress Plugins screen.
+1. In your WordPress admin, go to **Plugins → Add New**, search for **Super Video Player** and click **Install Now**, or upload the plugin folder to `/wp-content/plugins/`.
 2. Activate the plugin.
-3. Go to **Super Video Player**.
-4. Create your first player.
-5. Copy the shortcode or use the Gutenberg block.
-6. Publish your page.
+3. Add the **Super Video Player** block to a page, or create a player under **Super Video Player → Add new Player** and use its shortcode.
 
 == Frequently Asked Questions ==
 
-= How do I install this plugin? =
+= What is free and what is Pro? =
 
-You can install as others regular wordpress plugin. No different way. Please see on installation tab.
+Playback of MP4, HLS and DASH, playlists in the Default and Horizontal layouts, quality switching, captions, most player controls and structured data are all free. Pro adds the Vertical and Grid layouts, continuous playlist playback, the captions toggle, share, picture-in-picture and download buttons, and site-wide colour, CSS and translation settings. The full lists are in the Description above.
+
+= Can I make playlists in the free version? =
+
+Yes. Playlists are free with the Default and Horizontal layouts. The Vertical and Grid layouts, and automatically playing the next video, are Pro.
 
 = What video formats are supported? =
-Super Video Player supports:
-MP4 (H.264/AAC), HLS (.m3u8), MPEG-DASH (.mpd)
 
-= Can I use self-hosted videos? =
-Yes. The plugin is designed for self-hosted HTML5 videos.
+MP4 (H.264 video, AAC audio), HLS (.m3u8) and MPEG-DASH (.mpd). The video must be reachable at a URL – from your Media Library, your own server or a CDN.
+
+= Why doesn't my video autoplay with sound? =
+
+Browsers block autoplay with sound until the visitor has interacted with the site. Turn on **Muted** as well as **Auto Play** and the video will start in every browser; visitors can then unmute it.
 
 = Can I create unlimited video players? =
-Yes. There are no limits on the number of players you can create.
 
-= Does it work with Gutenberg? =
-Yes. The plugin includes a dedicated Gutenberg block
+Yes. There is no limit in either version.
 
-= Can I use shortcodes? =
-Yes. Every player includes a shortcode that can be placed anywhere.
+= Does it work with the block editor and page builders? =
 
-= Can I use playlists? =
-Yes.
-Playlist functionality is available in the Pro version.
+Yes. There is a dedicated Gutenberg block, and every player created under **Super Video Player** has a shortcode you can use in the classic editor, widgets and page builders such as Elementor.
 
-= Does it support subtitles? =
-Yes. You can add multiple VTT subtitle files and support multiple languages.
+= Will updating break players I made with an older version? =
+
+No. Players created with earlier versions keep their video, settings and controls after an update, and do not need to be re-saved.
+
+= Does it add video structured data? =
+
+Yes. Each player adds VideoObject JSON-LD using its title, poster and description. If your SEO plugin already outputs video schema, turn ours off by adding `add_filter( 'svp_video_schema', '__return_false' );` to your theme or a code snippets plugin.
+
 = Where do I report security bugs found in this plugin? =
 
 Please report security bugs found in the source code of the Super Video Player plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/9e5fb7b7-09cb-4a1a-9cd8-9fcca4d3f148). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
 
-
-
 == Screenshots ==
 
-1. Admin Dashboard
-2. Add New Item (ShortCode)
-3. Configuration
-4. Single Preview
-5. Preview Playlist – Default
-6. Preview Playlist – Horizontal
-7. Preview Playlist – Vertical
-8. Preview Playlist – Grid 
-9. Gutenberg Block
-10. Gutenberg Block Settings
+1. A single video player with controls, captions and quality selection.
+2. Playlist – Default layout.
+3. Playlist – Horizontal layout.
+4. Playlist – Vertical layout (Pro).
+5. Playlist – Grid layout (Pro).
+6. Adding the Super Video Player block in the block editor.
+7. Block settings: video, playlist and controls.
+8. Creating a player for use with a shortcode.
+9. Choosing which controls to show.
+10. Pro global settings: brand colours, custom CSS and player text.
 
 == Changelog ==
 
-= 1.8.11 – 24 September, 2026 =
+= 1.8.12 – 28 September, 2026 =
+ * **Fix:** The Pro Settings page now takes effect. The primary and secondary colours, custom CSS and player text translations apply to every player; before, changing them had no effect.
+ * **Fix:** Playlists can be used from the keyboard. Every playlist item can be reached with Tab and chosen with Enter or Space, a focus outline shows where you are, and screen readers announce which video is playing.
+ * **Fix:** With several playlists on one page, choosing a video in one playlist no longer starts a video in another.
+ * **Fix:** The “Auto hide control” setting now works. It was ignored and controls always hid during playback; players with it turned off now keep their controls visible. Players that never changed it are unaffected.
+ * **Fix:** All of the plugin’s admin text can now be translated. Settings fields, menus and labels were previously outside the plugin’s translation domain.
+ * **Fix:** A newly added Super Video Player block shows a working sample video again. The previous sample link had stopped working, so new blocks showed an empty player.
+ * **Update:** Videos can now appear in search results. Every player adds VideoObject structured data using your video’s title, poster and description, falling back to the page title and featured image. Turn it off with the svp_video_schema filter if your SEO plugin already adds video schema.
+ * **Update:** Clearer admin labels: “Add new Player”, “All Players”, “Edit Player” and more, instead of generic wording.
+ * **Update:** The plugin description, FAQ and the Pro lists in the dashboard and block editor now show exactly what is free and what is Pro. Playlists, quality switching, captions and most controls are free; they were wrongly listed as Pro.
+ * **Update:** A “Help & Demos” link on the Plugins screen, and a new Pro overview image on the Help & Demos page.
+
+= 1.8.11 – 27 September, 2026 =
  * **Fix:** Players created in earlier versions play again. Players that had never saved their control settings showed no controls and could not be started; they now show the controls they had before, exactly as saved players always have.
  * **Fix:** Players created with versions 1.0–1.2 load their video, poster, subtitles and settings again.
  * **Fix:** A player can always be started. If a player has no controls, no click-to-play and no autoplay the browser allows, clicking the video now plays it.
@@ -198,7 +173,7 @@ Please report security bugs found in the source code of the Super Video Player p
 = 1.8.9 – 22 July, 2026 =
  * **Update:** Added the latest Bplugins admin dashboard with an improved settings experience.
  * **Update:** Improved video playback reliability and media format detection.
- * **Update:** Optimized HLS/**set loading for better performance.
+ * **Update:** Optimized HLS/DASH asset loading for better performance.
  * **Update:** Enhanced security, stability, and WordPress coding standards compliance.
  * **Update:** Cleaned up unused code and improved overall performance.
  * **Fix:**    Fix Auto Full screen on iOS Safari player.
@@ -207,7 +182,7 @@ Please report security bugs found in the source code of the Super Video Player p
 = 1.8.8 – 9 March, 2026 =
  * **Update:** Latest Modern Dashboard, Pro Alert modal Added.
  * **Update:** CodeStar create new structure of General, Controls, Settings.
- * Update:** Some pro features convert to unlock for the free version.
+ * **Update:** Some pro features convert to unlock for the free version.
  * **Fixed:** Playlist add video URL, submit issue fixed on the block editor.
 
 = 1.8.7 – 29 Dec, 2025 =

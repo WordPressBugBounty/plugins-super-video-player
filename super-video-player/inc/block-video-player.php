@@ -107,6 +107,10 @@ $svp_width    = $svp_width_px ? $svp_width_px . 'px' : '100%';
 
 $attributes = [
     'align' => '',
+    // Not a block.json attribute: WordPress passes undeclared attributes
+    // through untouched. Lets the VideoObject schema use the player's name
+    // and date (inc/schema.php).
+    'playerId' => (int) $id,
     'options' => [
         'controls' => svp_get_controls($id),
         'autoPlay' => svp_legacy_flag($id, 'video_autoplay', '_svp_video_autoplay'),
@@ -117,7 +121,9 @@ $attributes = [
         'repeat' => svp_legacy_repeat($id),
         'isAutoNextVideo' => get_meta($id, 'continues_auto_playlist') == '1',
         'toolTip' => get_meta($id, 'tooltips', '0') == '1',
-        'isControl' => true,
+        // "Auto hide control". Was hard-coded to true, so the setting did nothing.
+        // A player that never saved it keeps auto-hiding, as it always has.
+        'isControl' => metadata_exists('post', $id, 'auto_hide') ? '1' === get_post_meta($id, 'auto_hide', true) : true,
         'shadowControl' => true
     ],
     'videos' => array_merge([

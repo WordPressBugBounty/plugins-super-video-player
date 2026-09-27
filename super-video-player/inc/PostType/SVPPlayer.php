@@ -126,7 +126,6 @@ class SVPPlayer{
             'hasPro'               => SVP_HAS_PRO,
             'licenseActiveNonce'   => wp_create_nonce('bPlLicenseActivation'),
             'adminUrl' => admin_url(),
-            'pluginUrl' => SVP_PLUGIN_DIR,
         ]) ); ?>"></div>
     <?php }
 
