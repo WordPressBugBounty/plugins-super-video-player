@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 
 $video_playlist = get_meta($id, 'video_playlist', []);
 $video_quality = get_meta($id, 'video_quality', []);
-$video_caption = get_meta($id, 'video_caption', []);
+$video_caption = svp_legacy_captions($id);
 $caption_styles_meta = get_meta($id, 'caption_styles', []);
 
 $caption_styles = wp_parse_args($caption_styles_meta, [
@@ -41,10 +41,10 @@ foreach ($video_caption as $caption) {
 $videos = [];
 foreach ($video_playlist as $video) {
     $videos[] = [
-        'src' => $video['playlist_item'] ?? '',
+        'src' => svp_legacy_media_url($video['playlist_item'] ?? ''),
         'title' => $video['playlist_item_title'] ?? 'type your video title here',
         'description' => $video['playlist_item_description'] ?? 'Please like this video!',
-        'poster' => $video['playlist_item_poster'] ?? ''
+        'poster' => svp_legacy_media_url($video['playlist_item_poster'] ?? '')
     ];
 }
 
@@ -102,16 +102,19 @@ $caption_typo = [
 
 $get_meta = get__meta($id);
 
+$svp_width_px = svp_legacy_width($id);
+$svp_width    = $svp_width_px ? $svp_width_px . 'px' : '100%';
+
 $attributes = [
     'align' => '',
     'options' => [
         'controls' => svp_get_controls($id),
-        'autoPlay' => $get_meta('video_autoplay') == '1',
+        'autoPlay' => svp_legacy_flag($id, 'video_autoplay', '_svp_video_autoplay'),
         'clickToPlay' => $get_meta('click_to_play') == '1',
-        'muted' => $get_meta('video_muted') == '1',
+        'muted' => svp_legacy_flag($id, 'video_muted', '_svp_video_muted'),
         'volume' => intval(get_meta($id, 'initial_vol', 50)) / 100,
         'seekTime' => (int) get_meta($id, 'seek_time', 10),
-        'repeat' => $get_meta('video_repeat') == 'loop',
+        'repeat' => svp_legacy_repeat($id),
         'isAutoNextVideo' => get_meta($id, 'continues_auto_playlist') == '1',
         'toolTip' => get_meta($id, 'tooltips', '0') == '1',
         'isControl' => true,
@@ -119,9 +122,9 @@ $attributes = [
     ],
     'videos' => array_merge([
         [
-            'src' => get_meta($id, '_svp_video_file', ''),
+            'src' => svp_legacy_media_url(get_post_meta($id, '_svp_video_file', true)),
             'title' => get_meta($id, '_svp_video_title', 'type your video title here'),
-            'poster' => get_meta($id, '_svp_video_poster', ''),
+            'poster' => svp_legacy_media_url(get_post_meta($id, '_svp_video_poster', true)),
             'description' => get_meta($id, '_svp_video_description', 'Don’t forget to like, comment, and subscribe for more fun episodes!'),
             'customDownloadButton' => false,
             'isCustomTitle' => false,
@@ -132,9 +135,9 @@ $attributes = [
     ], $videos),
     'videoSize' => [
         'width' => [
-            'desktop' =>  get_meta($id, 'video_width', false) ? get_meta($id, 'video_width') . 'px' : '100%',
-            'tablet' =>  get_meta($id, 'video_width', false) ? get_meta($id, 'video_width') . 'px' : '100%',
-            'mobile' =>  get_meta($id, 'video_width', false) ? get_meta($id, 'video_width') . 'px' : '100%'
+            'desktop' =>  $svp_width,
+            'tablet' =>  $svp_width,
+            'mobile' =>  $svp_width
         ],
         'height' => [
             'desktop' => '',
@@ -144,9 +147,9 @@ $attributes = [
     ],
     'thumbnailSize' => [
         'width' => [
-            'desktop' =>  get_meta($id, 'video_width', false) ? get_meta($id, 'video_width') . 'px' : '100%',
-            'tablet' =>  get_meta($id, 'video_width', false) ? get_meta($id, 'video_width') . 'px' : '100%',
-            'mobile' =>  get_meta($id, 'video_width', false) ? get_meta($id, 'video_width') . 'px' : '100%'
+            'desktop' =>  $svp_width,
+            'tablet' =>  $svp_width,
+            'mobile' =>  $svp_width
         ],
         'height' => [
             'desktop' => '82px',

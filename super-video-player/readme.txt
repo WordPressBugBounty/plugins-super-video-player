@@ -3,7 +3,7 @@ Contributors: bplugins, freemius, asadsuzan
 Tags: video player, html5 video player, mp4 player, responsive video, gutenberg block
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.8.10
+Stable tag: 1.8.11
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -176,32 +176,39 @@ Please report security bugs found in the source code of the Super Video Player p
 
 == Changelog ==
 
+= 1.8.11 – 24 September, 2026 =
+ * **Fix:** Players created in earlier versions play again. Players that had never saved their control settings showed no controls and could not be started; they now show the controls they had before, exactly as saved players always have.
+ * **Fix:** Players created with versions 1.0–1.2 load their video, poster, subtitles and settings again.
+ * **Fix:** A player can always be started. If a player has no controls, no click-to-play and no autoplay the browser allows, clicking the video now plays it.
+ * **Fix:** Autoplay works again for players that are not muted, where the browser allows it.
+ * **Fix:** Visitors never see a Pro notice in place of a video. A Pro-only playlist layout without an active licence now shows the default layout instead.
+ * **Fix:** One misconfigured player no longer stops the other players on the same page from loading.
+ * **Fix:** Starting a trial or activating a licence on the free version no longer causes a fatal error.
+
 = 1.8.10 – 5 September, 2026 =
-– **Security**: Fixed a DOM-based XSS in the share modal. A crafted share URL or page title could inject executing markup into any page containing a player.
-– **Fix**:      Restored PHP 7.4 compatibility. A PHP 8-only function call caused a fatal error on every admin page for sites on the declared minimum PHP version.
-– **Fix**:      Playlists no longer leak a player, and its HLS or DASH engine, on every item switch.
-– **Fix**:      Escaped all widget and block output.
-– **Performance**: Plyr is no longer loaded twice on every page, and no longer loads at all on pages without a player.
-– **Performance**: Removed 506 KB of unused Video.js that was loaded in the header of every page.
-– **Performance**: The plugin no longer requires jQuery on the front end.
-– **Update**:   Corrected the supported-format list, the install count, and the player-controls description in the readme.
+ * **Security:** Fixed a DOM-based XSS in the share modal. A crafted share URL or page title could inject executing markup into any page containing a player.
+ * **Fix:** Restored PHP 7.4 compatibility. A PHP 8-only function call caused a fatal error on every admin page for sites on the declared minimum PHP version.
+ * **Fix:** Playlists no longer leak a player, and its HLS or DASH engine, on every item switch.
+ * **Fix:** Escaped all widget and block output.
+ * **Performance:** Plyr is no longer loaded twice on every page, and no longer loads at all on pages without a player.
+ * **Performance:** Removed 506 KB of unused Video.js that was loaded in the header of every page.
+ * **Performance:** The plugin no longer requires jQuery on the front end.
+ * **Update:** Corrected the supported-format list, the install count, and the player-controls description in the readme.
 
 = 1.8.9 – 22 July, 2026 =
-– **Update**: Added the latest Bplugins admin dashboard with an improved settings experience.
-– **Update**: Improved video playback reliability and media format detection.
-– **Update**: Optimized HLS/DASH asset loading for better performance.
-– **Update**: Enhanced security, stability, and WordPress coding standards compliance.
-– **Update**: Cleaned up unused code and improved overall performance.
-– **Fix**:    Fix Auto Full screen on iOS Safari player.
-
-
+ * **Update:** Added the latest Bplugins admin dashboard with an improved settings experience.
+ * **Update:** Improved video playback reliability and media format detection.
+ * **Update:** Optimized HLS/**set loading for better performance.
+ * **Update:** Enhanced security, stability, and WordPress coding standards compliance.
+ * **Update:** Cleaned up unused code and improved overall performance.
+ * **Fix:**    Fix Auto Full screen on iOS Safari player.
 
 
 = 1.8.8 – 9 March, 2026 =
-– **Update**: Latest Modern Dashboard, Pro Alert modal Added.
-– **Update**: CodeStar create new structure of General, Controls, Settings.
-– **Update**: Some pro features convert to unlock for the free version.
-– **Fixed**: Playlist add video URL, submit issue fixed on the block editor.
+ * **Update:** Latest Modern Dashboard, Pro Alert modal Added.
+ * **Update:** CodeStar create new structure of General, Controls, Settings.
+ * Update:** Some pro features convert to unlock for the free version.
+ * **Fixed:** Playlist add video URL, submit issue fixed on the block editor.
 
 = 1.8.7 – 29 Dec, 2025 =
 * Caption custom styles features added

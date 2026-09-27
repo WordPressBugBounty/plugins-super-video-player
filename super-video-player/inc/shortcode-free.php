@@ -17,10 +17,7 @@ if(!function_exists('get_meta')){
 
 }
 /*
- * This file is only loaded on the free plan (see super-video-player.php), so
- * the guard that used to wrap it -- if ( ! defined( 'SVP_PRO' ) ) -- was doing
- * nothing: SVP_PRO is never defined anywhere in the plugin, so the condition
- * was always true. Removing it changes no behaviour.
+ * Loaded only when Pro code is not running (see super-video-player.php).
  */
 function svp_shortcode_func_free($attrs){
 	$atts = shortcode_atts( array(
@@ -37,4 +34,13 @@ function svp_shortcode_func_free($attrs){
 
 	return render_block($block);
 }
-add_shortcode('vplayer','svp_shortcode_func_free');
+/*
+ * 1.0-1.6 wrapped this in if ( ! defined( 'SVP_PRO' ) ). Nothing in this
+ * plugin defines SVP_PRO, but a separate, standalone Super Video Player Pro
+ * plugin once did, and registered its own [vplayer]. 1.8.10 dropped the guard
+ * as dead code; it is restored so a site still running that add-on keeps its
+ * shortcode instead of having it silently replaced.
+ */
+if ( ! defined( 'SVP_PRO' ) ) {
+	add_shortcode('vplayer','svp_shortcode_func_free');
+}

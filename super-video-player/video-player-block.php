@@ -25,7 +25,7 @@ if (!class_exists('SVPPlugin')) {
 				'plyrIoJS',
 				'SVP_DATA',
 				array(
-					'isPremium' => function_exists('svp_fs') ? svp_fs()->can_use_premium_code() : false,
+					'isPremium' => function_exists('svp_premium_code_available') && svp_premium_code_available(),
 					'iconUrl'   => SVP_PLUGIN_DIR . 'assets/images/plyr.svg',
 				)
 			);

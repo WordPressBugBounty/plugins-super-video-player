@@ -14,7 +14,7 @@ class SVPPlayer{
         add_action('init', [$this, 'init']);
         if(is_admin()){
 
-            add_action('admin_menu', [$this, 'svp_dashboard_page'], 20);
+            add_action('admin_menu', [$this, 'adminMenu'], 20);
 
             add_filter( 'post_row_actions',[$this, 'svp_remove_row_actions'], 10, 2 );
             add_filter( 'gettext', [$this, 'svp_change_publish_button'], 10, 2 );
@@ -51,15 +51,16 @@ class SVPPlayer{
     public function init(){
         register_post_type( 'svplayer', array(
             'labels'              => array(
-            'name'          => __( 'Super Video Player' ),
-            'singular_name' => __( 'Player' ),
-            'add_new'       => __( 'Add New' ),
-            'add_new_item'  => __( 'Add new item' ),
-            'edit_item'     => __( 'Edit' ),
-            'new_item'      => __( 'New' ),
-            'view_item'     => __( 'View' ),
-            'search_items'  => __( 'Search' ),
-            'not_found'     => __( 'Sorry, we couldn\'t find any item you are looking for.' ),
+            'name'          => __( 'Super Video Player', 'svp' ),
+            'singular_name' => __( 'Player', 'svp' ),
+            'add_new'       => __( 'Add New', 'svp' ),
+            'add_new_item'  => __( 'Add new Player', 'svp' ),
+            "all_items"     => __( 'All Players', 'svp' ),
+            'edit_item'     => __( 'Edit Player', 'svp' ),
+            'new_item'      => __( 'New Player', 'svp' ),
+            'view_item'     => __( 'View Player', 'svp' ),
+            'search_items'  => __( 'Search Players', 'svp' ),
+            'not_found'     => __( 'Sorry, we couldn\'t find any item you are looking for.', 'svp' ),
         ),
             'public'              => false,
             'show_ui'             => true,
@@ -77,31 +78,46 @@ class SVPPlayer{
 
     }
 
-    public function svp_dashboard_page(){
-        add_submenu_page(
-            'edit.php?post_type=svplayer',
-            __('Help & Demos', 'svplayer'),
-            __('Help & Demos', 'svplayer'),
-            'manage_options',
-            'svplayer',
-            [$this, 'dashboardPage']
-        );
+    // public function svp_dashboard_page(){
+    //     add_submenu_page(
+    //         'edit.php?post_type=svplayer',
+    //      __( 'Help & Demos - Advanced Posts', 'svplayer' ),
+	// 		'<span style="color: #f18500;">' . esc_html__( 'Help & Demos', 'svp' ) . '</span>',
+    //         'manage_options',
+    //         'svplayer',
+    //         [$this, 'dashboardPage']
+    //     );
     
-        global $submenu;
-        if (isset($submenu['edit.php?post_type=svplayer'])) {
-            $menu = $submenu['edit.php?post_type=svplayer'];
-            foreach ($menu as $index => $item) {
-                if ($item[2] === 'svplayer') {
-                    $dashboard = $item;
-                    unset($menu[$index]);
-                    array_splice($menu, 2, 0, [$dashboard]);
-                    break;
-                }
-            }
-            $submenu['edit.php?post_type=svplayer'] = $menu;
-        }
-    }
+    //     global $submenu;
+    //     if (isset($submenu['edit.php?post_type=svplayer'])) {
+    //         $menu = $submenu['edit.php?post_type=svplayer'];
+    //         foreach ($menu as $index => $item) {
+    //             if ($item[2] === 'svplayer') {
+    //                 $dashboard = $item;
+    //                 unset($menu[$index]);
+    //                 array_splice($menu, 2, 0, [$dashboard]);
+    //                 break;
+    //             }
+    //         }
+    //         $submenu['edit.php?post_type=svplayer'] = $menu;
+    //     }
+    // }
 
+    	/**
+	 * Adds the help and demos submenu page.
+	 * 
+	 * @return void
+	 */
+	public function adminMenu() {
+		add_submenu_page(
+			'edit.php?post_type=svplayer',
+			__( 'Help & Demos', 'svp' ),
+			'<span style="color: #f18500;">' . esc_html__( 'Help & Demos', 'svp' ) . '</span>',
+			'manage_options',
+			'svplayer',
+			[ $this, 'dashboardPage' ]
+		);
+	}
     public function dashboardPage() { ?>
         <div id='svpPlayerDashboard'
          data-info="<?php echo esc_attr( wp_json_encode([
@@ -110,6 +126,7 @@ class SVPPlayer{
             'hasPro'               => SVP_HAS_PRO,
             'licenseActiveNonce'   => wp_create_nonce('bPlLicenseActivation'),
             'adminUrl' => admin_url(),
+            'pluginUrl' => SVP_PLUGIN_DIR,
         ]) ); ?>"></div>
     <?php }
 
@@ -182,7 +199,7 @@ class SVPPlayer{
     }
 
     function svp_updated_messages( $messages ) {
-        $messages[self::$post_type][1] = __('Player updated ');
+        $messages[self::$post_type][1] = __( 'Player updated ', 'svp' );
         return $messages;
     }
 
@@ -198,7 +215,7 @@ class SVPPlayer{
     function svp_admin_footer( $text ) {
         if ( self::$post_type == get_post_type() ) {
             $url = 'https://wordpress.org/support/plugin/super-video-player/reviews/?filter=5#new-post';
-            $text = sprintf( __( 'If you like <strong>Super Video Player</strong> please leave us a <a href="%s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. Your Review is very important to us as it helps us to grow more. ', 'post-carousel' ), $url );
+            $text = sprintf( __( 'If you like <strong>Super Video Player</strong> please leave us a <a href="%s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. Your Review is very important to us as it helps us to grow more. ', 'svp' ), $url );
         }
     
         return $text;

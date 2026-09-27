@@ -43,7 +43,7 @@ array(
   'id'         => '_svp_video_poster',
   'type'       => 'upload',
   'title'      => 'Poster Image',
-  'desc'      => esc_html__( 'A image to be shown while the video is downloading, or until the user hits the play button. ', 'bPlugins' ),
+  'desc'      => esc_html__( 'A image to be shown while the video is downloading, or until the user hits the play button. ', 'svp' ),
   'inline'    => true,
   'library'    => 'image'
 ),
@@ -51,23 +51,23 @@ array(
 array(
   'id' => '_svp_video_title',
   'type' => 'text',
-  'title' => __('Video Title', 'bPlugins'),
-  'desc' => esc_html__('Enter the title for the video. ', 'bPlugins'),
+  'title' => __('Video Title', 'svp'),
+  'desc' => esc_html__('Enter the title for the video. ', 'svp'),
   // 'class' => 'svp-readonly'
 ),
 
 array(
   'id' => '_svp_video_description',
   'type' => 'text',
-  'title' => __('Video Description', 'bPlugins'),
-  'desc' => esc_html__('Enter the description for the video. ', 'bPlugins'),
+  'title' => __('Video Description', 'svp'),
+  'desc' => esc_html__('Enter the description for the video. ', 'svp'),
   // 'class' => 'svp-readonly'
 ),
 
  array(
         'id' => '_svp_custom_download_url_enabled',
         'type' => 'switcher',
-        'title' => __('Enable Custom Video Download URL', 'bPlugins'),
+        'title' => __('Enable Custom Video Download URL', 'svp'),
         'default' => 0,
         'class' => 'svp-readonly'
       ),
@@ -75,7 +75,7 @@ array(
       array(
         'id' => '_svp_custom_download_url',
         'type' => 'text',
-        'title' => __("Custom Download URL", "bPlugins"),
+        'title' => __("Custom Download URL", "svp"),
         'dependency' => array('_svp_custom_download_url_enabled', '==', '1')
       ),
 
@@ -83,7 +83,7 @@ array(
   'id'     => 'video_caption',
   'type'   => 'repeater',
   'title'  => 'Caption / Subtitle',
-  'desc'      => esc_html__( 'Click On + To add Subtitle File. You can add different subtitle file for different languages.', 'bPlugins' ),   
+  'desc'      => esc_html__( 'Click On + To add Subtitle File. You can add different subtitle file for different languages.', 'svp' ),   
   'fields' => array(
 
     array(
@@ -95,7 +95,7 @@ array(
       'id'    => 'label',
       'type'  => 'text',
       'title' => 'Label',
-      'desc' => esc_html__( 'Enter label for the subtitle. eg: English/en', 'bPlugins' ), 
+      'desc' => esc_html__( 'Enter label for the subtitle. eg: English/en', 'svp' ), 
     ),
   ),
 ),
@@ -104,7 +104,7 @@ array(
   'id'         => 'video_width',
   'type'       => 'text',
   'title'      => 'Video Width (Px)',
-  'desc'      => esc_html__( 'Enter 0 for 100% Width. Enter any number such as 500 for a video player with 500px. ', 'bPlugins' ),
+  'desc'      => esc_html__( 'Enter 0 for 100% Width. Enter any number such as 500 for a video player with 500px. ', 'svp' ),
   'default'=>'0',
   'inline'    => true,
    'attributes'  => array(
@@ -130,7 +130,7 @@ array(
   'id'         => 'seek_time',
   'type'       => 'text',
   'title'      => 'Seek time (Second)',
-  'desc'      => esc_html__( 'Enter 0 for 100% Width. Enter any number such as 500 for a video player with 500px. ', 'bPlugins' ),
+  'desc'      => esc_html__( 'Enter 0 for 100% Width. Enter any number such as 500 for a video player with 500px. ', 'svp' ),
   // 'class' => 'svp-readonly',  
   'default'=>'10',
   'inline'    => true,
@@ -145,7 +145,7 @@ array(
   'id'     => 'video_playlist',
   'type'   => 'repeater',
   'title'  => 'Playlist',
-  'desc'      => esc_html__( 'Click On + To add playlist items. You can add multiple video file in the playlist.', 'bPlugins' ),  
+  'desc'      => esc_html__( 'Click On + To add playlist items. You can add multiple video file in the playlist.', 'svp' ),  
   // 'class' => 'svp-readonly',  
   'fields' => array(
 
@@ -154,14 +154,14 @@ array(
       'type'  => 'text',
       'title' => 'Label',
       'default' => 'Playlist Item',
-      'desc' => esc_html__( 'Enter the title for the video. ', 'bPlugins' ), 
+      'desc' => esc_html__( 'Enter the title for the video. ', 'svp' ), 
     ), 
     array(
       'id'    => 'playlist_item_description',
       'type'  => 'text',
       'title' => 'Video Description',
       'default' => 'Playlist Item',
-      'desc' => esc_html__('Enter the description for the video. ', 'bPlugins'),
+      'desc' => esc_html__('Enter the description for the video. ', 'svp'),
     ),
 
     array(
@@ -197,7 +197,7 @@ array(
   'id'     => 'video_caption',
   'type'   => 'group',
   'title'  => 'Playlist Caption / Subtitle',
-  'desc'      => esc_html__('Click On + To add Subtitle File. You can add different subtitle file for different languages.', 'bPlugins'),
+  'desc'      => esc_html__('Click On + To add Subtitle File. You can add different subtitle file for different languages.', 'svp'),
   // 'class' => 'svp-readonly',
 
   'fields' => array(
@@ -206,7 +206,7 @@ array(
       'id'    => 'label',
       'type'  => 'text',
       'title' => 'Label',
-      'desc' => esc_html__('Enter label for the subtitle. eg: English/en', 'bPlugins'),
+      'desc' => esc_html__('Enter label for the subtitle. eg: English/en', 'svp'),
     ),
     array(
       'id'    => 'vtt',
@@ -220,7 +220,7 @@ array(
   'id'     => 'video_quality',
   'type'   => 'repeater',
   'title'  => 'Video Quality',
-  'desc'      => esc_html__( 'Click On + to add new qualities.  You can set multiple video quality for the same video', 'bPlugins' ),  
+  'desc'      => esc_html__( 'Click On + to add new qualities.  You can set multiple video quality for the same video', 'svp' ),  
   // 'class' => 'svp-readonly',  
   'fields' => array(
 
@@ -228,13 +228,13 @@ array(
       'id'    => 'vid_src',
       'type'  => 'upload',
       'title' => 'Source',
-      'desc' => esc_html__( 'Either select a video file form your media library or paste a video file url', 'bPlugins' ), 
+      'desc' => esc_html__( 'Either select a video file form your media library or paste a video file url', 'svp' ), 
     ),
     array(
       'id'    => 'vid_size',
       'type'  => 'text',
       'title' => 'Resolution',
-      'desc' => esc_html__( 'eg: 4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360 or 240. Entre 720 if the video quality is 720P', 'bPlugins' ), 
+      'desc' => esc_html__( 'eg: 4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360 or 240. Entre 720 if the video quality is 720P', 'svp' ), 
     ),
   ),
 ),
@@ -250,7 +250,7 @@ CSF::createSection($prefix, array(
   'id'         => 'video_repeat',
   'type'       => 'radio',
   'title'      => 'Repeat',
-  'desc'      => esc_html__('Specify how the video will start over again, every time it is finished','bPlugins'),
+  'desc'      => esc_html__('Specify how the video will start over again, every time it is finished','svp'),
   'options'    => array(
     'once' => 'Repeat Once ',
     'loop' => 'Loop',
@@ -263,7 +263,7 @@ CSF::createSection($prefix, array(
   'id'    => 'video_muted',
   'type'  => 'switcher',
   'title' => 'Muted',
-  'desc' => esc_html__('Turn On if you want the audio output of the video should be muted.','bPlugins'),
+  'desc' => esc_html__('Turn On if you want the audio output of the video should be muted.','svp'),
 ), 
 
 // video autoPlay
@@ -279,7 +279,7 @@ array(
   'id'    => 'continues_auto_playlist',
   'type'  => 'switcher',
   'title' => 'Continuous Playback on Playlist',
-  'desc' => esc_html__('Plays next video automatically. Please enable autoPlay.','bPlugins'),
+  'desc' => esc_html__('Plays next video automatically. Please enable autoPlay.','svp'),
   'class' => 'svp-readonly', 
 ),
 
@@ -289,7 +289,7 @@ array(
   'id'    => 'click_to_play',
   'type'  => 'switcher',
   'title' => 'Click to play',
-  'desc' => esc_html__('Click (or tap) of the video container will toggle play/pause.','bPlugins'),
+  'desc' => esc_html__('Click (or tap) of the video container will toggle play/pause.','svp'),
   // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),
@@ -299,7 +299,7 @@ array(
   'id'    => 'tooltips',
   'type'  => 'switcher',
   'title' => 'Tooltips',
-  'desc' => esc_html__('Display control labels as tooltips on :hover & :focus','bPlugins'),
+  'desc' => esc_html__('Display control labels as tooltips on :hover & :focus','svp'),
   // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),
@@ -493,21 +493,21 @@ if( class_exists( 'CSF' ) ) {
   'title' => 'Large Play Button',
   'default' => '1',
   // 'class' => 'svp-readonly',  
-  'help' => esc_html__('Turn off to hide.','bPlugins'), 
+  'help' => esc_html__('Turn off to hide.','svp'), 
 ),
 
  array(
   'id'    => 'restart_btn',
   'type'  => 'switcher',
   'title' => 'Restart button',
-  'help' => esc_html__('Turn off to hide.','bPlugins'), 
+  'help' => esc_html__('Turn off to hide.','svp'), 
   'default' => '1',  
 ), 
  array(
   'id'    => 'play_btn',
   'type'  => 'switcher',
   'title' => 'Play button',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   // 'class' => 'svp-readonly',  
   'default' => '1',  
 ), 
@@ -515,7 +515,7 @@ if( class_exists( 'CSF' ) ) {
   'id'    => 'rewind_btn',
   'type'  => 'switcher',
   'title' => 'Rewind button',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),
@@ -523,7 +523,7 @@ if( class_exists( 'CSF' ) ) {
   'id'    => 'forward_button',
   'type'  => 'switcher',
   'title' => 'Fast forward button',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   // 'class' => 'svp-readonly',  
   'default' => '1',  
   
@@ -532,7 +532,7 @@ if( class_exists( 'CSF' ) ) {
   'id'    => 'progress_bar',
   'type'  => 'switcher',
   'title' => 'Progress bar',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),     
@@ -540,7 +540,7 @@ if( class_exists( 'CSF' ) ) {
   'id'    => 'current_time',
   'type'  => 'switcher',
   'title' => 'Current time',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),  
@@ -548,7 +548,7 @@ if( class_exists( 'CSF' ) ) {
   'id'    => 'mute_button',
   'type'  => 'switcher',
   'title' => 'Mute button',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   // 'class' => 'svp-readonly',  
   'default' => '1',  
 ), 
@@ -556,7 +556,7 @@ if( class_exists( 'CSF' ) ) {
   'id'    => 'volume',
   'type'  => 'switcher',
   'title' => 'Volume control',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   // 'class' => 'svp-readonly',  
   'default' => '1',  
 ), 
@@ -564,7 +564,7 @@ if( class_exists( 'CSF' ) ) {
   'id'    => 'subtitle_button',
   'type'  => 'switcher',
   'title' => 'Subtitle control',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   'class' => 'svp-readonly',  
   'default' => '1',  
 ),
@@ -572,7 +572,7 @@ array(
   'id'    => 'share_button',
   'type'  => 'switcher',
   'title' => 'Share button',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   'class' => 'svp-readonly',  
   'default' => '1',  
 ),
@@ -580,7 +580,7 @@ array(
   'id'    => 'settings_button',
   'type'  => 'switcher',
   'title' => 'Setting button',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),
@@ -588,7 +588,7 @@ array(
   'id'    => 'pip_btn',
   'type'  => 'switcher',
   'title' => 'PIP button',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   'class' => 'svp-readonly',  
   'default' => '1',  
 ),
@@ -596,7 +596,7 @@ array(
   'id'    => 'fullscreen_button',
   'type'  => 'switcher',
   'title' => 'FullScreen button',
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   // 'class' => 'svp-readonly',  
   'default' => '1',  
 ),
@@ -605,7 +605,7 @@ array(
   'type'  => 'switcher',
   'title' => 'Download button',
   'class' => 'svp-readonly',  
-  'help' => esc_html__('Turn off to hide.','bPlugins'),
+  'help' => esc_html__('Turn off to hide.','svp'),
   'default' => '1',  
 ), 
  array(
@@ -613,7 +613,7 @@ array(
   'type'  => 'switcher',
   // 'class' => 'svp-readonly',  
   'title' => 'Auto hide control',
-  'help' => esc_html__('Hide video controls automatically after 2s of no mouse or focus. Turn off to keep controls visible always','bPlugins'),
+  'help' => esc_html__('Hide video controls automatically after 2s of no mouse or focus. Turn off to keep controls visible always','svp'),
   'default' => '1',  
 ),
  array(
@@ -622,7 +622,7 @@ array(
   'type'  => 'switcher',
   'class' => 'svp-readonly',  
   'title' => 'Control shadow',
-  'help' => esc_html__('Turn off to hide the shadow in the controls area.','bPlugins'),
+  'help' => esc_html__('Turn off to hide the shadow in the controls area.','svp'),
   'default' => '1',  
 ),)
   ) );

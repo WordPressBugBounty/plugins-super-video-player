@@ -4,7 +4,7 @@
  * Plugin Name: Super Video Player 
  * Plugin URI:  https://bplugins.com/super-video-player
  * Description: A fully customizable video player for wordpress.
- * Version: 1.8.10
+ * Version: 1.8.11
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Author: bPlugins
@@ -61,17 +61,37 @@ if ( function_exists( 'svp_fs' ) ) {
         // Signal that SDK was initiated.
         do_action( 'svp_fs_loaded' );
     }
+    /**
+     * Whether Pro code can actually run on this install.
+     *
+     * Freemius implements can_use_premium_code() as is_trial() ||
+     * has_features_enabled_license(); it does not check that the premium
+     * files are present. The free build strips premium-files/, so a free-build
+     * user who starts a trial or activates a key before the premium package
+     * installs used to hit require_once on a missing file: a fatal error on
+     * every page. Requiring the files to exist closes that window, and the
+     * free code path stays active until Pro can genuinely take over.
+     *
+     * @return bool
+     */
+    function svp_premium_code_available() {
+        return svp_fs()->can_use_premium_code() && file_exists( __DIR__ . '/premium-files/shortcode-pro.php' );
+    }
+
     require_once __DIR__ . '/upgrade.php';
     require_once __DIR__ . '/inc/functions.php';
     require_once plugin_dir_path( __FILE__ ) . '/video-player-block.php';
     add_action( 'init', 'svp_load_textdomain' );
     function svp_load_textdomain() {
         load_plugin_textdomain( 'svp', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-        if ( svp_fs()->is_free_plan() ) {
+        // Free and Pro code are mutually exclusive. Keying both on the same check
+        // means there is never a state where neither loads (no [vplayer] at all)
+        // or both load (two registrations competing).
+        if ( !svp_premium_code_available() ) {
             require_once __DIR__ . '/inc/metabox-free.php';
             require_once __DIR__ . '/inc/shortcode-free.php';
         }
-        if ( svp_fs()->can_use_premium_code() ) {
+        if ( svp_premium_code_available() ) {
             require_once __DIR__ . '/premium-files/metabox-pro.php';
         }
     }
@@ -79,17 +99,38 @@ if ( function_exists( 'svp_fs' ) ) {
     /*Some Set-up*/
     define( 'SVP_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
     define( 'SVP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-    define( 'SVP_VERSION', '1.8.10' );
+    define( 'SVP_VERSION', '1.8.11' );
     define( 'SVP_HAS_PRO', 'super-video-player-premium/super-video-player.php' === plugin_basename( __FILE__ ) );
     /* JS*/
+    /**
+     * "Help & Demos" link on the Plugins screen, matching the other bPlugins
+     * products (e.g. Advanced Post Block).
+     *
+     * @param array  $links Existing action links.
+     * @param string $file  Plugin basename of the row being rendered.
+     * @return array
+     */
+    function svp_plugin_action_links(  $links, $file  ) {
+        if ( plugin_basename( __FILE__ ) === $file && current_user_can( 'manage_options' ) ) {
+            $links['help-and-demos'] = sprintf( '<a href="%s" style="color:#FF7A00;font-weight:bold">%s</a>', esc_url( admin_url( 'edit.php?post_type=svplayer&page=svplayer#/welcome' ) ), esc_html__( 'Help & Demos', 'svp' ) );
+        }
+        return $links;
+    }
+
+    add_filter(
+        'plugin_action_links',
+        'svp_plugin_action_links',
+        10,
+        2
+    );
     // Inc  common
     require_once __DIR__ . '/inc/init.php';
     require_once __DIR__ . '/vendor/codestar-framework/codestar-framework.php';
     require_once __DIR__ . '/inc/Dashboard.php';
-    if ( SVP_HAS_PRO ) {
+    if ( SVP_HAS_PRO && file_exists( __DIR__ . '/premium-files/LicenseActivation.php' ) ) {
         require_once __DIR__ . '/premium-files/LicenseActivation.php';
     }
-    if ( svp_fs()->can_use_premium_code() ) {
+    if ( svp_premium_code_available() ) {
         require_once __DIR__ . '/premium-files/shortcode-pro.php';
         require_once __DIR__ . '/premium-files/settings-fields.php';
         require_once __DIR__ . '/premium-files/widgets.php';

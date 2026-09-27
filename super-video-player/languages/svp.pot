@@ -1,21 +1,22 @@
 # Copyright (C) 2026 bPlugins
-# This file is distributed under the same license as the Super Video Player plugin.
+# This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Super Video Player 1.8.9\n"
+"Project-Id-Version: Super Video Player 1.8.11\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/super-video-player-premium\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-23T05:43:53+00:00\n"
+"POT-Creation-Date: 2026-09-24T12:01:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: svp\n"
 
 #. Plugin Name of the plugin
 #: super-video-player.php
+#: premium-files/widgets.php:18
 msgid "Super Video Player"
 msgstr ""
 
@@ -37,6 +38,110 @@ msgstr ""
 #. Author URI of the plugin
 #: super-video-player.php
 msgid "http://bplugins.com"
+msgstr ""
+
+#: inc/init.php:42
+msgid "No Video Player is Selected"
+msgstr ""
+
+#: inc/metabox-free.php:46
+#: premium-files/metabox-pro.php:45
+msgid "A image to be shown while the video is downloading, or until the user hits the play button. "
+msgstr ""
+
+#: inc/metabox-free.php:54
+#: premium-files/metabox-pro.php:53
+msgid "Video Title"
+msgstr ""
+
+#: inc/metabox-free.php:55
+#: inc/metabox-free.php:157
+#: premium-files/metabox-pro.php:54
+#: premium-files/metabox-pro.php:131
+msgid "Enter the title for the video. "
+msgstr ""
+
+#: inc/metabox-free.php:62
+#: premium-files/metabox-pro.php:60
+msgid "Video Description"
+msgstr ""
+
+#: inc/metabox-free.php:63
+#: inc/metabox-free.php:164
+#: premium-files/metabox-pro.php:61
+#: premium-files/metabox-pro.php:138
+msgid "Enter the description for the video. "
+msgstr ""
+
+#: inc/metabox-free.php:70
+#: premium-files/metabox-pro.php:67
+msgid "Enable Custom Video Download URL"
+msgstr ""
+
+#: inc/metabox-free.php:78
+#: premium-files/metabox-pro.php:74
+msgid "Custom Download URL"
+msgstr ""
+
+#: inc/metabox-free.php:86
+#: inc/metabox-free.php:200
+#: premium-files/metabox-pro.php:175
+msgid "Click On + To add Subtitle File. You can add different subtitle file for different languages."
+msgstr ""
+
+#: inc/metabox-free.php:98
+#: inc/metabox-free.php:209
+#: premium-files/metabox-pro.php:183
+msgid "Enter label for the subtitle. eg: English/en"
+msgstr ""
+
+#: inc/metabox-free.php:107
+#: inc/metabox-free.php:133
+#: premium-files/metabox-pro.php:94
+#: premium-files/metabox-pro.php:108
+msgid "Enter 0 for 100% Width. Enter any number such as 500 for a video player with 500px. "
+msgstr ""
+
+#: inc/metabox-free.php:148
+#: premium-files/metabox-pro.php:122
+msgid "Click On + To add playlist items. You can add multiple video file in the playlist."
+msgstr ""
+
+#: inc/metabox-free.php:223
+#: premium-files/metabox-pro.php:197
+msgid "Click On + to add new qualities.  You can set multiple video quality for the same video"
+msgstr ""
+
+#: inc/metabox-free.php:231
+#: premium-files/metabox-pro.php:211
+msgid "Either select a video file form your media library or paste a video file url"
+msgstr ""
+
+#: inc/metabox-free.php:237
+msgid "eg: 4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360 or 240. Entre 720 if the video quality is 720P"
+msgstr ""
+
+#: inc/metabox-free.php:253
+#: premium-files/metabox-pro.php:229
+msgid "Specify how the video will start over again, every time it is finished"
+msgstr ""
+
+#: inc/metabox-free.php:266
+#: premium-files/metabox-pro.php:241
+msgid "Turn On if you want the audio output of the video should be muted."
+msgstr ""
+
+#: inc/metabox-free.php:282
+msgid "Plays next video automatically. Please enable autoPlay."
+msgstr ""
+
+#: inc/metabox-free.php:292
+#: premium-files/metabox-pro.php:262
+msgid "Click (or tap) of the video container will toggle play/pause."
+msgstr ""
+
+#: inc/metabox-free.php:302
+msgid "Display control labels as tooltips on :hover & :focus"
 msgstr ""
 
 #: inc/metabox-free.php:368
@@ -84,6 +189,89 @@ msgstr ""
 msgid "Border Radius"
 msgstr ""
 
-#: inc/PostType/SVPPlayer.php:150
+#: inc/metabox-free.php:496
+#: inc/metabox-free.php:503
+#: inc/metabox-free.php:510
+#: inc/metabox-free.php:518
+#: inc/metabox-free.php:526
+#: inc/metabox-free.php:535
+#: inc/metabox-free.php:543
+#: inc/metabox-free.php:551
+#: inc/metabox-free.php:559
+#: inc/metabox-free.php:567
+#: inc/metabox-free.php:575
+#: inc/metabox-free.php:583
+#: inc/metabox-free.php:591
+#: inc/metabox-free.php:599
+#: inc/metabox-free.php:608
+#: premium-files/metabox-pro.php:456
+#: premium-files/metabox-pro.php:465
+#: premium-files/metabox-pro.php:473
+#: premium-files/metabox-pro.php:480
+#: premium-files/metabox-pro.php:487
+#: premium-files/metabox-pro.php:495
+#: premium-files/metabox-pro.php:502
+#: premium-files/metabox-pro.php:509
+#: premium-files/metabox-pro.php:516
+#: premium-files/metabox-pro.php:523
+#: premium-files/metabox-pro.php:531
+#: premium-files/metabox-pro.php:537
+#: premium-files/metabox-pro.php:544
+#: premium-files/metabox-pro.php:551
+#: premium-files/metabox-pro.php:558
+msgid "Turn off to hide."
+msgstr ""
+
+#: inc/metabox-free.php:616
+#: premium-files/metabox-pro.php:565
+msgid "Hide video controls automatically after 2s of no mouse or focus. Turn off to keep controls visible always"
+msgstr ""
+
+#: inc/metabox-free.php:625
+#: premium-files/metabox-pro.php:572
+msgid "Turn off to hide the shadow in the controls area."
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:114
+#: inc/PostType/SVPPlayer.php:115
+#: super-video-player.php:136
+msgid "Help & Demos"
+msgstr ""
+
+#: inc/PostType/SVPPlayer.php:166
 msgid "Copy and paste this shortcode into your posts, pages and widget"
+msgstr ""
+
+#: premium-files/metabox-pro.php:205
+msgid "eg: 4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360 or 240. Entre 720 if the video resolution is 720"
+msgstr ""
+
+#: premium-files/metabox-pro.php:255
+msgid "Plays next video automatically. Please enable autoPlay"
+msgstr ""
+
+#: premium-files/widgets.php:14
+msgid "Add a video player in sidebar."
+msgstr ""
+
+#: premium-files/widgets.php:75
+msgid "You have not created any player yet."
+msgstr ""
+
+#: premium-files/widgets.php:77
+msgid "Create a player first."
+msgstr ""
+
+#: premium-files/widgets.php:84
+msgid "Title:"
+msgstr ""
+
+#: premium-files/widgets.php:96
+msgid "Select Player:"
+msgstr ""
+
+#. translators: %d: player post ID.
+#: premium-files/widgets.php:109
+#, php-format
+msgid "Player #%d"
 msgstr ""
