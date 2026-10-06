@@ -64,7 +64,11 @@ class SVPPlayer{
         ),
             'public'              => false,
             'show_ui'             => true,
-            'publicly_queryable'  => true,
+            // A player has no page of its own - it is shown through its
+            // shortcode or block - so its URL only ever showed an empty post.
+            // Being "viewable" also let SEO plugins put those empty pages in
+            // their sitemaps.
+            'publicly_queryable'  => false,
             'exclude_from_search' => true,
             'show_in_rest'        => true,
             'menu_position'       => 14,

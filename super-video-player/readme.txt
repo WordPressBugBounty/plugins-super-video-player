@@ -3,7 +3,7 @@ Contributors: bplugins, freemius, asadsuzan
 Tags: video player, html5 video player, mp4 player, responsive video, gutenberg block
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.8.12
+Stable tag: 1.8.13
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -138,6 +138,13 @@ Please report security bugs found in the source code of the Super Video Player p
 10. Pro global settings: brand colours, custom CSS and player text.
 
 == Changelog ==
+
+= 1.8.13 =
+ * **Fix:** Caption colours and typography now apply to their own player only. Before, the last player on a page set the caption style for every player on it, including players from other plugins.
+ * **Fix:** Caption font sizes and letter spacing chosen in the block settings now take effect.
+ * **Fix:** A volume, speed or caption choice made in another plugin’s video player no longer overrides this plugin’s “Initial volume” and other settings.
+ * **Fix:** Players no longer have public pages of their own. Those pages were empty, and SEO plugins could list them in sitemaps; players still show wherever you use their shortcode or block.
+ * **Update:** Code cleanup in the playlist player. There is no visible change: playlists start at their first video, as before.
 
 = 1.8.12 – 28 September, 2026 =
  * **Fix:** The Pro Settings page now takes effect. The primary and secondary colours, custom CSS and player text translations apply to every player; before, changing them had no effect.
