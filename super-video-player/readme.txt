@@ -3,7 +3,7 @@ Contributors: bplugins, freemius, asadsuzan
 Tags: video player, html5 video player, mp4 player, responsive video, gutenberg block
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.8.13
+Stable tag: 1.8.14
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -139,7 +139,15 @@ Please report security bugs found in the source code of the Super Video Player p
 
 == Changelog ==
 
-= 1.8.13 =
+= 1.8.14 - 13 October, 2026 =
+ * **Fix:** Videos hosted on another domain or a CDN now play even when that server sends no CORS headers. Before, such videos stayed blank. Caption files on another domain still need CORS headers, as browsers require.
+ * **Fix:** HLS (.m3u8) and DASH (.mpd) links with a query string, such as signed or tokenised CDN links, now play in Chrome, Firefox and Edge.
+ * **Fix:** HLS and DASH playlists no longer download every video segment twice.
+ * **Fix:** DASH videos now follow the “Auto Play” setting. They used to start on their own whatever the setting said.
+ * **Fix:** Changing the settings of an HLS or DASH player in the block editor no longer leaves extra copies of the stream downloading in the background.
+ * **Fix:** The Vertical playlist layout now shows video durations for videos on other domains.
+
+= 1.8.13 – 6 October, 2026 =
  * **Fix:** Caption colours and typography now apply to their own player only. Before, the last player on a page set the caption style for every player on it, including players from other plugins.
  * **Fix:** Caption font sizes and letter spacing chosen in the block settings now take effect.
  * **Fix:** A volume, speed or caption choice made in another plugin’s video player no longer overrides this plugin’s “Initial volume” and other settings.
