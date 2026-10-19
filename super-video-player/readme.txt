@@ -3,7 +3,7 @@ Contributors: bplugins, freemius, asadsuzan
 Tags: video player, html5 video player, mp4 player, responsive video, gutenberg block
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.8.14
+Stable tag: 1.8.15
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -139,7 +139,12 @@ Please report security bugs found in the source code of the Super Video Player p
 
 == Changelog ==
 
-= 1.8.14 - 13 October, 2026 =
+= 1.8.15 – 19 October, 2026 =
+ * **Security:** Fixed a PHP Object Injection vulnerability (CVE-2026-62044) that users with Editor access or higher could exploit through a player’s stored settings. Please update. Thanks to johska for reporting it responsibly.
+ * **Security:** Player settings can now only be changed from the player’s own settings screen, not through WordPress’s generic custom fields.
+ * **Security:** Stricter permission checks on the Pro licence screen.
+
+= 1.8.14 – 13 October, 2026 =
  * **Fix:** Videos hosted on another domain or a CDN now play even when that server sends no CORS headers. Before, such videos stayed blank. Caption files on another domain still need CORS headers, as browsers require.
  * **Fix:** HLS (.m3u8) and DASH (.mpd) links with a query string, such as signed or tokenised CDN links, now play in Chrome, Firefox and Edge.
  * **Fix:** HLS and DASH playlists no longer download every video segment twice.

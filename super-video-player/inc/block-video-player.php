@@ -48,12 +48,19 @@ foreach ($video_playlist as $video) {
     ];
 }
 
-$tab_styles_serialized = get_meta($id, 'tabStyles', []);
-$tab_styles = maybe_unserialize($tab_styles_serialized);
+// Security: never unserialize this value a second time. The settings screen
+// saves tabStyles as an array, which get_post_meta() has already decoded.
+// Up to 1.8.14 a second decoding step turned any *string* stored under this
+// key back into PHP data - including objects - and an Editor can store such
+// a string through WordPress's custom-fields handling (PHP Object Injection,
+// CVE-2026-62044). Anything that is not an array is ignored, and only
+// scalar values (colours) are kept.
+$tab_styles = get_meta($id, 'tabStyles', []);
 
 if (!is_array($tab_styles)) {
     $tab_styles = [];
 }
+$tab_styles = array_filter($tab_styles, 'is_scalar');
 
 // Fill missing keys with defaults
 $tab_styles = wp_parse_args($tab_styles, [
