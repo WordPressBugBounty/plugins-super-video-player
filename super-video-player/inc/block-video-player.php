@@ -118,6 +118,9 @@ $attributes = [
     // through untouched. Lets the VideoObject schema use the player's name
     // and date (inc/schema.php).
     'playerId' => (int) $id,
+    // Players created from 1.8.16 on: Pro controls are enforced for them
+    // (inc/pro-gate.php, utils/entitlement.js). Older players keep theirs.
+    'gateProControls' => function_exists('svp_player_gates_pro_controls') && svp_player_gates_pro_controls($id),
     'options' => [
         'controls' => svp_get_controls($id),
         'autoPlay' => svp_legacy_flag($id, 'video_autoplay', '_svp_video_autoplay'),
