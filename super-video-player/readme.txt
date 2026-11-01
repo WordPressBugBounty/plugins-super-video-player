@@ -3,7 +3,7 @@ Contributors: bplugins, freemius, asadsuzan
 Tags: video player, html5 video player, mp4 player, responsive video, gutenberg block
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.8.16
+Stable tag: 1.8.17
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -138,6 +138,11 @@ Please report security bugs found in the source code of the Super Video Player p
 10. Pro global settings: brand colours, custom CSS and player text.
 
 == Changelog ==
+
+= 1.8.17 – 29 October, 2026 =
+ * **Update:** You can always switch off a Pro control (captions toggle, share, picture-in-picture, download or control shadow) on your players, in the block and on the player settings screen. Only switching one on needs Pro.
+ * **Update:** Super Video Player's notices, such as the opt-in reminder, now appear only on the plugin's own screens and the Plugins screen, not across the whole dashboard.
+ * **Fix:** The "Control shadow" setting on the player settings screen now takes effect. It was ignored before.
 
 = 1.8.16 – 28 October, 2026 =
  * **Fix:** Opening an older player in its settings and clicking Update no longer changes it. Players made with versions before 1.3 used to lose their video, and other old players could gain buttons or lose their autoplay, width or subtitle settings. The settings screen now shows each player's settings as the player really uses them.

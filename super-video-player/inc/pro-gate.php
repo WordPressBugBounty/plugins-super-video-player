@@ -36,6 +36,16 @@ function svp_mark_new_player( $post_id, $post, $update ) {
 add_action( 'wp_insert_post', 'svp_mark_new_player', 10, 3 );
 
 /**
+ * Settings-screen switches for the Pro controls (captions toggle, share,
+ * picture-in-picture, download, control shadow).
+ *
+ * @return string[] Meta keys.
+ */
+function svp_pro_control_meta_keys() {
+	return array( 'subtitle_button', 'share_button', 'pip_btn', 'download_button', 'control_shadow' );
+}
+
+/**
  * @param int $player_id Player post ID.
  * @return bool Whether the player was created from 1.8.16 on.
  */

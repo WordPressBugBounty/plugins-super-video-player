@@ -134,7 +134,9 @@ $attributes = [
         // "Auto hide control". Was hard-coded to true, so the setting did nothing.
         // A player that never saved it keeps auto-hiding, as it always has.
         'isControl' => metadata_exists('post', $id, 'auto_hide') ? '1' === get_post_meta($id, 'auto_hide', true) : true,
-        'shadowControl' => true
+        // "Control shadow". Was hard-coded to true, so the setting did nothing.
+        // A player that never saved it keeps the shadow, as it always has.
+        'shadowControl' => metadata_exists('post', $id, 'control_shadow') ? '1' === get_post_meta($id, 'control_shadow', true) : true
     ],
     'videos' => array_merge([
         [

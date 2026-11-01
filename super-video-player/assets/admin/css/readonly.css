@@ -84,3 +84,17 @@
 .csf-field-switcher .csf-fieldset {
   margin-left: auto;
 }
+
+/* A Pro switch that is on can be switched off (assets/admin/js/pro-switches.js). */
+.svp-pro-switch-note {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #646970;
+}
+
+/* The note replaces the "Turn off to hide." help icon, which would overlap it. */
+.svp-pro-switch--unlocked .csf-help {
+  display: none;
+}

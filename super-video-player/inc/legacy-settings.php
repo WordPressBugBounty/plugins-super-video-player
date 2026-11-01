@@ -68,10 +68,21 @@ function svp_legacy_settings_value( $player_id, $meta_key ) {
 			return empty( $legacy ) ? null : $legacy;
 	}
 
+	$is_new_player = function_exists( 'svp_player_gates_pro_controls' ) && svp_player_gates_pro_controls( $player_id );
+
+	// New players (1.8.16+) without Pro: the Pro controls are off on the front
+	// end, so show their switches off too rather than the screen's "on"
+	// default. Once saved, the stored value is shown.
+	if ( $is_new_player && function_exists( 'svp_pro_control_meta_keys' ) && in_array( $meta_key, svp_pro_control_meta_keys(), true )
+		&& ! ( function_exists( 'svp_premium_code_available' ) && svp_premium_code_available() )
+		&& ! metadata_exists( 'post', $player_id, $meta_key ) ) {
+		return '0';
+	}
+
 	$controls = svp_get_control_map();
 	if ( isset( $controls[ $meta_key ] ) ) {
-		// New players use the settings screen's own defaults.
-		if ( function_exists( 'svp_player_gates_pro_controls' ) && svp_player_gates_pro_controls( $player_id ) ) {
+		// New players otherwise use the settings screen's own defaults.
+		if ( $is_new_player ) {
 			return null;
 		}
 		if ( ! svp_controls_are_configured( $player_id ) ) {
@@ -124,7 +135,7 @@ function svp_is_legacy_settings_key( $meta_key ) {
 	static $keys = null;
 	if ( null === $keys ) {
 		$keys = array_merge(
-			array( '_svp_video_file', '_svp_video_poster', 'video_autoplay', 'video_muted', 'video_repeat', 'video_width', 'video_caption' ),
+			array( '_svp_video_file', '_svp_video_poster', 'video_autoplay', 'video_muted', 'video_repeat', 'video_width', 'video_caption', 'control_shadow' ),
 			array_keys( svp_get_control_map() )
 		);
 	}

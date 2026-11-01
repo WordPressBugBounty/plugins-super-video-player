@@ -565,7 +565,7 @@ if( class_exists( 'CSF' ) ) {
   'type'  => 'switcher',
   'title' => 'Subtitle control',
   'help' => esc_html__('Turn off to hide.','svp'),
-  'class' => 'svp-readonly',  
+  'class' => 'svp-readonly svp-pro-switch',  
   'default' => '1',  
 ),
 array(
@@ -573,7 +573,7 @@ array(
   'type'  => 'switcher',
   'title' => 'Share button',
   'help' => esc_html__('Turn off to hide.','svp'),
-  'class' => 'svp-readonly',  
+  'class' => 'svp-readonly svp-pro-switch',  
   'default' => '1',  
 ),
   array(
@@ -589,7 +589,7 @@ array(
   'type'  => 'switcher',
   'title' => 'PIP button',
   'help' => esc_html__('Turn off to hide.','svp'),
-  'class' => 'svp-readonly',  
+  'class' => 'svp-readonly svp-pro-switch',  
   'default' => '1',  
 ),
   array(
@@ -604,7 +604,7 @@ array(
   'id'    => 'download_button',
   'type'  => 'switcher',
   'title' => 'Download button',
-  'class' => 'svp-readonly',  
+  'class' => 'svp-readonly svp-pro-switch',  
   'help' => esc_html__('Turn off to hide.','svp'),
   'default' => '1',  
 ), 
@@ -620,7 +620,7 @@ array(
  
   'id'    => 'control_shadow',
   'type'  => 'switcher',
-  'class' => 'svp-readonly',  
+  'class' => 'svp-readonly svp-pro-switch',  
   'title' => 'Control shadow',
   'help' => esc_html__('Turn off to hide the shadow in the controls area.','svp'),
   'default' => '1',  
@@ -633,10 +633,28 @@ array(
  * Register and enqueue a custom stylesheet in the WordPress admin.
  */
 function svp_read_only_style() {
-        wp_register_style( 'svp-readonly', SVP_PLUGIN_DIR . 'assets/admin/css/readonly.css', false, '1.0' );
+        wp_register_style( 'svp-readonly', SVP_PLUGIN_DIR . 'assets/admin/css/readonly.css', false, SVP_VERSION );
         wp_enqueue_style( 'svp-readonly' );
 }
 add_action( 'admin_enqueue_scripts', 'svp_read_only_style' );
+
+/**
+ * Pro switches that are on can be switched off (assets/admin/js/pro-switches.js).
+ * This file only loads without a Pro licence.
+ *
+ * @param string $hook Admin page.
+ */
+function svp_pro_switches_script( $hook ) {
+	global $post;
+	if ( ! in_array( $hook, array( 'post.php', 'post-new.php' ), true ) || ! $post || 'svplayer' !== $post->post_type ) {
+		return;
+	}
+	wp_enqueue_script( 'svp-pro-switches', SVP_PLUGIN_DIR . 'assets/admin/js/pro-switches.js', array( 'jquery' ), SVP_VERSION, true );
+	wp_localize_script( 'svp-pro-switches', 'svpProSwitches', array(
+		'note' => __( 'Pro feature: you can switch it off.', 'svp' ),
+	) );
+}
+add_action( 'admin_enqueue_scripts', 'svp_pro_switches_script' );
 
 function svp_exclude_fields_before_save( $data ) {
 
