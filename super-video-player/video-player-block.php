@@ -14,11 +14,12 @@ if (!class_exists('SVPPlugin')) {
 
 		function enqueueBlockAssets()
 		{
-			wp_register_script( 'plyrIoJS', SVP_PLUGIN_DIR . 'assets/js/plyr.js', [], '3.7.8' );
-			wp_register_style( 'plyrIoCSS', SVP_PLUGIN_DIR . 'assets/css/plyr.css', [], '3.7.8' );
+			// The version is Plyr's own, so browsers fetch the new file when Plyr is updated.
+			wp_register_script( 'plyrIoJS', SVP_PLUGIN_DIR . 'assets/js/plyr.js', [], '3.8.5' );
+			wp_register_style( 'plyrIoCSS', SVP_PLUGIN_DIR . 'assets/css/plyr.css', [], '3.8.5' );
 
 			/**
-			 * hls.js 1.7.3 replaces the 0.9.1 build (2018) used until 1.8.15.
+			 * hls.js 1.7 (assets/js/hls.js) replaces the 0.9.1 build (2018) used until 1.8.15.
 			 * For one release the old build ships too, as an escape hatch for
 			 * a stream that only works with it:
 			 * add_filter( 'svp_use_legacy_hls', '__return_true' );

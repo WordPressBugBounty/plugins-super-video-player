@@ -630,9 +630,18 @@ array(
 }
 
 /**
- * Register and enqueue a custom stylesheet in the WordPress admin.
+ * Styles for the player settings boxes (Pro-only fields, switch layout).
+ *
+ * Super Video Player screens only: the stylesheet restyles every Codestar
+ * switch field, so loading it on every admin page also changed the settings
+ * screens of other plugins built on Codestar.
  */
 function svp_read_only_style() {
+        $screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+        if ( ! $screen || 'svplayer' !== $screen->post_type ) {
+                return;
+        }
+
         wp_register_style( 'svp-readonly', SVP_PLUGIN_DIR . 'assets/admin/css/readonly.css', false, SVP_VERSION );
         wp_enqueue_style( 'svp-readonly' );
 }

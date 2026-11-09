@@ -3,7 +3,7 @@ Contributors: bplugins, freemius, asadsuzan
 Tags: video player, html5 video player, mp4 player, responsive video, gutenberg block
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.8.17
+Stable tag: 1.8.18
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -22,6 +22,8 @@ Embed self-hosted MP4, HLS (.m3u8), and DASH videos with a responsive video play
 
 It is built for sites that host or stream their own video: courses and tutorials, clubs and organisations, product demos, documentation and business sites.
 
+**It does not play YouTube or Vimeo links.** For a video hosted on YouTube or Vimeo, use WordPress's built-in Embed block.
+
 = What's free =
 
 Everything below is included in the free version, with no limit on the number of players.
@@ -37,7 +39,7 @@ Everything below is included in the free version, with no limit on the number of
 * **Search engine friendly** – every player adds VideoObject structured data so your videos can appear in search results.
 * **Accessible** – full keyboard control, including choosing playlist videos, with screen-reader labels.
 * **Gutenberg block and shortcode** – build players in the block editor, or create them once and place them anywhere with `[vplayer id="…"]`, including classic editor content and page builders.
-* **Lightweight** – a page with a player loads about 170 KB of player assets; a page without one loads none. No jQuery.
+* **Lightweight** – a page with a player loads about 100 KB of compressed scripts and styles: about 45 KB for the player, and the rest for WordPress's built-in React, which other blocks may load anyway. HLS and DASH streams also load their streaming library, on those pages only. A page without a player loads none of it. No jQuery.
 
 = What Pro adds =
 
@@ -100,6 +102,10 @@ Yes. Playlists are free with the Default and Horizontal layouts. The Vertical an
 
 MP4 (H.264 video, AAC audio), HLS (.m3u8) and MPEG-DASH (.mpd). The video must be reachable at a URL – from your Media Library, your own server or a CDN.
 
+= Can I play YouTube or Vimeo videos? =
+
+No. Super Video Player plays video files and streams, not YouTube or Vimeo pages. For a YouTube or Vimeo video, use WordPress's built-in Embed block. If you have a direct link to the video file itself (ending in .mp4 or .m3u8), paste that into Super Video Player and it will play.
+
 = Why doesn't my video autoplay with sound? =
 
 Browsers block autoplay with sound until the visitor has interacted with the site. Turn on **Muted** as well as **Auto Play** and the video will start in every browser; visitors can then unmute it.
@@ -139,7 +145,13 @@ Please report security bugs found in the source code of the Super Video Player p
 
 == Changelog ==
 
-= 1.8.17 – 29 October, 2026 =
+= 1.8.18 – 9 Nov, 2026 =
+ * **Fix:** A new install no longer shows two "Super Video Player" menus before you opt in or skip. Every new install of 1.8.10 to 1.8.17 did.
+ * **Update:** The block's Video URL field now says which links work, and warns you when you paste a YouTube or Vimeo link, which the player can't play.
+ * **Fix:** The player settings styles now load only on Super Video Player screens. They used to change the look of switches in other plugins built on the same settings framework.
+ * **Update:** Plyr 3.8.5, the player engine: fixes for choosing captions, restoring the volume when you unmute, and detecting picture-in-picture support. Also hls.js 1.7.4 and the Freemius SDK 2.13.5.
+
+= 1.8.17 – 1 Nov, 2026 =
  * **Update:** You can always switch off a Pro control (captions toggle, share, picture-in-picture, download or control shadow) on your players, in the block and on the player settings screen. Only switching one on needs Pro.
  * **Update:** Super Video Player's notices, such as the opt-in reminder, now appear only on the plugin's own screens and the Plugins screen, not across the whole dashboard.
  * **Fix:** The "Control shadow" setting on the player settings screen now takes effect. It was ignored before.

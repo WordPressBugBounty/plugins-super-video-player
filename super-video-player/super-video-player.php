@@ -4,7 +4,7 @@
  * Plugin Name: Super Video Player 
  * Plugin URI:  https://bplugins.com/super-video-player
  * Description: A fully customizable video player for wordpress.
- * Version: 1.8.17
+ * Version: 1.8.18
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Author: bPlugins
@@ -45,7 +45,7 @@ if ( function_exists( 'svp_fs' ) ) {
                         'is_require_payment' => false,
                     ),
                     'menu'             => array(
-                        'slug'       => 'edit.php?post_type=svplayer&page=svplayer#/welcome',
+                        'slug'       => 'edit.php?post_type=svplayer',
                         'first-path' => 'edit.php?post_type=svplayer&page=svplayer#/welcome',
                         'network'    => true,
                     ),
@@ -84,6 +84,7 @@ if ( function_exists( 'svp_fs' ) ) {
     require_once __DIR__ . '/inc/pro-gate.php';
     require_once __DIR__ . '/inc/legacy-settings.php';
     require_once __DIR__ . '/inc/admin-notices.php';
+    require_once __DIR__ . '/inc/admin-menu.php';
     require_once plugin_dir_path( __FILE__ ) . '/video-player-block.php';
     add_action( 'init', 'svp_load_textdomain' );
     function svp_load_textdomain() {
@@ -103,7 +104,7 @@ if ( function_exists( 'svp_fs' ) ) {
     /*Some Set-up*/
     define( 'SVP_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
     define( 'SVP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-    define( 'SVP_VERSION', '1.8.17' );
+    define( 'SVP_VERSION', '1.8.18' );
     define( 'SVP_HAS_PRO', 'super-video-player-premium/super-video-player.php' === plugin_basename( __FILE__ ) );
     /* JS*/
     /**
@@ -116,7 +117,14 @@ if ( function_exists( 'svp_fs' ) ) {
      */
     function svp_plugin_action_links(  $links, $file  ) {
         if ( plugin_basename( __FILE__ ) === $file && current_user_can( 'manage_options' ) ) {
-            $links['help-and-demos'] = sprintf( '<a href="%s" style="color:#FF7A00;font-weight:bold">%s</a>', esc_url( admin_url( 'edit.php?post_type=svplayer&page=svplayer#/welcome' ) ), esc_html__( 'Help & Demos', 'svp' ) );
+            $url = admin_url( 'edit.php?post_type=svplayer&page=svplayer#/welcome' );
+            // Until the owner opts in or skips, Freemius shows its opt-in page in
+            // place of the plugin's menu, and the Help & Demos page is not
+            // registered yet; send the link to the opt-in page instead.
+            if ( svp_fs()->is_activation_mode() ) {
+                $url = svp_fs()->get_activation_url();
+            }
+            $links['help-and-demos'] = sprintf( '<a href="%s" style="color:#FF7A00;font-weight:bold">%s</a>', esc_url( $url ), esc_html__( 'Help & Demos', 'svp' ) );
         }
         return $links;
     }

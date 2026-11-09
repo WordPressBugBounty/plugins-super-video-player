@@ -10,9 +10,12 @@ if( !class_exists('svplayerDashboard') ){
 		}
 
 		function adminEnqueueScripts( $hook ) {
-			// strpos(), not str_contains(): the plugin supports PHP 7.4 and
-			// str_contains() is PHP 8.0+, so it fataled on every admin page load.
-			if ( is_string( $hook ) && false !== strpos( $hook, 'svplayer' ) ) {
+			// Only the Help & Demos page (slug "svplayer"), whose hook ends in
+			// "_page_svplayer". Matching any hook that contains "svplayer" also
+			// caught the Freemius pages (pricing, account), which sit under the
+			// plugin's menu since 1.8.18; the dashboard script then failed there,
+			// looking for an element only Help & Demos has.
+			if ( is_string( $hook ) && '_page_svplayer' === substr( $hook, -14 ) ) {
 				$asset_file = file_exists(SVP_PLUGIN_PATH . 'build/dashboard.asset.php') 
 					? include(SVP_PLUGIN_PATH . 'build/dashboard.asset.php') 
 					: ['dependencies' => ['react', 'react-dom', 'wp-components', 'wp-api-fetch', 'wp-data'], 'version' => SVP_VERSION];
