@@ -3,7 +3,7 @@ Contributors: bplugins, freemius, asadsuzan
 Tags: video player, html5 video player, mp4 player, responsive video, gutenberg block
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.8.18
+Stable tag: 1.8.19
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -144,6 +144,9 @@ Please report security bugs found in the source code of the Super Video Player p
 10. Pro global settings: brand colours, custom CSS and player text.
 
 == Changelog ==
+
+= 1.18.19 – 16 Nov, 2026 =
+ * **Update:** BFCM BLACK FRIDAY 2026 PROMO: Save up to 45% on Super Video Player Pro.
 
 = 1.8.18 – 9 Nov, 2026 =
  * **Fix:** A new install no longer shows two "Super Video Player" menus before you opt in or skip. Every new install of 1.8.10 to 1.8.17 did.
@@ -317,3 +320,6 @@ Please report security bugs found in the source code of the Super Video Player p
 = 1.0 =
 * Initial Release
 
+== Upgrade Notice ==
+= 1.8.19 =
+BFCM BLACK FRIDAY 2026 PROMO: Save up to 45%

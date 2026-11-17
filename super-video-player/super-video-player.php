@@ -4,7 +4,7 @@
  * Plugin Name: Super Video Player 
  * Plugin URI:  https://bplugins.com/super-video-player
  * Description: A fully customizable video player for wordpress.
- * Version: 1.8.18
+ * Version: 1.8.19
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Author: bPlugins
@@ -86,6 +86,7 @@ if ( function_exists( 'svp_fs' ) ) {
     require_once __DIR__ . '/inc/admin-notices.php';
     require_once __DIR__ . '/inc/admin-menu.php';
     require_once plugin_dir_path( __FILE__ ) . '/video-player-block.php';
+    require_once plugin_dir_path( __FILE__ ) . 'inc/bplugins-bfcm2026-promo.php';
     add_action( 'init', 'svp_load_textdomain' );
     function svp_load_textdomain() {
         load_plugin_textdomain( 'svp', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
@@ -104,7 +105,7 @@ if ( function_exists( 'svp_fs' ) ) {
     /*Some Set-up*/
     define( 'SVP_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
     define( 'SVP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-    define( 'SVP_VERSION', '1.8.18' );
+    define( 'SVP_VERSION', '1.8.19' );
     define( 'SVP_HAS_PRO', 'super-video-player-premium/super-video-player.php' === plugin_basename( __FILE__ ) );
     /* JS*/
     /**
@@ -140,6 +141,37 @@ if ( function_exists( 'svp_fs' ) ) {
     require_once __DIR__ . '/inc/schema.php';
     require_once __DIR__ . '/vendor/codestar-framework/codestar-framework.php';
     require_once __DIR__ . '/inc/Dashboard.php';
+    require_once plugin_dir_path( __FILE__ ) . 'inc/bplugins-bfcm2026-promo.php';
+    add_action( 'admin_notices', function () {
+        if ( function_exists( 'get_current_screen' ) ) {
+            $screen = get_current_screen();
+            // Write to the debug log (wp-content/debug.log) – you can view it via the Debug Log plugin or in the server file.
+            error_log( '🛠️ Current admin screen ID: ' . $screen->id );
+        }
+    } );
+    bplugins_bfcm2026_init( array(
+        'plugin_file'          => __FILE__,
+        'pricing_url'          => 'https://bplugins.com/products/super-video-player/pricing/',
+        'dashboard_screen_ids' => array('svplayer_page_svplayer', 'edit-svplayer'),
+        'product_name'         => 'Super Video Player',
+        'logo_url'             => 'https://ps.w.org/super-video-player/assets/icon.svg?rev=3623366',
+        'title'                => 'Biggest Black Friday Sale is Live – Flat 45% OFF!',
+        'description'          => 'The biggest deal of the year is here! Upgrade to Super Video Player Pro at an exclusive price and unlock premium video features, advanced playback controls, HLS streaming, and more!',
+        'badge_text'           => 'Flat 45% OFF',
+        'features'             => array(
+            'HLS Streaming',
+            'Video Playlists',
+            'Picture‑in‑Picture',
+            'Advanced Player Controls'
+        ),
+        'button_text'          => 'Unlock PRO Features',
+        'action_text'          => 'Upgrade to Pro and get 45% off on this Black Friday',
+        'primary_color'        => '#2563eb',
+        'secondary_color'      => '#101b55',
+        'accent_color'         => '#ff6b35',
+        'text_color'           => '#172033',
+        'campaign_end'         => '2026-12-05 23:59:59',
+    ) );
     if ( SVP_HAS_PRO && file_exists( __DIR__ . '/premium-files/LicenseActivation.php' ) ) {
         require_once __DIR__ . '/premium-files/LicenseActivation.php';
     }
